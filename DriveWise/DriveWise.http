@@ -1,0 +1,6 @@
+@DriveWise_HostAddress = http://localhost:5245
+
+GET {{DriveWise_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
