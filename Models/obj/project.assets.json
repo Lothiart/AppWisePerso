@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Models.csproj",
-      "projectName": "Models",
-      "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
+      "projectName": "Entities",
+      "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\obj\\",
+      "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
