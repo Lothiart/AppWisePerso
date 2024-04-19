@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/DriveWise.csproj": {}
+    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj": {}
   },
   "projects": {
-    "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/DriveWise.csproj": {
+    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/DriveWise.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
         "projectName": "DriveWise",
-        "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/DriveWise.csproj",
-        "packagesPath": "/home/greg/.nuget/packages/",
-        "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/",
+        "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/greg/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,11 +38,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -67,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
