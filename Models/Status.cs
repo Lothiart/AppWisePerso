@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public enum Status
+    public class Status
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public List<Vehicle> Vehicles { get; set; }
     }
 }
