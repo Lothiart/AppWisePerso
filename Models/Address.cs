@@ -19,7 +19,5 @@ public class Address
     [ForeignKey("EndAddressId")]
     public List<Carpool> CarpoolEndAdresses { get; set; }
 
-    public List<Collaborator> CollaboratorAdresses { get; set; } 
-
     public List<Vehicle> VehicleLocations { get; set; }
 }
