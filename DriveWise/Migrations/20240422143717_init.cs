@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DriveWise.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,8 +56,7 @@ namespace DriveWise.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ModelId = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,11 +94,11 @@ namespace DriveWise.Migrations
                 name: "Dates",
                 columns: table => new
                 {
-                    DayAndTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dates", x => x.DayAndTime);
+                    table.PrimaryKey("PK_Dates", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -284,8 +283,8 @@ namespace DriveWise.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AddressId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -294,8 +293,7 @@ namespace DriveWise.Migrations
                         name: "FK_Collaborators_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Collaborators_AspNetUsers_AppUserId",
                         column: x => x.AppUserId,
@@ -366,12 +364,10 @@ namespace DriveWise.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RemainingSeats = table.Column<int>(type: "int", nullable: false),
                     EndAddressId = table.Column<int>(type: "int", nullable: false),
                     StartAddressId = table.Column<int>(type: "int", nullable: false),
-                    DateId = table.Column<int>(type: "int", nullable: false),
-                    DateDayAndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    vehicleId = table.Column<int>(type: "int", nullable: false),
+                    DateId = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    VehicleId = table.Column<int>(type: "int", nullable: false),
                     DriverId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -394,14 +390,14 @@ namespace DriveWise.Migrations
                         principalTable: "Collaborators",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Carpools_Dates_DateDayAndTime",
-                        column: x => x.DateDayAndTime,
+                        name: "FK_Carpools_Dates_DateId",
+                        column: x => x.DateId,
                         principalTable: "Dates",
-                        principalColumn: "DayAndTime",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Carpools_Vehicles_vehicleId",
-                        column: x => x.vehicleId,
+                        name: "FK_Carpools_Vehicles_VehicleId",
+                        column: x => x.VehicleId,
                         principalTable: "Vehicles",
                         principalColumn: "Id");
                 });
@@ -431,13 +427,12 @@ namespace DriveWise.Migrations
                         name: "FK_Rentals_Dates_EndDateId",
                         column: x => x.EndDateId,
                         principalTable: "Dates",
-                        principalColumn: "DayAndTime",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Rentals_Dates_StartDateId",
                         column: x => x.StartDateId,
                         principalTable: "Dates",
-                        principalColumn: "DayAndTime");
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Rentals_Vehicles_VehicleId",
                         column: x => x.VehicleId,
@@ -460,13 +455,13 @@ namespace DriveWise.Migrations
                         column: x => x.CarpoolsAsPassengerId,
                         principalTable: "Carpools",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CarpoolCollaborator_Collaborators_PassengersId",
                         column: x => x.PassengersId,
                         principalTable: "Collaborators",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -525,9 +520,9 @@ namespace DriveWise.Migrations
                 column: "PassengersId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Carpools_DateDayAndTime",
+                name: "IX_Carpools_DateId",
                 table: "Carpools",
-                column: "DateDayAndTime");
+                column: "DateId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Carpools_DriverId",
@@ -545,9 +540,9 @@ namespace DriveWise.Migrations
                 column: "StartAddressId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Carpools_vehicleId",
+                name: "IX_Carpools_VehicleId",
                 table: "Carpools",
-                column: "vehicleId");
+                column: "VehicleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_Name",

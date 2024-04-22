@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DriveWise.Migrations
 {
     [DbContext(typeof(DriveWiseContext))]
-    [Migration("20240422140055_update-entities")]
-    partial class updateentities
+    [Migration("20240422143717_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -138,9 +138,6 @@ namespace DriveWise.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("ModelId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -267,10 +264,10 @@ namespace DriveWise.Migrations
 
             modelBuilder.Entity("Entities.Date", b =>
                 {
-                    b.Property<DateTime>("DayAndTime")
+                    b.Property<DateTime>("Id")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("DayAndTime");
+                    b.HasKey("Id");
 
                     b.ToTable("Dates");
                 });
@@ -667,16 +664,16 @@ namespace DriveWise.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entities.Date", null)
+                    b.HasOne("Entities.Date", "EndDate")
                         .WithMany("RentalEnds")
                         .HasForeignKey("EndDateId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("Entities.Date", null)
+                    b.HasOne("Entities.Date", "StartDate")
                         .WithMany("RentalStarts")
                         .HasForeignKey("StartDateId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Entities.Vehicle", "Vehicle")
@@ -686,6 +683,10 @@ namespace DriveWise.Migrations
                         .IsRequired();
 
                     b.Navigation("Collaborator");
+
+                    b.Navigation("EndDate");
+
+                    b.Navigation("StartDate");
 
                     b.Navigation("Vehicle");
                 });

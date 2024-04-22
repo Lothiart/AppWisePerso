@@ -6,14 +6,13 @@ namespace Entities;
 
 public class Date
 {
-    [Key]
-    public DateTime DayAndTime { get; set; } //ok
+    public DateTime Id { get; set; }
 
-    public List<Carpool> Carpools { get; set; } //ok
+    public List<Carpool> Carpools { get; set; }
 
     [ForeignKey("StartDateId")]
-    public List<Rental> RentalStarts { get; set; } //ok
+    public List<Rental> RentalStarts { get; set; }
 
     [ForeignKey("EndDateId")]
-    public List<Rental> RentalEnds { get; set; } //ok
+    public List<Rental> RentalEnds { get; set; }
 }

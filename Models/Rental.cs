@@ -15,10 +15,10 @@ public class Rental
     public Collaborator Collaborator { get; set; }
 
     public DateTime StartDateId { get; set; }
-    //[DeleteBehavior(DeleteBehavior.NoAction)]
-    //public Date StartDate { get; set; }
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+    public Date StartDate { get; set; }
 
     public DateTime EndDateId { get; set; }
-    //[DeleteBehavior(DeleteBehavior.NoAction)]
-    //public Date EndDate { get; set; }
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+    public Date EndDate { get; set; }
 }

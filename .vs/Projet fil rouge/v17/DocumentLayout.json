@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Migrations\\20240422143717_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DriveWise\\Migrations\\20240422143717_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\models\\contexts\\drivewisecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|solutionrelative:models\\contexts\\drivewisecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\models\\date.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|solutionrelative:models\\date.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\models\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|solutionrelative:models\\rental.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,12 +23,8 @@
       "RelativeMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|solutionrelative:models\\carpool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Migrations\\20240422140055_update-entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DriveWise\\Migrations\\20240422140055_update-entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\drivewise\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|solutionrelative:drivewise\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|solutionrelative:models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}|Models\\Entities.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,50 +54,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 277,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "20240422140055_update-entities.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Migrations\\20240422140055_update-entities.cs",
-              "RelativeDocumentMoniker": "DriveWise\\Migrations\\20240422140055_update-entities.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Migrations\\20240422140055_update-entities.cs",
-              "RelativeToolTip": "DriveWise\\Migrations\\20240422140055_update-entities.cs",
+              "DocumentIndex": 0,
+              "Title": "20240422143717_init.cs",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Migrations\\20240422143717_init.cs",
+              "RelativeDocumentMoniker": "DriveWise\\Migrations\\20240422143717_init.cs",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Migrations\\20240422143717_init.cs",
+              "RelativeToolTip": "DriveWise\\Migrations\\20240422143717_init.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T14:00:56.064Z",
+              "WhenOpened": "2024-04-22T14:37:17.652Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DriveWiseContext.cs",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Contexts\\DriveWiseContext.cs",
+              "RelativeDocumentMoniker": "Models\\Contexts\\DriveWiseContext.cs",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Contexts\\DriveWiseContext.cs",
+              "RelativeToolTip": "Models\\Contexts\\DriveWiseContext.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAC0AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T14:35:21.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Date.cs",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Date.cs",
+              "RelativeDocumentMoniker": "Models\\Date.cs",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Date.cs",
+              "RelativeToolTip": "Models\\Date.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T14:24:31.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Brand.cs",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Brand.cs",
+              "RelativeDocumentMoniker": "Models\\Brand.cs",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Brand.cs",
+              "RelativeToolTip": "Models\\Brand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-22T14:21:29.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Carpool.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Carpool.cs",
               "RelativeDocumentMoniker": "Models\\Carpool.cs",
               "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Carpool.cs",
               "RelativeToolTip": "Models\\Carpool.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAkAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T13:49:23.453Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\appsettings.json",
-              "RelativeDocumentMoniker": "DriveWise\\appsettings.json",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\appsettings.json",
-              "RelativeToolTip": "DriveWise\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-04-22T13:47:04.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Vehicle.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Vehicle.cs",
               "RelativeDocumentMoniker": "Models\\Vehicle.cs",
@@ -102,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Status.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Status.cs",
               "RelativeDocumentMoniker": "Models\\Status.cs",
@@ -115,20 +149,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Rental.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Rental.cs",
               "RelativeDocumentMoniker": "Models\\Rental.cs",
               "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Rental.cs",
               "RelativeToolTip": "Models\\Rental.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T13:36:45.41Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Model.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Model.cs",
               "RelativeDocumentMoniker": "Models\\Model.cs",
@@ -141,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Collaborator.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Collaborator.cs",
               "RelativeDocumentMoniker": "Models\\Collaborator.cs",
@@ -154,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "City.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\City.cs",
               "RelativeDocumentMoniker": "Models\\City.cs",
