@@ -6,9 +6,9 @@ namespace Entities;
 
 public class Motor
 {
-    public int Id { get; set; }
+    public int Id { get; set; } //ok
 
-    public string Type { get; set; }
+    public string Type { get; set; } //ok
 
-    public List<Vehicle> Vehicles { get; set; }
+    public List<Vehicle> Vehicles { get; set; } //ok
 }

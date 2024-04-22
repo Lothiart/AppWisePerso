@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="..\buildMultiTargeting\DriveWise.props" />
+  <Import Project="../buildMultiTargeting/DriveWise.props" />
 </Project>

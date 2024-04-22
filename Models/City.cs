@@ -2,11 +2,11 @@
 
 public class City
 {
-    public int Id { get; set; }
+    public int Id { get; set; } //ok
 
-    public string Name { get; set; }
+    public string Name { get; set; } //ok
 
-    public int ZipCode { get; set; }
+    public int ZipCode { get; set; } //ok
 
-    public List<Address> Addresses { get; set; }
+    public List<Address> Addresses { get; set; } //ok
 }

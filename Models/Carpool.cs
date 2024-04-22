@@ -1,25 +1,30 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace Entities;
 
 public class Carpool
 {
-    public int Id { get; set; }
-    public DateTime DepartureDate { get; set; }
+    public int Id { get; set; } //ok
 
-    public int EndAddressId { get; set; }
-    public Address EndAddress { get; set; }
+    public int RemainingSeats { get; set; } //ok
 
-    public int StartAddressId { get; set; }
-    public Address StartAddress { get; set; }
+    public int EndAddressId { get; set; }  //ok
+    public Address EndAddress { get; set; } //ok
 
-    public Date Date { get; set; }
+    public int StartAddressId { get; set; }  //ok
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+    public Address StartAddress { get; set; } //ok
 
-    public Vehicle Vehicle { get; set; }
+    public int DateId { get; set; } //ok
+    public Date Date { get; set; } //ok
 
-    public string DriverId { get; set; }
-    //[ForeignKey("DriverId")]
-    public Collaborator Driver { get; set; }
-
-    //public List<Collaborator> Passengers { get; set; }
+    public int vehicleId { get; set; } //ok
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+    public Vehicle Vehicle { get; set; } //ok
+    public int DriverId { get; set; } //ok
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+    public Collaborator Driver { get; set; } //ok
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+    public List<Collaborator> Passengers { get; set; } //ok
 }
