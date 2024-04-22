@@ -19,8 +19,6 @@ public class DriveWiseContext : IdentityDbContext<AppUser>
 
     public DriveWiseContext(DbContextOptions<DriveWiseContext> contextOptions) : base(contextOptions) { }
 
-    //  public ExoDbContext(DbContextOptions<ExoDbContext> DbContextOptions):base(DbContextOptions)      {                }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -39,17 +37,17 @@ public class DriveWiseContext : IdentityDbContext<AppUser>
             .WithMany(c => c.CarpoolsAsDriver)
             .HasForeignKey(c => c.DriverId);
 
-        modelBuilder
-            .Entity<Date>()
-            .HasMany(navigationExpression: d => d.RentalStarts)
-            .WithOne(d => d.StartDate)
-            .HasForeignKey(d => d.StartDateId);
+        //modelBuilder
+        //    .Entity<Date>()
+        //    .HasMany(navigationExpression: d => d.RentalStarts)
+        //    .WithOne(d => d.StartDate)
+        //    .HasForeignKey(d => d.StartDateId);
 
-        modelBuilder
-            .Entity<Date>()
-            .HasMany(navigationExpression: d => d.RentalEnds)
-            .WithOne(d => d.EndDate)
-            .HasForeignKey(d => d.EndDateId);
+        //modelBuilder
+        //    .Entity<Date>()
+        //    .HasMany(navigationExpression: d => d.RentalEnds)
+        //    .WithOne(d => d.EndDate)
+        //    .HasForeignKey(d => d.EndDateId);
 
         modelBuilder
             .Entity<Address>()
@@ -62,7 +60,6 @@ public class DriveWiseContext : IdentityDbContext<AppUser>
             .HasMany(navigationExpression: c => c.CarpoolEndAdresses)
             .WithOne(c => c.EndAddress)
             .HasForeignKey(c => c.EndAddressId);
-
 
         base.OnModelCreating(modelBuilder);
     }

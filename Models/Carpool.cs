@@ -5,26 +5,26 @@ namespace Entities;
 
 public class Carpool
 {
-    public int Id { get; set; } //ok
+    public int Id { get; set; }
 
-    public int RemainingSeats { get; set; } //ok
+    public int EndAddressId { get; set; }
+    public Address EndAddress { get; set; }
 
-    public int EndAddressId { get; set; }  //ok
-    public Address EndAddress { get; set; } //ok
-
-    public int StartAddressId { get; set; }  //ok
+    public int StartAddressId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]
-    public Address StartAddress { get; set; } //ok
+    public Address StartAddress { get; set; }
 
-    public int DateId { get; set; } //ok
-    public Date Date { get; set; } //ok
+    [ForeignKey(nameof(Date))]
+    public DateTime DateId { get; set; }
 
-    public int vehicleId { get; set; } //ok
+    public int VehicleId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]
-    public Vehicle Vehicle { get; set; } //ok
-    public int DriverId { get; set; } //ok
+    public Vehicle Vehicle { get; set; }
+
+    public int DriverId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]
-    public Collaborator Driver { get; set; } //ok
+    public Collaborator Driver { get; set; }
+
     [DeleteBehavior(DeleteBehavior.NoAction)]
-    public List<Collaborator> Passengers { get; set; } //ok
+    public List<Collaborator> Passengers { get; set; }
 }
