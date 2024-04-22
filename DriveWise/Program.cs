@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DriveWiseContext>(o =>
 {
+    o.UseSqlServer(b => b.MigrationsAssembly("DriveWise"));
     o.UseSqlServer(builder.Configuration.GetConnectionString("DriveWise"));
 });
 builder.Services.AddControllers();

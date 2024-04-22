@@ -6,9 +6,9 @@ namespace Entities;
 [Index("Name", IsUnique = true)]
 public class Category
 {
-    public int Id { get; set; }
+    public int Id { get; set; }  //ok
 
-    public string Name { get; set; }
+    public string Name { get; set; } //ok
 
-    public List<Vehicle> Vehicles { get; set; }
+    public List<Vehicle> Vehicles { get; set; } //ok
 }

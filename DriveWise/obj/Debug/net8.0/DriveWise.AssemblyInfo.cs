@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("a76da041-07db-48f2-a7b5-da130b9c1c61")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DriveWise")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5916e284eeb0bd644c8f993cce69eeca3fd09e4b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5dbafb87f43b71ec6cd0dc9d2c821dd463a0847e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DriveWise")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DriveWise")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
