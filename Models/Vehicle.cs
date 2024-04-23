@@ -29,7 +29,4 @@ public class Vehicle
     public List<Carpool> Carpools { get; set; }
 
     public List<Rental> Rentals { get; set; }
-
-    public int CollaboratorId { get; set; }
-    public Collaborator Collaborator { get; set; }
 }
