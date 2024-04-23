@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tQbmi6GMktFojpZNoThjow+Zk17geBLeB8KGGHzRzzcluwu1x+BrtxeNirvBOqqr/jelHE4ZS+dWsUjmJydOoA==",
+  "dgSpecHash": "G7xx5FBv9sVv578cWev/hU0htTql4AK0Spk7Ss4rGSGI+zezTyjK2qfXzyorV5rGHaDzG0bNxFCWMQT+KLGqmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Elsa\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Elsa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Elsa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
