@@ -6,8 +6,7 @@ namespace Entities;
 
 public class Date
 {
-    [Key]
-    public DateTime DayAndTime { get; set; }
+    public DateTime Id { get; set; }
 
     public List<Carpool> Carpools { get; set; }
 
@@ -15,5 +14,5 @@ public class Date
     public List<Rental> RentalStarts { get; set; }
 
     [ForeignKey("EndDateId")]
-    public List<Rental> RentalEnd { get; set; }
+    public List<Rental> RentalEnds { get; set; }
 }
