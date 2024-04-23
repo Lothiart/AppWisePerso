@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Entities")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Repositories.Contracts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b506b5fc76307c7af83c4d54ae9a68680f91307")]
-[assembly: System.Reflection.AssemblyProductAttribute("Entities")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Entities")]
+[assembly: System.Reflection.AssemblyProductAttribute("Repositories.Contracts")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Repositories.Contracts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.

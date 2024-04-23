@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriveWise", "DriveWise\Driv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Models\Entities.csproj", "{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories.Contracts", "Repositories.Contracts\Repositories.Contracts.csproj", "{F2DAA72C-B4A7-4398-8794-7A192C511080}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2DAA72C-B4A7-4398-8794-7A192C511080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DAA72C-B4A7-4398-8794-7A192C511080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DAA72C-B4A7-4398-8794-7A192C511080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DAA72C-B4A7-4398-8794-7A192C511080}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
