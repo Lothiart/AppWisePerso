@@ -1,48 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {}
+    "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
+    "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
-        "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\obj\\",
+        "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj",
+        "packagesPath": "/home/greg/.nuget/packages/",
+        "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
+        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
+        "originalTargetFrameworks": ["net8.0"],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
-                "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+              "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj": {
+                "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj"
               }
             }
           }
         },
         "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
+          "warnAsError": ["NU1605"]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -53,6 +40,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -69,33 +62,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+    "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
+        "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
-        "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\obj\\",
+        "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj",
+        "packagesPath": "/home/greg/.nuget/packages/",
+        "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
+        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
+        "originalTargetFrameworks": ["net8.0"],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -105,9 +87,7 @@
           }
         },
         "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
+          "warnAsError": ["NU1605"]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -160,49 +140,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+    "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
+        "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj",
         "projectName": "Repositories.Contracts",
-        "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
-        "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\obj\\",
+        "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj",
+        "packagesPath": "/home/greg/.nuget/packages/",
+        "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
+        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
+        "originalTargetFrameworks": ["net8.0"],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
+              "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj": {
+                "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj"
+              },
+              "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj": {
+                "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj"
               }
             }
           }
         },
         "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
+          "warnAsError": ["NU1605"]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -229,7 +199,63 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj",
+        "projectName": "Repositories.Contracts",
+        "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj",
+        "packagesPath": "/home/greg/.nuget/packages/",
+        "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
+        "originalTargetFrameworks": ["net8.0"],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj": {
+                "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": ["NU1605"]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
