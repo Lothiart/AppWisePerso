@@ -9,6 +9,6 @@ namespace DTOs.AppUserDTOs
 {
     public class AppUserGetDto 
     {
-        public CollaboratorGetDto collaboratorGetDto { get; set; }
+        public CollaboratorGetDto CollaboratorGetDto { get; set; }
     }
 }
