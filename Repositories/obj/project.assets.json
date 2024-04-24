@@ -46,6 +46,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "EntityFramework/6.1.0": {
         "type": "package",
         "compile": {
@@ -95,6 +96,8 @@
           }
         }
       },
+=======
+>>>>>>> Dev
       "Microsoft.AspNetCore.Cryptography.Internal/8.0.4": {
         "type": "package",
         "compile": {
@@ -1206,6 +1209,7 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
+<<<<<<< HEAD
     "EntityFramework/6.1.0": {
       "sha512": "u/M0OEfqxTUsL5BwzD66eBGm278/ozqdLK3JvMO6QwUxxc+z7ZUkTYm4suDhWRqzkc6mOhvXDQY5dZUwbldxyQ==",
       "type": "package",
@@ -1262,6 +1266,8 @@
         "microsoft.aspnet.identity.entityframework.nuspec"
       ]
     },
+=======
+>>>>>>> Dev
     "Microsoft.AspNetCore.Cryptography.Internal/8.0.4": {
       "sha512": "W9pteGr3myODvbXWqicrh3xAGe1R1oNMnFp5M8w51ncgdiOIn6/OhMfHwC2yzn6Jj6JfM4Fq3S/Hpxhu6+dkVA==",
       "type": "package",
@@ -3080,31 +3086,51 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+<<<<<<< HEAD
       "DTOs >= 1.0.0",
       "Entities >= 1.0.0",
       "Microsoft.AspNet.Identity.EntityFramework >= 2.2.4",
       "Microsoft.Extensions.Identity.Core >= 8.0.4",
+=======
+      "Entities >= 1.0.0",
+>>>>>>> Dev
       "Repositories.Contracts >= 1.0.0"
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\PC\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\Elsa\\.nuget\\packages\\": {},
+>>>>>>> Dev
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
       "projectName": "Repositories",
       "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+      "projectName": "Repositories",
+      "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+      "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\obj\\",
+>>>>>>> Dev
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Dev
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3113,12 +3139,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+        "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> Dev
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
               "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
             },
@@ -3127,6 +3158,13 @@
             },
             "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
               "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
+=======
+            "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+              "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+            },
+            "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+              "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
+>>>>>>> Dev
             }
           }
         }
@@ -3166,7 +3204,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+>>>>>>> Dev
       }
     }
   },

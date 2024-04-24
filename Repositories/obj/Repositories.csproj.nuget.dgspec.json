@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {}
   },
   "projects": {
@@ -12,12 +13,29 @@
         "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\obj\\",
+=======
+    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
+        "projectName": "DTOs",
+        "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
+        "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\obj\\",
+>>>>>>> Dev
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Dev
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +44,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+          "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> Dev
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
                 "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+=======
+              "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+>>>>>>> Dev
               }
             }
           }
@@ -42,6 +69,14 @@
           "warnAsError": [
             "NU1605"
           ]
+<<<<<<< HEAD
+=======
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+>>>>>>> Dev
         }
       },
       "frameworks": {
@@ -69,6 +104,7 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -81,12 +117,30 @@
         "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\obj\\",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
+        "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\obj\\",
+>>>>>>> Dev
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Dev
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -95,6 +149,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+          "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> Dev
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -204,81 +262,28 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
-        "projectName": "Repositories",
-        "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
-              },
-              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
-                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
-              },
-              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
-                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNet.Identity.EntityFramework": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[2.2.4, )"
+              "version": "[8.0.4, )"
             },
-            "Microsoft.Extensions.Identity.Core": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.4, )"
             }
@@ -299,7 +304,204 @@
               "privateAssets": "all"
             }
           },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
+        "projectName": "Repositories.Contracts",
+        "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
+        "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
+              },
+              "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+        "projectName": "Repositories",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\obj\\",
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+        "projectName": "Repositories",
+        "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\obj\\",
+>>>>>>> Dev
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Dev
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+<<<<<<< HEAD
+=======
+          "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> Dev
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
+              },
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+              },
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
+=======
+              "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+              },
+              "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+                "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
+>>>>>>> Dev
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+<<<<<<< HEAD
+=======
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+>>>>>>> Dev
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+<<<<<<< HEAD
+          "dependencies": {
+            "Microsoft.AspNet.Identity.EntityFramework": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            }
+          },
+=======
+>>>>>>> Dev
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+<<<<<<< HEAD
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+>>>>>>> Dev
         }
       }
     }
