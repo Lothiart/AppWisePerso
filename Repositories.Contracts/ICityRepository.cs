@@ -12,8 +12,8 @@ namespace Repositories.Contracts
     public interface ICityRepository
     {
         Task AddAsync(CityAddDto cityAddDto);
-        CityGetDto GetByIdAsync(int id); 
-        List<CityGetDto> StartsWithAsync(string recherche);
+        Task<CityGetDto> GetByIdAsync(int id); 
+        Task<List<CityGetDto>> StartsWithAsync(string recherche);
         Task UpdateAsync(CityUpdateDto cityUpdateDto);
         Task DeleteAsync(int id);
 
