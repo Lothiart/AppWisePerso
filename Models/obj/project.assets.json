@@ -4281,24 +4281,32 @@
     ]
   },
   "packageFolders": {
-    "/home/greg/.nuget/packages/": {}
+    "C:\\Users\\Elsa\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj",
+      "projectUniqueName": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj",
-      "packagesPath": "/home/greg/.nuget/packages/",
-      "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/obj/",
+      "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
+      "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/greg/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Elsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4363,7 +4371,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
