@@ -1,4 +1,4 @@
-﻿using DTOs.CollaboratorDTOs;
+﻿using DTOs.DTOs.CollaboratorDTOs;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -11,8 +11,8 @@ namespace Repositories.Contracts
     public interface ICollaboratorRepository
     {
 
-        Task<CollaboratorGetPersoDto> GetByIdPersoAsync(int id);
-        Task<CollaboratorGetDto> GetByIdAsync(int id);
+        CollaboratorGetPersoDto GetByIdPersoAsync(int id);
+        CollaboratorGetDto GetByIdAsync(int id);
         Task GiveAdminRoleAsync(int id);
     }
 }

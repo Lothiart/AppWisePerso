@@ -1,4 +1,4 @@
-﻿using DTOs.BrandDTOs;
+﻿using DTOs.DTOs.BrandDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
