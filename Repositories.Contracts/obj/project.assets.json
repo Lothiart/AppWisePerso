@@ -2962,15 +2962,20 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\PC\\.nuget\\packages\\": {},
 =======
     "C:\\Users\\Elsa\\.nuget\\packages\\": {},
 >>>>>>> Dev
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "/home/greg/.nuget/packages/": {}
+>>>>>>> Dev
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
       "projectName": "Repositories.Contracts",
@@ -2984,11 +2989,16 @@
       "packagesPath": "C:\\Users\\Elsa\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\obj\\",
 >>>>>>> Dev
+=======
+      "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj",
+      "projectName": "Repositories.Contracts",
+      "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj",
+      "packagesPath": "/home/greg/.nuget/packages/",
+      "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/obj/",
+>>>>>>> Dev
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
+<<<<<<< HEAD
 <<<<<<< HEAD
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
@@ -2996,15 +3006,21 @@
 >>>>>>> Dev
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+        "/home/greg/.nuget/NuGet/NuGet.Config"
+>>>>>>> Dev
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+<<<<<<< HEAD
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
 <<<<<<< HEAD
 =======
         "C:\\Program Files\\dotnet\\library-packs": {},
+>>>>>>> Dev
+=======
 >>>>>>> Dev
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -3012,6 +3028,7 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+<<<<<<< HEAD
 <<<<<<< HEAD
             "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
               "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
@@ -3024,6 +3041,13 @@
             },
             "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
               "projectPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
+>>>>>>> Dev
+=======
+            "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj": {
+              "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/DTOs.csproj"
+            },
+            "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj": {
+              "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj"
 >>>>>>> Dev
             }
           }
@@ -3055,9 +3079,13 @@
           }
         },
 <<<<<<< HEAD
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
 =======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+>>>>>>> Dev
+=======
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
 >>>>>>> Dev
       }
     }
