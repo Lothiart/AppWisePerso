@@ -19,4 +19,5 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
+// Généré par la classe MSBuild WriteCodeFragment.
 

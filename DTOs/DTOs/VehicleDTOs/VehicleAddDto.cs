@@ -1,4 +1,4 @@
-﻿namespace DTOs.DTOs.VehicleDTOs;
+namespace DTOs.DTOs.VehicleDTOs;
 
 public class VehicleAddDto
 {
