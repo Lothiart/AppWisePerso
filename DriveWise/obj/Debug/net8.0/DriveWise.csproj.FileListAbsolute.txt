@@ -220,3 +220,5 @@ C:/Users/PC/source/repos/DriveWiseApp/DriveWise/obj/Debug/net8.0/ref/DriveWise.d
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/DriveWise.pdb
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/DriveWise.genruntimeconfig.cache
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/ref/DriveWise.dll
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/DriveWise.xml
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/DriveWise.xml

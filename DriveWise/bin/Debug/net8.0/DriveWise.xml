@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DriveWise</name>
+    </assembly>
+    <members>
+        <member name="T:DriveWise.Migrations.init">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DriveWise.Migrations.fixcollaboratorIdinaddress">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.fixcollaboratorIdinaddress.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.fixcollaboratorIdinaddress.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.fixcollaboratorIdinaddress.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DriveWise.Migrations.deleted_collab_prop_from_Vehicle">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.deleted_collab_prop_from_Vehicle.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.deleted_collab_prop_from_Vehicle.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.deleted_collab_prop_from_Vehicle.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
