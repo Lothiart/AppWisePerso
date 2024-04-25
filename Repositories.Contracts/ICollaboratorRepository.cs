@@ -11,8 +11,8 @@ namespace Repositories.Contracts
     public interface ICollaboratorRepository
     {
 
-        CollaboratorGetPersoDto GetByIdPersoAsync(int id);
-        CollaboratorGetDto GetByIdAsync(int id);
+        Task<CollaboratorGetPersoDto> GetByIdPersoAsync(int id);
+        Task<CollaboratorGetDto> GetByIdAsync(int id);
         Task GiveAdminRoleAsync(int id);
     }
 }

@@ -37,30 +37,37 @@ public class BrandRepository(DriveWiseContext context, ILogger logger) : IBrandR
 
     public async Task<List<BrandGetDto>> GetAllAsync()
     {
-        List<Brand> brands = await context.Brands.ToListAsync();
-        if (brands is null || brands.Count <= 0) throw new Exception("No brands found");
-
-        List<BrandGetDto> brandDtos= new();
-
-        foreach (Brand brand in brands)
+        try
         {
-            BrandGetDto dto = new BrandGetDto()
+            List<Brand> brands = await context.Brands.ToListAsync();
+
+            List<BrandGetDto> brandDtos = new();
+
+            foreach (Brand brand in brands)
             {
-                Id = brand.Id,
-                Name = brand.Name,
-            };
+                BrandGetDto dto = new BrandGetDto()
+                {
+                    Id = brand.Id,
+                    Name = brand.Name,
+                };
 
-            brandDtos.Add(dto);
+                brandDtos.Add(dto);
+            }
+
+            return brandDtos;
         }
-
-        return brandDtos;
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to get brands");
+            throw;
+        }
     }
 
     public async Task<BrandGetDto> GetById(int id)
     {
         Brand b = await context.Brands.FirstOrDefaultAsync(b => b.Id == id) ?? throw new Exception("Brand not found");
-        
-        BrandGetDto brandDto = new BrandGetDto() { Id =  b.Id, Name = b.Name };
+
+        BrandGetDto brandDto = new BrandGetDto() { Id = b.Id, Name = b.Name };
 
         return brandDto;
     }
