@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("a76da041-07db-48f2-a7b5-da130b9c1c61")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DriveWise")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40921127b53a84c139491734dd40a457c90b6a80")]
 [assembly: System.Reflection.AssemblyProductAttribute("DriveWise")]

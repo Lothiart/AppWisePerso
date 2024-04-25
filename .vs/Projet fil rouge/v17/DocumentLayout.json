@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4E76524-8B72-4CFC-82D6-D07BD448F545}|Repositories\\Repositories.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\repositories\\carpoolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4E76524-8B72-4CFC-82D6-D07BD448F545}|Repositories\\Repositories.csproj|solutionrelative:repositories\\carpoolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\drivewise\\drivewise.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|solutionrelative:drivewise\\drivewise.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\mappers\\carpoolmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\mappers\\carpoolmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\drivewise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|solutionrelative:drivewise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\mappers\\collaboratormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\mappers\\collaboratormapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\mappers\\vehiclemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\mappers\\vehiclemapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2DAA72C-B4A7-4398-8794-7A192C511080}|Repositories.Contracts\\Repositories.Contracts.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\repositories.contracts\\icarpoolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2DAA72C-B4A7-4398-8794-7A192C511080}|Repositories.Contracts\\Repositories.Contracts.csproj|solutionrelative:repositories.contracts\\icarpoolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,45 +22,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 277,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "VehicleMapper.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\Mappers\\VehicleMapper.cs",
-              "RelativeDocumentMoniker": "DTOs\\Mappers\\VehicleMapper.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\Mappers\\VehicleMapper.cs",
-              "RelativeToolTip": "DTOs\\Mappers\\VehicleMapper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T15:09:56.168Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CollaboratorMapper.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\Mappers\\CollaboratorMapper.cs",
-              "RelativeDocumentMoniker": "DTOs\\Mappers\\CollaboratorMapper.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\Mappers\\CollaboratorMapper.cs",
-              "RelativeToolTip": "DTOs\\Mappers\\CollaboratorMapper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T15:08:08.06Z",
+              "DocumentIndex": 0,
+              "Title": "DriveWise",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+              "RelativeDocumentMoniker": "DriveWise\\DriveWise.csproj",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+              "RelativeToolTip": "DriveWise\\DriveWise.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-25T09:20:54.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CarpoolMapper.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\Mappers\\CarpoolMapper.cs",
-              "RelativeDocumentMoniker": "DTOs\\Mappers\\CarpoolMapper.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\Mappers\\CarpoolMapper.cs",
-              "RelativeToolTip": "DTOs\\Mappers\\CarpoolMapper.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Program.cs",
+              "RelativeDocumentMoniker": "DriveWise\\Program.cs",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Program.cs",
+              "RelativeToolTip": "DriveWise\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T14:57:29.121Z",
+              "WhenOpened": "2024-04-25T09:12:27.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ICarpoolRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\ICarpoolRepository.cs",
+              "RelativeDocumentMoniker": "Repositories.Contracts\\ICarpoolRepository.cs",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\ICarpoolRepository.cs",
+              "RelativeToolTip": "Repositories.Contracts\\ICarpoolRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABpAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-25T08:29:27.626Z",
               "EditorCaption": ""
             },
             {
@@ -74,19 +69,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CarpoolRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\CarpoolRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\CarpoolRepository.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories\\CarpoolRepository.cs",
-              "RelativeToolTip": "Repositories\\CarpoolRepository.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAAAGUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T12:58:42.131Z",
-              "EditorCaption": ""
             }
           ]
         }
