@@ -1,6 +1,9 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> test
   "dgSpecHash": "g0+L2Uhu2nR6iE5pqhUOwjNWrxMoSKaoHUs4rtb3oeClvdzTeJgR4eUbMTGoIpfJ8+JI4hx/Occqh4LVeChHTw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
@@ -91,6 +94,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+<<<<<<< HEAD
 =======
   "dgSpecHash": "X61gmo1HYh+7ElnZRP8kPa6qnLdAbe6agSBWMrA12W1b0Gyf5D49kypUWfVHCqIZydLOCwXqpv1aPjUHLe1X+A==",
   "success": true,
@@ -183,6 +187,8 @@
     "C:\\Users\\Elsa\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Elsa\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
 >>>>>>> Dev
+=======
+>>>>>>> test
   ],
   "logs": []
 }
