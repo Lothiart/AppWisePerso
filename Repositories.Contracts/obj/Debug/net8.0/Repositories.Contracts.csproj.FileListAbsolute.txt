@@ -1,6 +1,0 @@
-C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.csproj.AssemblyReference.cache
-C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.AssemblyInfoInputs.cache
-C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.AssemblyInfo.cs
-C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.csproj.CoreCompileInputs.cache
-C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.sourcelink.json
