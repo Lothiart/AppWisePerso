@@ -3,7 +3,6 @@
 
 namespace Entities;
 
-[Index("Name", IsUnique = true)]
 public class Model
 {
     public int Id { get; set; }
