@@ -14,11 +14,24 @@ public class CollaboratorMapper
         CollaboratorGetDto collaboratorDto = new CollaboratorGetDto()
         {
             Id = c.Id,
-            AppUser = c.AppUser,
             FirstName = c.FirstName,
-            LastName = c.LastName            
+            LastName = c.LastName
         };
 
         return collaboratorDto;
+    }
+
+    public List<CollaboratorGetDto> ListCollaboratorToListCollaboratorGetDto(List<Collaborator> collaborators)
+    {
+        if (collaborators is null) return null;
+
+        List<CollaboratorGetDto> collaboratorDtos = new();
+
+        foreach (var collaborator in collaborators)
+        {
+            collaboratorDtos.Add(CollaboratorToCollaboratorGetDto(collaborator));
+        }
+
+        return collaboratorDtos;
     }
 }

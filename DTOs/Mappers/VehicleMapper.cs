@@ -21,5 +21,7 @@ public class VehicleMapper
             Registration = vehicle.Registration,
             TotalSeats = vehicle.TotalSeats
         };
+
+        return vehicleDto;  
     }
 }
