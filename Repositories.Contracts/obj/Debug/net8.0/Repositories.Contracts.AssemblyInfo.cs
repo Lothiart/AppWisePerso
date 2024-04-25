@@ -10,13 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("a76da041-07db-48f2-a7b5-da130b9c1c61")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("DriveWise")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Repositories.Contracts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38c64ad0d22bf9120d4e55467416d42834b75d1e")]
-[assembly: System.Reflection.AssemblyProductAttribute("DriveWise")]
-[assembly: System.Reflection.AssemblyTitleAttribute("DriveWise")]
+[assembly: System.Reflection.AssemblyProductAttribute("Repositories.Contracts")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Repositories.Contracts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
