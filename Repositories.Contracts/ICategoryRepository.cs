@@ -1,4 +1,4 @@
-﻿using DTOs.CategoryDTOs;
+﻿using DTOs.DTOs.CategoryDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

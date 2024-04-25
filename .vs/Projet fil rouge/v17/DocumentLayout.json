@@ -3,36 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\categorydtos\\categoryadddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\categorydtos\\categoryadddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\drivewise\\drivewise.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|solutionrelative:drivewise\\drivewise.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2DAA72C-B4A7-4398-8794-7A192C511080}|Repositories.Contracts\\Repositories.Contracts.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\repositories.contracts\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2DAA72C-B4A7-4398-8794-7A192C511080}|Repositories.Contracts\\Repositories.Contracts.csproj|solutionrelative:repositories.contracts\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\categorydtos\\categorygetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\categorydtos\\categorygetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\drivewise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0D980CD-E944-4F5B-B71D-51B83669620A}|DriveWise\\DriveWise.csproj|solutionrelative:drivewise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2DAA72C-B4A7-4398-8794-7A192C511080}|Repositories.Contracts\\Repositories.Contracts.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\repositories.contracts\\icarpoolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2DAA72C-B4A7-4398-8794-7A192C511080}|Repositories.Contracts\\Repositories.Contracts.csproj|solutionrelative:repositories.contracts\\icarpoolrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\carpooldtos\\carpoolupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\carpooldtos\\carpoolupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\carpooldtos\\carpoolgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\carpooldtos\\carpoolgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\addressdtos\\addressupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\addressdtos\\addressupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|c:\\users\\elsa\\source\\repos\\drivewiseapp\\dtos\\carpooldtos\\carpooladddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8655B693-629B-4D2C-B80E-05DED780056B}|DTOs\\DTOs.csproj|solutionrelative:dtos\\carpooldtos\\carpooladddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,115 +22,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 277,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CategoryGetDto.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CategoryDTOs\\CategoryGetDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\CategoryDTOs\\CategoryGetDto.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CategoryDTOs\\CategoryGetDto.cs",
-              "RelativeToolTip": "DTOs\\CategoryDTOs\\CategoryGetDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:47:19.156Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CategoryAddDto.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CategoryDTOs\\CategoryAddDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\CategoryDTOs\\CategoryAddDto.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CategoryDTOs\\CategoryAddDto.cs",
-              "RelativeToolTip": "DTOs\\CategoryDTOs\\CategoryAddDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:46:18.194Z",
+              "Title": "DriveWise",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+              "RelativeDocumentMoniker": "DriveWise\\DriveWise.csproj",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+              "RelativeToolTip": "DriveWise\\DriveWise.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-25T09:20:54.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "Repositories.Contracts\\ICategoryRepository.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\ICategoryRepository.cs",
-              "RelativeToolTip": "Repositories.Contracts\\ICategoryRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Program.cs",
+              "RelativeDocumentMoniker": "DriveWise\\Program.cs",
+              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DriveWise\\Program.cs",
+              "RelativeToolTip": "DriveWise\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:45:27.965Z",
+              "WhenOpened": "2024-04-25T09:12:27.114Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CarpoolUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CarpoolDTOs\\CarpoolUpdateDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\CarpoolDTOs\\CarpoolUpdateDto.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CarpoolDTOs\\CarpoolUpdateDto.cs",
-              "RelativeToolTip": "DTOs\\CarpoolDTOs\\CarpoolUpdateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:20:23.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ICarpoolRepository.cs",
               "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\ICarpoolRepository.cs",
               "RelativeDocumentMoniker": "Repositories.Contracts\\ICarpoolRepository.cs",
               "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\ICarpoolRepository.cs",
               "RelativeToolTip": "Repositories.Contracts\\ICarpoolRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAABpAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:17:30.594Z",
+              "WhenOpened": "2024-04-25T08:29:27.626Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AddressUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\AddressDTOs\\AddressUpdateDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\AddressDTOs\\AddressUpdateDto.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\AddressDTOs\\AddressUpdateDto.cs",
-              "RelativeToolTip": "DTOs\\AddressDTOs\\AddressUpdateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:15:11.84Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CarpoolGetDto.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CarpoolDTOs\\CarpoolGetDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\CarpoolDTOs\\CarpoolGetDto.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CarpoolDTOs\\CarpoolGetDto.cs",
-              "RelativeToolTip": "DTOs\\CarpoolDTOs\\CarpoolGetDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:07:01.921Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CarpoolAddDto.cs",
-              "DocumentMoniker": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CarpoolDTOs\\CarpoolAddDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\CarpoolDTOs\\CarpoolAddDto.cs",
-              "ToolTip": "C:\\Users\\Elsa\\source\\repos\\DriveWiseApp\\DTOs\\CarpoolDTOs\\CarpoolAddDto.cs",
-              "RelativeToolTip": "DTOs\\CarpoolDTOs\\CarpoolAddDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T10:03:52.506Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }
