@@ -1,4 +1,4 @@
-﻿using DTOs.AddressDTOs;
+﻿using DTOs.DTOs.AddressDTOs;
 using Entities;
 using System;
 using System.Collections.Generic;

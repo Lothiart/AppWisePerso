@@ -1,4 +1,4 @@
-﻿using DTOs.BrandDTOs;
+﻿using DTOs.DTOs.BrandDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

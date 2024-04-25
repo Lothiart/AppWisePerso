@@ -1,4 +1,4 @@
-﻿using DTOs;
+﻿using DTOs.DTOs.VehicleDTOs;
 
 namespace Repositories.Contracts;
 

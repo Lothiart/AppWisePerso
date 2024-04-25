@@ -1,6 +1,6 @@
 ﻿using DTOs.AddressDTOs;
-using DTOs.CarpoolDTOs;
 using DTOs.CollaboratorDTOs;
+using DTOs.DTOs.CarpoolDTOs;
 using Entities;
 using System;
 using System.Collections.Generic;

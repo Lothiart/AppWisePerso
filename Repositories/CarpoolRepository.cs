@@ -1,7 +1,7 @@
 ﻿using DTOs;
 using DTOs.AddressDTOs;
-using DTOs.CarpoolDTOs;
 using DTOs.CollaboratorDTOs;
+using DTOs.DTOs.CarpoolDTOs;
 using DTOs.Mappers;
 using Entities;
 using Entities.Contexts;
