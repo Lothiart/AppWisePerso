@@ -13,8 +13,7 @@ public interface ICarpoolRepository
     Task DeleteAsync(int id);
     Task<CarpoolGetDto> GetByIdAsync(int id);
     Task<List<CarpoolGetDto>> GetAllAsync();
-    Task<List<CarpoolGetDto>> GetByCityAsync();
-    Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync();
     Task<List<CarpoolGetDto>> GetByCitiesAndDateAsync(string startCity, string endCity, DateTime dateId);
+    Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync();
     Task Update(CarpoolUpdateDto carpoolUpdateDto);
 }
