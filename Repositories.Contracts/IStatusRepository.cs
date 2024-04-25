@@ -1,4 +1,5 @@
 using DTOs.DTOs.StatusDTOs;
+using Entities;
 
 namespace Repositories.Contracts;
 

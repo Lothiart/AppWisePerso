@@ -1,0 +1,6 @@
+C:\Users\PC\source\repos\DriveWiseApp\DTOs\obj\Debug\net8.0\DTOs.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\DriveWiseApp\DTOs\obj\Debug\net8.0\DTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\DriveWiseApp\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\DriveWiseApp\DTOs\obj\Debug\net8.0\DTOs.AssemblyInfo.cs
+C:\Users\PC\source\repos\DriveWiseApp\DTOs\obj\Debug\net8.0\DTOs.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\DriveWiseApp\DTOs\obj\Debug\net8.0\DTOs.sourcelink.json

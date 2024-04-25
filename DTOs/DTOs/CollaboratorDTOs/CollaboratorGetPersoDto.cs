@@ -10,11 +10,13 @@ namespace DTOs.DTOs.CollaboratorDTOs
 {
     public class CollaboratorGetPersoDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public string Email { get; set; }
 
         [DeleteBehavior(DeleteBehavior.NoAction)]
         public List<Carpool> CarpoolsAsDriver { get; set; }

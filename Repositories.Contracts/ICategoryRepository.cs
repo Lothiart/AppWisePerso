@@ -11,6 +11,6 @@ public interface ICategoryRepository
     Task AddAsync(CategoryAddDto categoryAddDto);
     Task<CategoryGetDto> GetByIdAsync(int id);
     Task<List<CategoryGetDto>> GetAllAsync();
-    Task UpdateAsync(int id);
+    Task UpdateAsync(CategoryUpdateDto categoryDto);
     Task DeleteAsync(int id);
 }

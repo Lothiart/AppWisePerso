@@ -1,4 +1,4 @@
-﻿using DTOs.CityDTOs;
+
 using Entities.Contexts;
 using Entities;
 using Microsoft.Extensions.Logging;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Repositories.Contracts;
-using DTOs.ModelDTOs;
+using DTOs.DTOs.ModelDTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repositories
@@ -27,7 +27,7 @@ namespace Repositories
         {
             try
             {
-                await driveWiseContext.AddAsync(new Model() { BrandId = modelAddDto.BrandId, ImgUrl =  modelAddDto.ImgUrl, Name = modelAddDto.Name });
+                await driveWiseContext.AddAsync(new Model() { BrandId = modelAddDto.BrandId, ImgUrl = modelAddDto.ImgUrl, Name = modelAddDto.Name });
                 await driveWiseContext.SaveChangesAsync();
             }
             catch (Exception e)
@@ -54,7 +54,7 @@ namespace Repositories
         }
 
         public async Task<List<ModelGetDto>> GetAllAsync()
-            {
+        {
             try
             {
                 List<Model> models = await driveWiseContext.Models.ToListAsync();
