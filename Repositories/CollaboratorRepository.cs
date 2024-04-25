@@ -1,7 +1,6 @@
-﻿using DTOs.CollaboratorDTOs;
+﻿using DTOs.DTOs.CollaboratorDTOs;
 using Entities;
 using Entities.Contexts;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -32,14 +31,14 @@ namespace Repositories
             return new CollaboratorGetDto() { Id = id, FirstName = collaborateur.FirstName, LastName = collaborateur.LastName, Email = collaborateur.AppUser.Email };
         }
 
-        public async Task<CollaboratorGetPersoDto> GetByIdPersoAsync(string id)
-        {
-            Collaborator collaborateur = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.AppUserId == id);
+        //public async Task<CollaboratorGetPersoDto> GetByIdPersoAsync(string id)
+        //{
+        //    Collaborator collaborateur = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.AppUserId == id);
 
-            return new CollaboratorGetPersoDto() { Id = id, FirstName = collaborateur.FirstName, LastName = collaborateur.LastName, Email = collaborateur.AppUser.Email, CarpoolsAsDriver = await driveWiseContext.Carpools.Where(c => c.DriverId == id).ToListAsync(), 
-                CarpoolsAsPassenger = await driveWiseContext.Carpools.Include(c => c.Passengers).ToListAsync()};
+        //    return new CollaboratorGetPersoDto() { Id = id, FirstName = collaborateur.FirstName, LastName = collaborateur.LastName, Email = collaborateur.AppUser.Email, CarpoolsAsDriver = await driveWiseContext.Carpools.Where(c => c.DriverId == id).ToListAsync(), 
+        //        CarpoolsAsPassenger = await driveWiseContext.Carpools.Include(c => c.Passengers).ToListAsync()};
            
-        }
+        //}
         
         
     }

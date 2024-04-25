@@ -1,7 +1,6 @@
 {
   "version": 2,
-
-  "dgSpecHash": "jPhKekWshgeL41qKJjpZ6LoiJ+yxnfytSq+PFJMQTh00bOjCAL3ynooS1MON/s5ljsTlrQckbQDBA3wfqbmp3A==",
+  "dgSpecHash": "LwIfU9tKCa0D2+UwrjWfHfDU7YmVqwWQiqe5fWW6Tq+NwW1iEWU9En5WSjJZaF64K9N9utAVo8HJYurMM49liw==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
   "expectedPackageFiles": [
@@ -26,7 +25,6 @@
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.4\\microsoft.entityframeworkcore.design.8.0.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.4\\microsoft.entityframeworkcore.relational.8.0.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\8.0.4\\microsoft.entityframeworkcore.sqlserver.8.0.4.nupkg.sha512",
-    "C:\\Users\\PC\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.4\\microsoft.entityframeworkcore.tools.8.0.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
@@ -86,14 +84,6 @@
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
-
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

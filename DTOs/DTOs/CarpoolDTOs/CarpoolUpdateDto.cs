@@ -1,4 +1,5 @@
 ﻿using DTOs.DTOs.AddressDTOs;
+using DTOs.DTOs.CollaboratorDTOs;
 using DTOs.DTOs.VehicleDTOs;
 using Entities;
 using System;
@@ -17,4 +18,5 @@ public class CarpoolUpdateDto
     public VehicleGetDto VehicleGetDto { get; set; }
     public AddressGetDto StartAddressDto { get; set; }
     public AddressGetDto EndAddress { get; set; }
+    public DateTime DateId { get; set; }
 }

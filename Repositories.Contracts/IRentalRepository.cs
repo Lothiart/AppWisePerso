@@ -1,4 +1,5 @@
 using DTOs.DTOs.RentalDTOs;
+using Entities;
 
 namespace Repositories.Contracts;
 

@@ -1,5 +1,5 @@
-﻿using DTOs.AddressDTOs;
-using DTOs.CollaboratorDTOs;
+﻿using DTOs.DTOs.AddressDTOs;
+using DTOs.DTOs.CollaboratorDTOs;
 using DTOs.DTOs.CarpoolDTOs;
 using Entities;
 using System;

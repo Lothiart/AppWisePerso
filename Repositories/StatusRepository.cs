@@ -1,4 +1,4 @@
-﻿using DTOs;
+﻿using DTOs.DTOs.StatusDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;

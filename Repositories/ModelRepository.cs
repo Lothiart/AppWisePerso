@@ -1,4 +1,4 @@
-﻿using DTOs.CityDTOs;
+﻿
 using Entities.Contexts;
 using Entities;
 using Microsoft.Extensions.Logging;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Repositories.Contracts;
-using DTOs.ModelDTOs;
+using DTOs.DTOs.ModelDTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repositories
