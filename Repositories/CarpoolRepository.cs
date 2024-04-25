@@ -1,26 +1,15 @@
-﻿using DTOs;
-using DTOs.AddressDTOs;
-using DTOs.CollaboratorDTOs;
-using DTOs.DTOs.CarpoolDTOs;
+﻿using DTOs.DTOs.CarpoolDTOs;
 using DTOs.Mappers;
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Repositories;
 public class CarpoolRepository(
     DriveWiseContext context,
     ILogger logger,
-    ICollaboratorRepository collaboratorRepository,
-    IVehicleRepository vehicleRepository,
     CarpoolMapper carpoolMapper
     ) : ICarpoolRepository
 {
@@ -127,16 +116,72 @@ public class CarpoolRepository(
 
     public async Task<CarpoolGetDto> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Carpool c = await context.Carpools
+                    .Include(c => c.StartAddress)
+                    .Include(c => c.EndAddress)
+                    .Include(c => c.Vehicle)
+                    .Include(c => c.Driver)
+                    .Include(c => c.Passengers)
+                    .FirstOrDefaultAsync(c => c.Id == id) ?? throw new Exception("Carpool not found)");
+
+            return carpoolMapper.CarpoolToCarpoolGetDto(c);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to get carpool");
+            throw;
+        }
     }
 
-    public async Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync()
+    public async Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            List<Carpool> carpools = await context.Carpools
+                    .Include(c => c.StartAddress)
+                    .Include(c => c.EndAddress)
+                    .Include(c => c.Vehicle)
+                    .Include(c => c.Driver)
+                    .Include(c => c.Passengers)
+                    .Where(c => c.DriverId == id)
+                    .OrderBy(c => c.DateId)
+                    .ToListAsync();
+
+            List<CarpoolGetDto> carpoolDtos = carpoolMapper.ListCarpoolToListCarpoolGetDto(carpools);
+
+            return carpoolDtos;
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to get carpools");
+            throw;
+        }
     }
 
     public async Task Update(CarpoolUpdateDto carpoolUpdateDto)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Carpool c = await context.Carpools.FindAsync(carpoolUpdateDto.Id) ?? throw new Exception("Carpool not found");
+
+            if (carpoolUpdateDto.PassengersGetDto.Count <= 0)
+            {
+                c.DateId = carpoolUpdateDto.DateId;
+                c.StartAddressId = carpoolUpdateDto.StartAddressDto.Id;
+                c.EndAddressId = carpoolUpdateDto.EndAddress.Id;
+                c.VehicleId = carpoolUpdateDto.VehicleGetDto.Id;
+
+                await context.SaveChangesAsync();
+            }
+
+            else throw new Exception("Cannot update carpool : carpool has passengers.");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to update carpool");
+            throw;
+        }
     }
 }
