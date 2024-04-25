@@ -2,4 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-.vs/
+/.vs/Projet fil rouge/FileContentIndex/17fc8ec2-bc65-4c7e-a2b4-a5cb11b6df74.vsidx
+/.vs/Projet fil rouge/FileContentIndex/7f72788d-35a8-4363-acb0-f87553764b10.vsidx
+/.vs/Projet fil rouge/FileContentIndex/71803c23-4c0c-4747-a7e3-f674892933cf.vsidx
+*.vsidx
+.vs

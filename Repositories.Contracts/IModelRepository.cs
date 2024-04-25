@@ -11,10 +11,10 @@ namespace Repositories.Contracts
     public interface IModelRepository
     {
         Task AddAsync(ModelAddDto modelAddDto);
-        ModelGetDto GetByIdAsync(int id);
-        List<ModelGetDto> GetAllAsync(); 
+        Task<ModelGetDto> GetByIdAsync(int id);
+        Task<List<ModelGetDto>> GetAllAsync(); 
         Task UpdateAsync(ModelUpdateDto modelUpdateDto);
         Task DeleteAsync(int id);
-        List<ModelGetDto> GetByBrandAsync(Brand brand);
+        Task<List<ModelGetDto>> GetByBrandAsync(Brand brand);
     }
 }

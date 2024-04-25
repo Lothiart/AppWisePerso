@@ -17,6 +17,7 @@ namespace DTOs.DTOs.CollaboratorDTOs
 
         public string LastName { get; set; }
 
+        public string Email { get; set; }
         public AppUser AppUser { get; set; }
 
     }

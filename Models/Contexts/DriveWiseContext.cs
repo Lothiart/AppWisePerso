@@ -12,7 +12,7 @@ public class DriveWiseContext : IdentityDbContext<AppUser>
     public DbSet<Collaborator> Collaborators { get; set; }
     public DbSet<Date> Dates { get; set; }
     public DbSet<Model> Models { get; set; }
-    public DbSet<Motor> Motors { get; set; }
+    public DbSet<Motor> Motor { get; set; }
     public DbSet<Rental> Rentals { get; set; }
     public DbSet<Status> Statuses { get; set; }
     public DbSet<Vehicle> Vehicles { get; set; }

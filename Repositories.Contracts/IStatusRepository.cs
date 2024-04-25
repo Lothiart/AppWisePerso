@@ -1,4 +1,4 @@
-using DTOs.DTOs.StatusDTOs;
+﻿using DTOs.DTOs.StatusDTOs;
 
 namespace Repositories.Contracts;
 
@@ -8,5 +8,5 @@ public interface IStatusRepository
     Task<List<StatusGetDto>> GetAllAsync();
     Task<StatusGetDto> GetByIdAsync(int id);
     Task<StatusUpdateDto> UpdateAsync(StatusUpdateDto statusUpdateDto);
-    Task<Status> DeleteAsync(int id);
+    Task DeleteAsync(int id);
 }

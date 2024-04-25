@@ -21,7 +21,7 @@ public class Carpool
     [DeleteBehavior(DeleteBehavior.NoAction)]
     public Vehicle Vehicle { get; set; }
 
-    public int DriverId { get; set; }
+    public string DriverId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]
     public Collaborator Driver { get; set; }
 

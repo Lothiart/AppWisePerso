@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Entities")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD:Models/obj/Debug/net8.0/Entities.AssemblyInfo.cs
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb66b408fe88679df5eee46715d18c0ea919406d")]
+=======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b09327dac8cfb7218cf20d9236ad60a1c697ad66")]
+>>>>>>> Dev:Models/obj/Release/net8.0/Entities.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyProductAttribute("Entities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Entities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
