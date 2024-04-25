@@ -220,3 +220,11 @@ C:/Users/PC/source/repos/DriveWiseApp/DriveWise/obj/Debug/net8.0/ref/DriveWise.d
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/DriveWise.pdb
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/DriveWise.genruntimeconfig.cache
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/ref/DriveWise.dll
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.AssemblyInfo.cs
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.sourcelink.json

@@ -8,6 +8,6 @@ namespace DTOs.DTOs.CollaboratorDTOs
 {
     public class CollaboratorUpdateDto : CollaboratorAddDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

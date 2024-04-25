@@ -1,4 +1,4 @@
-﻿using DTOs.CityDTOs;
+﻿using DTOs.DTOs.CityDTOs;
 using Entities.Contexts;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;

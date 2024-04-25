@@ -1,6 +1,6 @@
-using DTOs.DTOs.VehicleDTOs;
 
-namespace DTOs;
+
+namespace DTOs.DTOs.VehicleDTOs;
 
 public class VehicleAdminDto : VehicleGetDto
 {

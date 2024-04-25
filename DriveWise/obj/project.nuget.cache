@@ -1,7 +1,6 @@
 {
   "version": 2,
-
-  "dgSpecHash": "g0+L2Uhu2nR6iE5pqhUOwjNWrxMoSKaoHUs4rtb3oeClvdzTeJgR4eUbMTGoIpfJ8+JI4hx/Occqh4LVeChHTw==",
+  "dgSpecHash": "as+RfNjCeZFEdvUwDut726OzlUJTkv7EWANaQuGJA929oVfx3VB8Xxu8H/bs4gPt4/w30wnPtQL1p5NGvEcs2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
   "expectedPackageFiles": [
@@ -91,14 +90,6 @@
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
-
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
