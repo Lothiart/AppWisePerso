@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories;
-public class AddressRepository(DriveWiseContext context, ILogger logger) : IAddressRepository
+public class AddressRepository(DriveWiseContext context, ILogger<AddressRepository> logger) : IAddressRepository
 {
     public async Task AddAsync(AddressAddDto addressAddDto)
     {
