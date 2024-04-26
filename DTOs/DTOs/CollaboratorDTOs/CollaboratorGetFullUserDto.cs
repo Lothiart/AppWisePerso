@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DTOs.DTOs.CollaboratorDTOs
 {
-    public class CollaboratorGetPersoDto
+    public class CollaboratorGetFullUserDto
     {
         public int Id { get; set; }
 

@@ -12,10 +12,10 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     {
         List<Vehicle> allVehicles = await _context
                                             .Vehicles
-                                            // .Include(v => v.Category)
-                                            // .Include(v => v.Motor)
-                                            // .Include(v => v.Model)
-                                            // .Include(v => v.Status)
+                                            .Include(v => v.Category)
+                                            .Include(v => v.Motor)
+                                            .Include(v => v.Model)
+                                            .Include(v => v.Status)
                                             .ToListAsync();
 
         if (allVehicles == null)
