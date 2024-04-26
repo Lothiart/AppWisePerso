@@ -386,3 +386,5 @@ C:\Users\PC\Source\Repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.xml
 C:\Users\PC\Source\Repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.pdb
 C:\Users\PC\Source\Repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.genruntimeconfig.cache
 C:\Users\PC\Source\Repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\ref\DriveWise.dll
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

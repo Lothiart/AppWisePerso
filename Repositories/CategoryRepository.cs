@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories;
-public class CategoryRepository(DriveWiseContext context, CategoryMapper categoryMapper, ILogger logger) : ICategoryRepository
+public class CategoryRepository(DriveWiseContext context, CategoryMapper categoryMapper, ILogger<CategoryRepository> logger) : ICategoryRepository
 {
     public async Task AddAsync(CategoryAddDto categoryAddDto)
     {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj": {}
+    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj": {
+    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
         "projectName": "DriveWise",
-        "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\obj\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DriveWise\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,14 +32,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
               },
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
               },
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\Repositories.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -96,14 +96,14 @@
         }
       }
     },
-    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
+    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
         "projectName": "DTOs",
-        "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DTOs\\obj\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -124,8 +124,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
               }
             }
           }
@@ -165,12 +165,12 @@
         }
       }
     },
-    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj": {
+    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\obj\\",
         "projectStyle": "PackageReference",
@@ -244,14 +244,14 @@
         }
       }
     },
-    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
         "projectName": "Repositories.Contracts",
-        "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -272,11 +272,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\DTOs\\DTOs.csproj"
               },
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
               }
             }
           }
@@ -316,14 +316,14 @@
         }
       }
     },
-    "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
+        "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\obj\\",
+        "outputPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -344,11 +344,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Models\\Entities.csproj"
               },
-              "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
+              "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+                "projectPath": "C:\\Users\\PC\\source\\repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
               }
             }
           }
@@ -366,6 +366,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             }
           },
           "imports": [
