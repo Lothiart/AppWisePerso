@@ -30,17 +30,25 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
 
     public async Task<StatusGetDto> GetByIdAsync(int id)
     {
-        Status currentStatus = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-
-        if (currentStatus == null)
-            return null;
-
-        StatusGetDto oneStatusDto = new StatusGetDto
+        try
         {
-            Id = currentStatus.Id,
-            Name = currentStatus.Name,
-        };
-        return oneStatusDto;
+            Status currentStatus = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+
+            if (currentStatus == null)
+                return null;
+
+            StatusGetDto oneStatusDto = new StatusGetDto
+            {
+                Id = currentStatus.Id,
+                Name = currentStatus.Name,
+            };
+            return oneStatusDto;
+
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 
 
@@ -64,15 +72,15 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
 
     public async Task<StatusUpdateDto> UpdateAsync(StatusUpdateDto statusUpdateDto)
     {
-        Status statusToUpdate = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == statusUpdateDto.Id);
-
-        if (statusToUpdate == null)
-            return null;
-
-        statusToUpdate.Name = statusUpdateDto.Name;
-
         try
         {
+            Status statusToUpdate = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == statusUpdateDto.Id);
+
+            if (statusToUpdate == null)
+                return null;
+
+            statusToUpdate.Name = statusUpdateDto.Name;
+
             await _context.SaveChangesAsync();
             return new StatusUpdateDto
             {
@@ -88,13 +96,13 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
     public async Task<Status> DeleteAsync(int id)
     {
 
-        Status statusToDelete = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
-
-        if (statusToDelete == null)
-            return null;
-
         try
         {
+            Status statusToDelete = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+
+            if (statusToDelete == null)
+                return null;
+
             _context.Statuses.Remove(statusToDelete);
             await _context.SaveChangesAsync();
             return statusToDelete;

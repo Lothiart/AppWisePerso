@@ -4,6 +4,77 @@
         <name>DriveWise</name>
     </assembly>
     <members>
+        <member name="M:DriveWise.Controllers.MotorController.GetAllMotors">
+            <summary>
+            Get all motors  A VERIFIER
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.MotorController.GetMotorById(System.Int32)">
+            <summary>
+            Get one motor by Id  A VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.MotorController.AddMotor(DTOs.DTOs.MotorDTOs.MotorAddDto)">
+            <summary>
+            Add new motor  A VERIFIER
+            </summary>
+            <param name="motorAddDto"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:DriveWise.Controllers.MotorController.UpdateMotor(DTOs.DTOs.MotorDTOs.MotorUpdateDto)">
+            <summary>
+            Update a motor   A VERIFIER
+            </summary>
+            <param name="motorUpdateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.MotorController.DeleteMotor(System.Int32)">
+            <summary>
+            Delete a motor   A VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:DriveWise.Controllers.StatusController.GetAllStatuses">
+            <summary>
+            Get all statuses test OK
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.StatusController.GetStatusById(System.Int32)">
+            <summary>
+            Get one status by Id test OK
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:DriveWise.Controllers.StatusController.AddStatus(DTOs.DTOs.StatusDTOs.StatusAddDto)">
+            <summary>
+            Create a new status by giving it a name test OK
+            </summary>
+            <param name="statusAddDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.StatusController.UpdateStatus(DTOs.DTOs.StatusDTOs.StatusUpdateDto)">
+            <summary>
+            Update a Status test OK
+            </summary>
+            <param name="statusUpdateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.StatusController.DeleteStatus(System.Int32)">
+            <summary>
+            Delete a status test OK
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:DriveWise.Migrations.init">
             <inheritdoc />
         </member>
