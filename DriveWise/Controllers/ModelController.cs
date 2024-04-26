@@ -42,7 +42,7 @@ namespace DriveWise.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetById()
+        public async Task<IActionResult> GetAll()
         {
             try
             {
