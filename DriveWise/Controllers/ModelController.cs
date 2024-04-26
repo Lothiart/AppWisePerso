@@ -1,51 +1,52 @@
 ﻿using DTOs.DTOs.CityDTOs;
+using DTOs.DTOs.ModelDTOs;
+using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Repositories.Contracts;
-using System.ComponentModel;
 
 namespace DriveWise.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class CityController(
-        ICityRepository cityRepository,
-        ILogger<CityController> logger) : ControllerBase
+    public class ModelController(
+        IModelRepository modelRepository,
+        ILogger<ModelController> logger) : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> Add(CityAddDto cityAddDto)
+        public async Task<IActionResult> Add(ModelAddDto modelAddDto)
         {
             try
             {
-                await cityRepository.AddAsync(cityAddDto);
-                
-                return Ok(cityAddDto);
+                await modelRepository.AddAsync(modelAddDto);
+
+                return Ok(modelAddDto);
             }
             catch (Exception e)
             {
                 return Problem(e!.InnerException!.Message);
             }
         }
-            [HttpGet]
+
+        [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
             try
             {
-                
-                return Ok(await cityRepository.GetByIdAsync(id));
+                return Ok(await modelRepository.GetByIdAsync(id));
             }
             catch (Exception e)
             {
                 return Problem(e!.InnerException!.Message);
             }
         }
+
         [HttpGet]
-        public async Task<IActionResult> StartsWith(string recherche)
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                List<CityGetDto> listCity =  await cityRepository.StartsWithAsync(recherche);
-
-                return Ok(listCity);
+                return Ok(await modelRepository.GetAllAsync());
             }
             catch (Exception e)
             {
@@ -54,26 +55,39 @@ namespace DriveWise.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(CityUpdateDto cityUpdateDto)
+        public async Task<IActionResult> Update(ModelUpdateDto modelUpdateDto)
         {
             try
             {
-                await cityRepository.UpdateAsync(cityUpdateDto);
-
-                return Ok(cityUpdateDto);
+                await modelRepository.UpdateAsync(modelUpdateDto);
+                return Ok();
             }
             catch (Exception e)
             {
                 return Problem(e!.InnerException!.Message);
             }
         }
+
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                await cityRepository.DeleteAsync(id);
+                await modelRepository.DeleteAsync(id);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return Problem(e!.InnerException!.Message);
+            }
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> GetByBrand(Brand brand)
+        {
+            try
+            {
+                await modelRepository.GetByBrandAsync(brand);
                 return Ok();
             }
             catch (Exception e)

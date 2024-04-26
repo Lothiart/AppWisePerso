@@ -13,8 +13,12 @@
         "packagesPath": "/home/greg/.nuget/packages/",
         "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DTOs/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
-        "originalTargetFrameworks": ["net8.0"],
+        "configFilePaths": [
+          "/home/greg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -29,7 +33,9 @@
           }
         },
         "warningProperties": {
-          "warnAsError": ["NU1605"]
+          "warnAsError": [
+            "NU1605"
+          ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -75,8 +81,12 @@
         "packagesPath": "/home/greg/.nuget/packages/",
         "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
-        "originalTargetFrameworks": ["net8.0"],
+        "configFilePaths": [
+          "/home/greg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -97,7 +107,9 @@
           }
         },
         "warningProperties": {
-          "warnAsError": ["NU1605"]
+          "warnAsError": [
+            "NU1605"
+          ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -160,8 +172,12 @@
         "packagesPath": "/home/greg/.nuget/packages/",
         "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
-        "originalTargetFrameworks": ["net8.0"],
+        "configFilePaths": [
+          "/home/greg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -172,7 +188,9 @@
           }
         },
         "warningProperties": {
-          "warnAsError": ["NU1605"]
+          "warnAsError": [
+            "NU1605"
+          ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -232,8 +250,12 @@
         "packagesPath": "/home/greg/.nuget/packages/",
         "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
-        "originalTargetFrameworks": ["net8.0"],
+        "configFilePaths": [
+          "/home/greg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -251,7 +273,9 @@
           }
         },
         "warningProperties": {
-          "warnAsError": ["NU1605"]
+          "warnAsError": [
+            "NU1605"
+          ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -297,8 +321,12 @@
         "packagesPath": "/home/greg/.nuget/packages/",
         "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories/obj/",
         "projectStyle": "PackageReference",
-        "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
-        "originalTargetFrameworks": ["net8.0"],
+        "configFilePaths": [
+          "/home/greg/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -316,7 +344,9 @@
           }
         },
         "warningProperties": {
-          "warnAsError": ["NU1605"]
+          "warnAsError": [
+            "NU1605"
+          ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -331,6 +361,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             }
           },
           "imports": [

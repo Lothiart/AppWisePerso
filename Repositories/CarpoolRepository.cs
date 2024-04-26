@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace Repositories;
 public class CarpoolRepository(
     DriveWiseContext context,
-    ILogger logger,
+    ILogger<CarpoolRepository> logger,
     CarpoolMapper carpoolMapper
     ) : ICarpoolRepository
 {

@@ -1,3 +1,4 @@
+using DTOs.Mappers;
 using Entities;
 using Entities.Contexts;
 using Microsoft.AspNetCore.Identity;
@@ -25,6 +26,13 @@ builder.Services.AddScoped<IMotorRepository, MotorRepository>();
 builder.Services.AddScoped<IRentalRepository, RentalRepository>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+
+// Mappers
+builder.Services.AddScoped<VehicleMapper, VehicleMapper>();
+builder.Services.AddScoped<CarpoolMapper, CarpoolMapper>();
+builder.Services.AddScoped<CategoryMapper, CategoryMapper>();
+builder.Services.AddScoped<CollaboratorMapper, CollaboratorMapper>();
+builder.Services.AddScoped<AddressMapper, AddressMapper>();
 
 builder.Services.AddAuthorization();
 
