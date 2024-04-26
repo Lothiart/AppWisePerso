@@ -4,6 +4,8 @@ using Repositories.Contracts;
 
 namespace DriveWise.Controllers
 {
+    [Route("api/[controller]/[action]")]
+    [ApiController]
     public class CollaboratorController(
         ICollaboratorRepository collaboratorRepository,
         ILogger<CollaboratorController> logger) : ControllerBase

@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories;
-public class BrandRepository(DriveWiseContext context, ILogger logger) : IBrandRepository
+public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> logger) : IBrandRepository
 {
     public async Task AddAsync(BrandAddDto brandDto)
     {
