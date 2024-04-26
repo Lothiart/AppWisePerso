@@ -25,7 +25,7 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
-            [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
             try

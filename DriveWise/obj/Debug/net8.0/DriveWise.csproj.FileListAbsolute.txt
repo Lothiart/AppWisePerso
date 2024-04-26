@@ -371,3 +371,4 @@ C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\scopedcss\bundl
 C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.csproj.CopyComplete
 C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.genruntimeconfig.cache
 C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\ref\DriveWise.dll
+C:\Users\PC\source\repos\DriveWiseApp\DriveWise\obj\Debug\net8.0\DriveWise.MvcApplicationPartsAssemblyInfo.cs
