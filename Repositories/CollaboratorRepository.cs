@@ -14,6 +14,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 
 namespace Repositories
@@ -31,11 +32,14 @@ namespace Repositories
             this.userManager = userManager;
             this.roleManager = roleManager;
         }
-        public async Task<CollaboratorGetDto> GetByIdAsync(AppUser appUser)
+        public async Task<CollaboratorGetDto> GetByIdAsync(int id)
         {
             try
             {
-                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(u => u.Id == appUser.Id);
+                Collaborator collaborator = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+
+
+                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(u => u.Id == collaborator.AppUserId);
             return new CollaboratorGetDto() { Id = user.Collaborator.Id, FirstName = user.Collaborator.FirstName, LastName = user.Collaborator.LastName, Email = user.Email };
 
             }
@@ -46,11 +50,13 @@ namespace Repositories
             }
         }
 
-        public async Task<CollaboratorGetPersoDto> GetByIdPersoAsync(AppUser appUser)
+        public async Task<CollaboratorGetPersoDto> GetByIdPersoAsync(int id)
         {
             try
             {
-                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(c => c.Id == appUser.Id);
+                Collaborator collaborator = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+
+                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
 
                 return new CollaboratorGetPersoDto()
                 {
@@ -69,11 +75,14 @@ namespace Repositories
             }
         }
 
-        public async Task GiveAdminRoleAsync(AppUser appUser)
+        public async Task GiveAdminRoleAsync(int id)
         {
             try
             {
-                await userManager.AddToRoleAsync(appUser, ROLES.ADMIN);
+                Collaborator collaborator = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+
+                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
+                await userManager.AddToRoleAsync(user, ROLES.ADMIN);
                 await driveWiseContext.SaveChangesAsync();
             }
             catch (Exception e)
