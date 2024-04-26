@@ -4,3 +4,15 @@ C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Re
 C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.AssemblyInfo.cs
 C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.csproj.CoreCompileInputs.cache
 C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.sourcelink.json
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\bin\Debug\net8.0\Repositories.Contracts.deps.json
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\bin\Debug\net8.0\Repositories.Contracts.dll
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\bin\Debug\net8.0\Repositories.Contracts.pdb
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\bin\Debug\net8.0\DTOs.dll
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\bin\Debug\net8.0\Entities.dll
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\bin\Debug\net8.0\DTOs.pdb
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\bin\Debug\net8.0\Entities.pdb
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.csproj.CopyComplete
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.dll
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\refint\Repositories.Contracts.dll
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\Repositories.Contracts.pdb
+C:\Users\PC\source\repos\DriveWiseApp\Repositories.Contracts\obj\Debug\net8.0\ref\Repositories.Contracts.dll
