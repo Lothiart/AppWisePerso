@@ -27,8 +27,8 @@ namespace Repositories
         {
             try
             {
-            await driveWiseContext.Cities.AddAsync(new City() { Name = cityAddDto.Name, ZipCode = cityAddDto.ZipCode});
-            await driveWiseContext.SaveChangesAsync();
+                await driveWiseContext.Cities.AddAsync(new City() { Name = cityAddDto.Name, ZipCode = cityAddDto.ZipCode });
+                await driveWiseContext.SaveChangesAsync();
             }
             catch (Exception e)
             {
@@ -42,13 +42,13 @@ namespace Repositories
         {
             try
             {
-            City city = await driveWiseContext.Cities.FirstOrDefaultAsync(c => c.Id == id);
-            return new CityGetDto() { Id = city.Id, Name = city.Name, ZipCode = city.ZipCode};
+                City city = await driveWiseContext.Cities.FirstOrDefaultAsync(c => c.Id == id);
+                return new CityGetDto() { Id = city.Id, Name = city.Name, ZipCode = city.ZipCode };
             }
             catch (Exception e)
-            {   
+            {
                 logger.LogError(e!.InnerException!.Message);
-                throw; 
+                throw;
             }
 
         }
@@ -61,7 +61,7 @@ namespace Repositories
                 List<CityGetDto> citiesDto = new List<CityGetDto>();
                 foreach (City city in cities)
                 {
-                    citiesDto.Add(new CityGetDto() {Id = city.Id, Name = city.Name,ZipCode = city.ZipCode });
+                    citiesDto.Add(new CityGetDto() { Id = city.Id, Name = city.Name, ZipCode = city.ZipCode });
                 }
                 return citiesDto;
             }
@@ -104,6 +104,6 @@ namespace Repositories
             }
         }
 
-        
+
     }
 }

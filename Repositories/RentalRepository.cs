@@ -6,6 +6,10 @@ using Repositories.Contracts;
 
 namespace Repositories;
 
+
+// VERIFICATION DES DATES A FAIRE POUR ADD ET L'UPDATE 
+
+
 public class RentalRepository(DriveWiseContext _context) : IRentalRepository
 {
     public async Task<List<RentalGetDto>> GetAllAsync()

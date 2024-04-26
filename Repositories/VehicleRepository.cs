@@ -10,7 +10,13 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 {
     public async Task<List<VehicleAdminDto>> GetAllAdminAsync()
     {
-        List<Vehicle> allVehicles = await _context.Vehicles.ToListAsync();
+        List<Vehicle> allVehicles = await _context
+                                            .Vehicles
+                                            .Include(v => v.Category)
+                                            .Include(v => v.Motor)
+                                            .Include(v => v.Model)
+                                            .Include(v => v.Status)
+                                            .ToListAsync();
 
         if (allVehicles == null)
             return null;
@@ -25,10 +31,10 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                 Registration = vehicle.Registration,
                 TotalSeats = vehicle.TotalSeats,
                 CO2EmissionKm = vehicle.CO2EmissionKm,
-                CategoryId = vehicle.CategoryId,
-                MotorId = vehicle.MotorId,
-                ModelId = vehicle.ModelId,
-                StatusId = vehicle.StatusId,
+                CategoryName = vehicle.Category.Name,
+                MotorType = vehicle.Motor.Type,
+                ModelName = vehicle.Model.Name,
+                StatusName = vehicle.Status.Name,
             };
             listVehiclesDto.Add(allVehiclesDto);
         }
@@ -37,7 +43,9 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
     public async Task<List<VehicleGetDto>> GetAllAsync()
     {
-        List<Vehicle> allVehicles = await _context.Vehicles.ToListAsync();
+        List<Vehicle> allVehicles = await _context
+                                                .Vehicles
+                                                .ToListAsync();
 
         if (allVehicles == null)
             return null;
@@ -52,9 +60,9 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                 Registration = vehicle.Registration,
                 TotalSeats = vehicle.TotalSeats,
                 CO2EmissionKm = vehicle.CO2EmissionKm,
-                CategoryId = vehicle.CategoryId,
-                MotorId = vehicle.MotorId,
-                ModelId = vehicle.ModelId,
+                CategoryName = vehicle.Category.Name,
+                MotorType = vehicle.Motor.Type,
+                ModelName = vehicle.Model.Name,
             };
             listVehiclesDto.Add(allVehiclesDto);
         }
@@ -63,7 +71,9 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
     public async Task<VehicleAdminDto> GetByIdAdminAsync(int id)
     {
-        Vehicle currentVehicle = await _context.Vehicles.FirstOrDefaultAsync(v => v.Id == id);
+        Vehicle currentVehicle = await _context
+                                            .Vehicles
+                                            .FirstOrDefaultAsync(v => v.Id == id);
 
         if (currentVehicle == null)
             return null;
@@ -74,17 +84,19 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             Registration = currentVehicle.Registration,
             TotalSeats = currentVehicle.TotalSeats,
             CO2EmissionKm = currentVehicle.CO2EmissionKm,
-            CategoryId = currentVehicle.CategoryId,
-            MotorId = currentVehicle.MotorId,
-            ModelId = currentVehicle.ModelId,
-            StatusId = currentVehicle.StatusId,
+            CategoryName = currentVehicle.Category.Name,
+            MotorType = currentVehicle.Motor.Type,
+            ModelName = currentVehicle.Model.Name,
+            StatusName = currentVehicle.Status.Name,
         };
         return oneVehicleDto;
     }
 
     public async Task<VehicleGetDto> GetByIdAsync(int id)
     {
-        Vehicle currentVehicle = await _context.Vehicles.FirstOrDefaultAsync(v => v.Id == id);
+        Vehicle currentVehicle = await _context
+                                            .Vehicles
+                                            .FirstOrDefaultAsync(v => v.Id == id);
 
         if (currentVehicle == null)
             return null;
@@ -95,9 +107,9 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             Registration = currentVehicle.Registration,
             TotalSeats = currentVehicle.TotalSeats,
             CO2EmissionKm = currentVehicle.CO2EmissionKm,
-            CategoryId = currentVehicle.CategoryId,
-            MotorId = currentVehicle.MotorId,
-            ModelId = currentVehicle.ModelId,
+            CategoryName = currentVehicle.Category.Name,
+            MotorType = currentVehicle.Motor.Type,
+            ModelName = currentVehicle.Model.Name,
         };
         return oneVehicleDto;
     }
@@ -107,16 +119,22 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
         try
         {
-            await _context.Vehicles.AddAsync(new Vehicle
-            {
-                Registration = vehicleAddDto.Registration,
-                TotalSeats = vehicleAddDto.TotalSeats,
-                CO2EmissionKm = vehicleAddDto.CO2EmissionKm,
-                CategoryId = vehicleAddDto.CategoryId,
-                MotorId = vehicleAddDto.MotorId,
-                ModelId = vehicleAddDto.ModelId,
-                StatusId = vehicleAddDto.StatusId,
-            });
+            await _context
+                    .Vehicles
+                    // .Include(v => v.Category)
+                    // .Include(v => v.Motor)
+                    // .Include(v => v.Model)
+                    // .Include(v => v.Status)
+                    .AddAsync(new Vehicle
+                    {
+                        Registration = vehicleAddDto.Registration,
+                        TotalSeats = vehicleAddDto.TotalSeats,
+                        CO2EmissionKm = vehicleAddDto.CO2EmissionKm,
+                        // CategoryName = vehicleAddDto.Category.Name,
+                        // MotorType = vehicleAddDto.Motor.Type,
+                        // ModelName = vehicleAddDto.Model.Name,
+                        // StatusName = vehicleAddDto.Status.Name,
+                    });
 
             await _context.SaveChangesAsync();
             return vehicleAddDto;

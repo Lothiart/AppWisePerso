@@ -1,6 +1,6 @@
 ﻿namespace DTOs.DTOs.VehicleDTOs;
 
-public class VehicleUpdateDto : VehicleGetAdminDto
+public class VehicleUpdateDto : VehicleAdminDto
 {
 
 }
