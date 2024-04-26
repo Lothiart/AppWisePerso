@@ -1053,7 +1053,9 @@
             "related": ".pdb;.xml"
           }
         },
-        "frameworkReferences": ["Microsoft.AspNetCore.App"]
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Swashbuckle.AspNetCore.SwaggerGen/6.4.0": {
         "type": "package",
@@ -1083,7 +1085,9 @@
             "related": ".pdb;.xml"
           }
         },
-        "frameworkReferences": ["Microsoft.AspNetCore.App"]
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "System.CodeDom/4.4.0": {
         "type": "package",
@@ -4825,45 +4829,53 @@
     ]
   },
   "packageFolders": {
-    "/home/greg/.nuget/packages/": {}
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/DriveWise.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
       "projectName": "DriveWise",
-      "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/DriveWise.csproj",
-      "packagesPath": "/home/greg/.nuget/packages/",
-      "outputPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/",
+      "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\DriveWise.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\DriveWise\\obj\\",
       "projectStyle": "PackageReference",
-      "configFilePaths": ["/home/greg/.nuget/NuGet/NuGet.Config"],
-      "originalTargetFrameworks": ["net8.0"],
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj": {
-              "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Models/Entities.csproj"
+            "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj": {
+              "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Models\\Entities.csproj"
             },
-            "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj": {
-              "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories.Contracts/Repositories.Contracts.csproj"
+            "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj": {
+              "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories.Contracts\\Repositories.Contracts.csproj"
             },
-            "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories/Repositories.csproj": {
-              "projectPath": "/home/greg/Bureau/Diginamic/Projet fil rouge/Repositories/Repositories.csproj"
+            "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\Repositories.csproj": {
+              "projectPath": "C:\\Users\\PC\\Source\\Repos\\DriveWiseApp\\Repositories\\Repositories.csproj"
             }
           }
         }
       },
       "warningProperties": {
-        "warnAsError": ["NU1605"]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
@@ -4908,16 +4920,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problème de lecture du fichier cache /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

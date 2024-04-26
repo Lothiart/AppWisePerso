@@ -14,7 +14,7 @@ namespace DriveWise.Controllers
         {
             try
             {
-                return Ok(await collaboratorRepository.GetByIdPersoAsync(id));
+                return Ok(await collaboratorRepository.GetFullUserByIdAsync(id));
             }
             catch (Exception e)
             {

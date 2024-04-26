@@ -40,6 +40,12 @@
             <returns></returns>
             
         </member>
+        <member name="M:DriveWise.Controllers.RentaController.GetAllRentals">
+            <summary>
+            Get all rentals A VERIFIER
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:DriveWise.Controllers.StatusController.GetAllStatuses">
             <summary>
             Get all statuses test OK
@@ -52,7 +58,6 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
-            
         </member>
         <member name="M:DriveWise.Controllers.StatusController.AddStatus(DTOs.DTOs.StatusDTOs.StatusAddDto)">
             <summary>
