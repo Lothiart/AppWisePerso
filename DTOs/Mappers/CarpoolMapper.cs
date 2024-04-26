@@ -15,35 +15,35 @@ public class CarpoolMapper(CollaboratorMapper collaboratorMapper,
 {
 
     #region EntityToDto
-    //public List<CarpoolGetDto> ListCarpoolToListCarpoolGetDto(List<Carpool> carpools)
-    //{
-    //    List<CarpoolGetDto> carpoolDtos = new();
+    public List<CarpoolGetDto> ListCarpoolToListCarpoolGetDto(List<Carpool> carpools)
+    {
+        List<CarpoolGetDto> carpoolDtos = new();
 
-    //    foreach (Carpool carpool in carpools)
-    //    {
-    //        carpoolDtos.Add(CarpoolToCarpoolGetDto(carpool));
-    //    }
+        foreach (Carpool carpool in carpools)
+        {
+            carpoolDtos.Add(CarpoolToCarpoolGetDto(carpool));
+        }
 
-    //    return carpoolDtos;
-    //}
+        return carpoolDtos;
+    }
 
-    //public CarpoolGetDto CarpoolToCarpoolGetDto(Carpool carpool)
-    //{
-    //    CarpoolGetDto carpoolDto = new CarpoolGetDto()
-    //    {
-    //        Id = carpool.Id,
-    //        DriverId = carpool.DriverId,
-    //        Driver = collaboratorMapper.CollaboratorToCollaboratorGetDto(carpool.Driver),
-    //        DateId = carpool.DateId,
-    //        VehicleGetDto = vehicleMapper.VehicleToVehicleGetDto(carpool.Vehicle),
-    //        RemainingSeats = carpool.Vehicle.TotalSeats - carpool.Passengers.Count - 1, //-1 = driver seat
-    //        StartAddressDto = addressMapper.AddressToAddressGetDto(carpool.StartAddress),
-    //        EndAddressDto = addressMapper.AddressToAddressGetDto(carpool.EndAddress),
-    //        PassengersDto = collaboratorMapper.ListCollaboratorToListCollaboratorGetDto(carpool.Passengers),
-    //    };
+    public CarpoolGetDto CarpoolToCarpoolGetDto(Carpool carpool)
+    {
+        CarpoolGetDto carpoolDto = new CarpoolGetDto()
+        {
+            Id = carpool.Id,
+            DriverId = carpool.DriverId,
+            Driver = collaboratorMapper.CollaboratorToCollaboratorGetDto(carpool.Driver),
+            DateId = carpool.DateId,
+            VehicleGetDto = vehicleMapper.VehicleToVehicleGetDto(carpool.Vehicle),
+            RemainingSeats = carpool.Vehicle.TotalSeats - carpool.Passengers.Count - 1, //-1 = driver seat
+            StartAddressDto = addressMapper.AddressToAddressGetDto(carpool.StartAddress),
+            EndAddressDto = addressMapper.AddressToAddressGetDto(carpool.EndAddress),
+            PassengersDto = collaboratorMapper.ListCollaboratorToListCollaboratorGetDto(carpool.Passengers),
+        };
 
-    //    return carpoolDto;
-    //}
+        return carpoolDto;
+    }
 
     #endregion
 
