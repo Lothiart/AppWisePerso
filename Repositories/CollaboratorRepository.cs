@@ -36,10 +36,10 @@ namespace Repositories
         {
             try
             {
-                Collaborator collaborator = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+                Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
 
 
-                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(u => u.Id == collaborator.AppUserId);
+                AppUser user = await context.Users.FirstOrDefaultAsync(u => u.Id == collaborator.AppUserId);
             return new CollaboratorGetDto() { Id = user.Collaborator.Id, FirstName = user.Collaborator.FirstName, LastName = user.Collaborator.LastName, Email = user.Email };
 
             }
@@ -50,22 +50,22 @@ namespace Repositories
             }
         }
 
-        public async Task<CollaboratorGetPersoDto> GetByIdPersoAsync(int id)
+        public async Task<CollaboratorGetFullUserDto> GetFullUserByIdAsync(int id)
         {
             try
             {
-                Collaborator collaborator = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+                Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
 
-                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
+                AppUser user = await context.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
 
-                return new CollaboratorGetPersoDto()
+                return new CollaboratorGetFullUserDto()
                 {
                     Id = user.Collaborator.Id,
                     FirstName = user.Collaborator.FirstName,
                     LastName = user.Collaborator.LastName,
                     Email = user.Email,
-                    CarpoolsAsDriver = await driveWiseContext.Carpools.Where(c => c.DriverId == user.Collaborator.Id).ToListAsync(),
-                    CarpoolsAsPassenger = await driveWiseContext.Carpools.Include(c => c.Passengers).ToListAsync()
+                    CarpoolsAsDriver = await context.Carpools.Where(c => c.DriverId == user.Collaborator.Id).ToListAsync(),
+                    CarpoolsAsPassenger = await context.Carpools.Include(c => c.Passengers).ToListAsync()
                 };
             }
             catch (Exception e)
@@ -79,11 +79,11 @@ namespace Repositories
         {
             try
             {
-                Collaborator collaborator = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+                Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
 
-                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
+                AppUser user = await context.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
                 await userManager.AddToRoleAsync(user, ROLES.ADMIN);
-                await driveWiseContext.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (Exception e)
             {
