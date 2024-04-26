@@ -21,13 +21,13 @@ namespace Repositories
 {
     public class CollaboratorRepository : ICollaboratorRepository
     {
-        DriveWiseContext driveWiseContext;
+        DriveWiseContext context;
         ILogger<CityRepository> logger;
         UserManager<AppUser> userManager;
         RoleManager<IdentityRole> roleManager;
         public CollaboratorRepository(DriveWiseContext driveWiseContext, ILogger<CityRepository> logger,UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            this.driveWiseContext = driveWiseContext;
+            this.context = context;
             this.logger = logger;
             this.userManager = userManager;
             this.roleManager = roleManager;
