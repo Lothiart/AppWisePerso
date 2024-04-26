@@ -1,7 +1,9 @@
-
+using Entities.Const;
+using DTOs.DTOs.CityDTOs;
 using DTOs.DTOs.CollaboratorDTOs;
 using Entities;
 using Entities.Contexts;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -20,27 +22,65 @@ namespace Repositories
     {
         DriveWiseContext driveWiseContext;
         ILogger<CityRepository> logger;
-        public CollaboratorRepository(DriveWiseContext driveWiseContext, ILogger<CityRepository> logger)
+        UserManager<AppUser> userManager;
+        RoleManager<IdentityRole> roleManager;
+        public CollaboratorRepository(DriveWiseContext driveWiseContext, ILogger<CityRepository> logger,UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.driveWiseContext = driveWiseContext;
             this.logger = logger;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
         }
-        public async Task<CollaboratorGetDto> GetByIdAsync(string id)
+        public async Task<CollaboratorGetDto> GetByIdAsync(AppUser appUser)
         {
-            Collaborator collaborateur = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.AppUserId == id);
+            try
+            {
+                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(u => u.Id == appUser.Id);
+            return new CollaboratorGetDto() { Id = user.Collaborator.Id, FirstName = user.Collaborator.FirstName, LastName = user.Collaborator.LastName, Email = user.Email };
 
-            return new CollaboratorGetDto() { Id = id, FirstName = collaborateur.FirstName, LastName = collaborateur.LastName, Email = collaborateur.AppUser.Email };
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e!.InnerException!.Message);
+                throw;
+            }
         }
 
-        //public async Task<CollaboratorGetPersoDto> GetByIdPersoAsync(string id)
-        //{
-        //    Collaborator collaborateur = await driveWiseContext.Collaborators.FirstOrDefaultAsync(c => c.AppUserId == id);
+        public async Task<CollaboratorGetPersoDto> GetByIdPersoAsync(AppUser appUser)
+        {
+            try
+            {
+                AppUser user = await driveWiseContext.Users.FirstOrDefaultAsync(c => c.Id == appUser.Id);
 
-        //    return new CollaboratorGetPersoDto() { Id = id, FirstName = collaborateur.FirstName, LastName = collaborateur.LastName, Email = collaborateur.AppUser.Email, CarpoolsAsDriver = await driveWiseContext.Carpools.Where(c => c.DriverId == id).ToListAsync(), 
-        //        CarpoolsAsPassenger = await driveWiseContext.Carpools.Include(c => c.Passengers).ToListAsync()};
+                return new CollaboratorGetPersoDto()
+                {
+                    Id = user.Collaborator.Id,
+                    FirstName = user.Collaborator.FirstName,
+                    LastName = user.Collaborator.LastName,
+                    Email = user.Email,
+                    CarpoolsAsDriver = await driveWiseContext.Carpools.Where(c => c.DriverId == user.Collaborator.Id).ToListAsync(),
+                    CarpoolsAsPassenger = await driveWiseContext.Carpools.Include(c => c.Passengers).ToListAsync()
+                };
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e!.InnerException!.Message);
+                throw;
+            }
+        }
 
-        //}
-
-
+        public async Task GiveAdminRoleAsync(AppUser appUser)
+        {
+            try
+            {
+                await userManager.AddToRoleAsync(appUser, ROLES.ADMIN);
+                await driveWiseContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e!.InnerException!.Message);
+                throw;
+            }
+        }
     }
 }
