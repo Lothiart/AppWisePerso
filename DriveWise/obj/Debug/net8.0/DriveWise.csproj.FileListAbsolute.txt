@@ -222,3 +222,12 @@ C:/Users/PC/source/repos/DriveWiseApp/DriveWise/obj/Debug/net8.0/ref/DriveWise.d
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/ref/DriveWise.dll
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/DriveWise.xml
 /home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/obj/Debug/net8.0/DriveWise.xml
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/Scrutor.dll
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/Swashbuckle.AspNetCore.Filters.dll
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/DTOs.dll
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/Repositories.Contracts.dll
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/Repositories.dll
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/Repositories.Contracts.pdb
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/Repositories.pdb
+/home/greg/Bureau/Diginamic/Projet fil rouge/DriveWise/bin/Debug/net8.0/DTOs.pdb
