@@ -5,6 +5,7 @@ using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
+using System.Collections.Generic;
 
 namespace Repositories;
 public class CarpoolRepository(
@@ -15,6 +16,8 @@ public class CarpoolRepository(
 {
     public async Task AddAsync(CarpoolAddDto carpoolAddDto)
     {
+        //vérifier les dates
+        
         try
         {
             Carpool c = carpoolMapper.CarpoolAddDtoToCarpool(carpoolAddDto);

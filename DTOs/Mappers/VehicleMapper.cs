@@ -17,7 +17,10 @@ public class VehicleMapper
             CategoryId = vehicle.CategoryId,
             CO2EmissionKm = vehicle.CO2EmissionKm,
             ModelId = vehicle.ModelId,
+            Model = vehicle.Model.Name,
+            Brand = vehicle.Model.Brand.Name,
             MotorId = vehicle.MotorId,
+            MotorType = vehicle.Motor.Type,
             Registration = vehicle.Registration,
             TotalSeats = vehicle.TotalSeats
         };
