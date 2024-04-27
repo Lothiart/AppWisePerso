@@ -17,7 +17,7 @@ namespace DriveWise.Controllers
             try
             {
                 await cityRepository.AddAsync(cityAddDto);
-                
+
                 return Ok(cityAddDto);
             }
             catch (Exception e)
@@ -25,12 +25,12 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
-            [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
             try
             {
-                
+
                 return Ok(await cityRepository.GetByIdAsync(id));
             }
             catch (Exception e)
@@ -43,7 +43,7 @@ namespace DriveWise.Controllers
         {
             try
             {
-                List<CityGetDto> listCity =  await cityRepository.StartsWithAsync(recherche);
+                List<CityGetDto> listCity = await cityRepository.StartsWithAsync(recherche);
 
                 return Ok(listCity);
             }
