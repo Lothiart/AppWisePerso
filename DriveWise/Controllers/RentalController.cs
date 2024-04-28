@@ -1,8 +1,8 @@
 using DTOs.DTOs.RentalDTOs;
-using DTOs.DTOs.StatusDTOs;
+using DTOs.DTOs.VehicleDTOs;
 using Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 using Repositories.Contracts;
 
 namespace DriveWise.Controllers;
@@ -13,27 +13,149 @@ namespace DriveWise.Controllers;
 //    [Authorize(Roles = "ADMIN")]
 //    [Authorize]
 
-public class RentaController(IRentalRepository rentalRepository) : ControllerBase
+public class RentalController(IRentalRepository rentalRepository) : ControllerBase
 {
 
     /// <summary>
-    /// Get all rentals A VERIFIER
+    /// Get all currents rentals A VERIFIER
     /// </summary>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
-    [HttpGet]
 
     [HttpGet]
 
-    public async Task<ActionResult<List<RentalGetDto>>> GetAllRentals()
+    public async Task<ActionResult<List<RentalGetDto>>> GetAllCurrent()
     {
         try
         {
-            List<RentalGetDto> listRentalsDto = await rentalRepository.GetAllAsync();
+            List<RentalGetDto> listRentalsDto = await rentalRepository.GetAllCurrentAsync();
+
             return listRentalsDto == null ? NotFound() : Ok(listRentalsDto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+
+    /// <summary>
+    /// Get all past rentals A VERIFIER
+    /// </summary>
+    /// <returns></returns>
+
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(500)]
+
+    [HttpGet]
+
+    public async Task<ActionResult<List<RentalGetDto>>> GetAllPast()
+    {
+        try
+        {
+            List<RentalGetDto> listRentalsDto = await rentalRepository.GetAllPastAsync();
+
+            return listRentalsDto == null ? NotFound() : Ok(listRentalsDto);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+
+
+
+
+
+
+    // /// <summary>
+    // /// Get one rental by Id A VERIFIER
+    // /// </summary>
+    // /// <param name="id"></param>
+    // /// <returns></returns>
+
+    // [ProducesResponseType(200)]
+    // [ProducesResponseType(400)]
+    // [ProducesResponseType(404)]
+    // [ProducesResponseType(500)]
+
+    // [HttpGet]
+
+    // public async Task<ActionResult<RentalGetDto>> GetRentalById(int id)
+    // {
+    //     if (id <= 0)
+    //         return BadRequest("\"Id\" must be a positive number");
+
+    //     try
+    //     {
+    //         RentalGetDto oneRentalDto = await rentalRepository.GetByIdAsync(id);
+    //         return oneRentalDto == null ? NotFound() : Ok(oneRentalDto);
+    //     }
+    //     catch (Exception)
+    //     {
+    //         throw;
+    //     }
+    // }
+
+
+
+
+    /// <summary>
+    /// Create a new rental A VERIFIER
+    /// </summary>
+    /// <param name="rentalAddDto"></param>
+    /// <returns></returns>
+
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(500)]
+
+    [HttpPost]
+
+    public async Task<ActionResult<RentalAddDto>> Add(RentalAddDto rentalAddDto)
+    {
+        try
+        {
+            rentalAddDto = await rentalRepository.AddAsync(rentalAddDto);
+
+            return Ok($"Your rental has been successfully added");
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// Research a car to rent by dates A VERIFIER
+    /// </summary>
+    /// <param name="rentalResearchDateDto"></param>
+    /// <returns></returns>
+
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(500)]
+
+    [HttpPost]
+
+    public async Task<ActionResult<List<VehicleGetDto>>> ResearchCarByDates(RentalResearchDateDto rentalResearchDateDto)
+    {
+        if (rentalResearchDateDto.EndDateId <= rentalResearchDateDto.StartDateId)
+            return BadRequest("Ending rental date must be later than starting rental date");
+
+        try
+        {
+            List<VehicleGetDto> listVehiclesDto = new List<VehicleGetDto>();
+
+            listVehiclesDto = await rentalRepository.ResearchCarRentalAsync(rentalResearchDateDto);
+
+            return Ok(listVehiclesDto);
+
         }
         catch (Exception)
         {
@@ -42,5 +164,69 @@ public class RentaController(IRentalRepository rentalRepository) : ControllerBas
         }
     }
 
+
+    /// <summary>
+    ///  Update a rental A VERIFIER
+    /// </summary>
+    /// <param name="rentalUpdateDto"></param>
+    /// <returns></returns>
+
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(500)]
+
+    [HttpPut]
+
+    public async Task<ActionResult<Rental>> Update(RentalUpdateDto rentalUpdateDto)
+    {
+        if (rentalUpdateDto.Id <= 0)
+            return BadRequest("\"Id\" must be a positive number");
+
+        if (rentalUpdateDto.EndDateId <= rentalUpdateDto.StartDateId)
+            return BadRequest("Ending rental date must be later than starting rental date");
+
+        try
+        {
+            Rental rentalToUpdate = await rentalRepository.UpdateAsync(rentalUpdateDto);
+
+            return rentalUpdateDto == null ? NotFound() : Ok("Your rental has been successfully updated");
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+
+    /// <summary>
+    /// Delete a rental A VERIFIER
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(500)]
+
+    [HttpDelete]
+
+    public async Task<ActionResult> Delete(int id)
+    {
+        if (id <= 0)
+            return BadRequest("\"Id\" must be a positive number");
+
+        try
+        {
+            Rental rentalToDelete = await rentalRepository.DeleteAsync(id);
+
+            return rentalToDelete == null ? NotFound() : Ok($"The rental has been successfully deleted");
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
 
 }

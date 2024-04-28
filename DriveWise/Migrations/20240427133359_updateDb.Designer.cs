@@ -4,6 +4,7 @@ using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DriveWise.Migrations
 {
     [DbContext(typeof(DriveWiseContext))]
-    partial class DriveWiseContextModelSnapshot : ModelSnapshot
+    [Migration("20240427133359_updateDb")]
+    partial class updateDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -328,6 +331,9 @@ namespace DriveWise.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("VehicleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VehiculeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

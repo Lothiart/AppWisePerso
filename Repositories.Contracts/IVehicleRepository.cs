@@ -14,7 +14,7 @@ public interface IVehicleRepository
     Task<List<VehicleGetDto>> GetAllCategoriesAsync(string param);
     Task<List<VehicleGetDto>> GetAllAddressesAsync(string param);
 
-
+    //GetallByDates
 
     Task<List<VehicleAdminDto>> GetAllAdminAsync();//ok
     Task<VehicleAdminDto> GetByIdAdminAsync(int id);//ok

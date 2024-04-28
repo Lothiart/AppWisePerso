@@ -17,13 +17,14 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 {
 
     /// <summary>
-    /// Get all motors  A VERIFIER
+    /// Get all motors test OK
     /// </summary>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
+
     [HttpGet]
 
     public async Task<ActionResult<List<MotorGetDto>>> GetAllMotors()
@@ -42,7 +43,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
 
     /// <summary>
-    /// Get one motor by Id  A VERIFIER
+    /// Get one motor by Id test OK
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -51,6 +52,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
+
     [HttpGet]
 
     public async Task<ActionResult<MotorGetDto>> GetMotorById(int id)
@@ -72,7 +74,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
 
     /// <summary>
-    /// Add new motor  A VERIFIER
+    /// Add new motor test OK
     /// </summary>
     /// <param name="motorAddDto"></param>
     /// <returns></returns>
@@ -103,7 +105,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
 
     /// <summary>
-    /// Update a motor   A VERIFIER
+    /// Update a motor test OK
     /// </summary>
     /// <param name="motorUpdateDto"></param>
     /// <returns></returns>
@@ -138,7 +140,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
 
     /// <summary>
-    /// Delete a motor   A VERIFIER
+    /// Delete a motor test OK
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -166,6 +168,5 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         {
             throw;
         }
-
     }
 }

@@ -6,20 +6,20 @@
     <members>
         <member name="M:DriveWise.Controllers.MotorController.GetAllMotors">
             <summary>
-            Get all motors  A VERIFIER
+            Get all motors test OK
             </summary>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.MotorController.GetMotorById(System.Int32)">
             <summary>
-            Get one motor by Id  A VERIFIER
+            Get one motor by Id test OK
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.MotorController.AddMotor(DTOs.DTOs.MotorDTOs.MotorAddDto)">
             <summary>
-            Add new motor  A VERIFIER
+            Add new motor test OK
             </summary>
             <param name="motorAddDto"></param>
             <returns></returns>
@@ -27,23 +27,57 @@
         </member>
         <member name="M:DriveWise.Controllers.MotorController.UpdateMotor(DTOs.DTOs.MotorDTOs.MotorUpdateDto)">
             <summary>
-            Update a motor   A VERIFIER
+            Update a motor test OK
             </summary>
             <param name="motorUpdateDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.MotorController.DeleteMotor(System.Int32)">
             <summary>
-            Delete a motor   A VERIFIER
+            Delete a motor test OK
             </summary>
             <param name="id"></param>
             <returns></returns>
             
         </member>
-        <member name="M:DriveWise.Controllers.RentaController.GetAllRentals">
+        <member name="M:DriveWise.Controllers.RentalController.GetAllCurrent">
             <summary>
-            Get all rentals A VERIFIER
+            Get all currents rentals A VERIFIER
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.GetAllPast">
+            <summary>
+            Get all past rentals A VERIFIER
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.Add(DTOs.DTOs.RentalDTOs.RentalAddDto)">
+            <summary>
+            Create a new rental A VERIFIER
+            </summary>
+            <param name="rentalAddDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.ResearchCarByDates(DTOs.DTOs.RentalDTOs.RentalResearchDateDto)">
+            <summary>
+            Research a car to rent by dates A VERIFIER
+            </summary>
+            <param name="rentalResearchDateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.Update(DTOs.DTOs.RentalDTOs.RentalUpdateDto)">
+            <summary>
+             Update a rental A VERIFIER
+            </summary>
+            <param name="rentalUpdateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.Delete(System.Int32)">
+            <summary>
+            Delete a rental A VERIFIER
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.StatusController.GetAllStatuses">
@@ -114,6 +148,30 @@
             <inheritdoc />
         </member>
         <member name="M:DriveWise.Migrations.deleted_collab_prop_from_Vehicle.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DriveWise.Migrations.updateDb">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.updateDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.updateDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.updateDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

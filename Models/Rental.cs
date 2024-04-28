@@ -5,7 +5,7 @@ public class Rental
 {
     public int Id { get; set; }
 
-    public int VehiculeId { get; set; }
+    public int VehicleId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]
     public Vehicle Vehicle { get; set; }
 

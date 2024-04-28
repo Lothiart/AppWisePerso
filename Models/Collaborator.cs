@@ -18,11 +18,11 @@ public class Collaborator
     public List<Rental> Rentals { get; set; }
 
     [DeleteBehavior(DeleteBehavior.NoAction)]
-    public List<Carpool> CarpoolsAsDriver { get; set; } 
+    public List<Carpool> CarpoolsAsDriver { get; set; }
 
     [DeleteBehavior(DeleteBehavior.NoAction)]
     public List<Carpool> CarpoolsAsPassenger { get; set; }
 
     public string AppUserId { get; set; }
-    public AppUser AppUser { get; set; }
+    public AppUser? AppUser { get; set; }
 }

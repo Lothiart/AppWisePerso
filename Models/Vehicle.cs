@@ -13,7 +13,7 @@ public class Vehicle
     public int TotalSeats { get; set; }
 
     public int CO2EmissionKm { get; set; }
-
+    public string ImageUrl { get; set; }
     public int StatusId { get; set; }
     public Status Status { get; set; } //faire fichier const
 

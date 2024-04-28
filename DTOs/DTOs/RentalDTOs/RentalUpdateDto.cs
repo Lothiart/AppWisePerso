@@ -1,6 +1,6 @@
 ﻿namespace DTOs.DTOs.RentalDTOs;
 
-public class RentalUpdateDto : RentalGetDto
+public class RentalUpdateDto : RentalAddDto
 {
-
+    public int Id { get; set; }
 }
