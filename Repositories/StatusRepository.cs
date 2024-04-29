@@ -10,40 +10,41 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
 {
     public async Task<List<StatusGetDto>> GetAllAsync()
     {
-        List<Status> allStatuses = await _context.Statuses.ToListAsync();
-
-        if (allStatuses == null)
-            return null;
-
-        List<StatusGetDto> listStatusesDto = new List<StatusGetDto>();
-        foreach (Status status in allStatuses)
+        try
         {
-            StatusGetDto allStatusesDto = new StatusGetDto
-            {
-                Id = status.Id,
-                Name = status.Name,
-            };
-            listStatusesDto.Add(allStatusesDto);
+            List<StatusGetDto> listAllStatuses =
+                await _context
+                        .Statuses
+                        .Select(s => new StatusGetDto
+                        {
+                            Id = s.Id,
+                            Name = s.Name,
+                        })
+                        .ToListAsync();
+
+            return listAllStatuses;
         }
-        return listStatusesDto;
+        catch (Exception)
+        {
+            throw;
+        }
     }
 
     public async Task<StatusGetDto> GetByIdAsync(int id)
     {
         try
         {
-            Status currentStatus = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+            StatusGetDto? currentStatus =
+                await _context
+                    .Statuses
+                    .Select(s => new StatusGetDto
+                    {
+                        Id = s.Id,
+                        Name = s.Name,
+                    })
+                    .FirstOrDefaultAsync(s => s.Id == id);
 
-            if (currentStatus == null)
-                return null;
-
-            StatusGetDto oneStatusDto = new StatusGetDto
-            {
-                Id = currentStatus.Id,
-                Name = currentStatus.Name,
-            };
-            return oneStatusDto;
-
+            return currentStatus;
         }
         catch (Exception)
         {
@@ -56,10 +57,12 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
     {
         try
         {
-            await _context.Statuses.AddAsync(new Status
-            {
-                Name = statusAddDto.Name,
-            });
+            await _context
+                .Statuses
+                .AddAsync(new Status
+                {
+                    Name = statusAddDto.Name,
+                });
 
             await _context.SaveChangesAsync();
             return statusAddDto;
@@ -70,11 +73,14 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
         }
     }
 
-    public async Task<StatusUpdateDto> UpdateAsync(StatusUpdateDto statusUpdateDto)
+    public async Task<Status> UpdateAsync(StatusUpdateDto statusUpdateDto)
     {
         try
         {
-            Status statusToUpdate = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == statusUpdateDto.Id);
+            Status? statusToUpdate =
+                await _context
+                    .Statuses
+                    .FirstOrDefaultAsync(s => s.Id == statusUpdateDto.Id);
 
             if (statusToUpdate == null)
                 return null;
@@ -82,10 +88,7 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
             statusToUpdate.Name = statusUpdateDto.Name;
 
             await _context.SaveChangesAsync();
-            return new StatusUpdateDto
-            {
-                Name = statusUpdateDto.Name,
-            };
+            return statusToUpdate;
         }
         catch (Exception)
         {
@@ -95,10 +98,12 @@ public class StatusRepository(DriveWiseContext _context) : IStatusRepository
 
     public async Task<Status> DeleteAsync(int id)
     {
-
         try
         {
-            Status statusToDelete = await _context.Statuses.FirstOrDefaultAsync(s => s.Id == id);
+            Status? statusToDelete =
+                await _context
+                    .Statuses
+                    .FirstOrDefaultAsync(s => s.Id == id);
 
             if (statusToDelete == null)
                 return null;

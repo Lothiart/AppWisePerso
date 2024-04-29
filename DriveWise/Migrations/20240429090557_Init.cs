@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DriveWise.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -102,7 +102,7 @@ namespace DriveWise.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Motor",
+                name: "Motors",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -111,7 +111,7 @@ namespace DriveWise.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Motor", x => x.Id);
+                    table.PrimaryKey("PK_Motors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -234,12 +234,33 @@ namespace DriveWise.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Collaborators",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Collaborators", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Collaborators_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Models",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BrandId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -276,33 +297,6 @@ namespace DriveWise.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Collaborators",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Collaborators", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Collaborators_Addresses_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Addresses",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Collaborators_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Vehicles",
                 columns: table => new
                 {
@@ -315,27 +309,20 @@ namespace DriveWise.Migrations
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     MotorId = table.Column<int>(type: "int", nullable: false),
                     ModelId = table.Column<int>(type: "int", nullable: false),
-                    CollaboratorId = table.Column<int>(type: "int", nullable: false),
-                    AddressId = table.Column<int>(type: "int", nullable: true)
+                    BrandId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Vehicles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Vehicles_Addresses_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Addresses",
+                        name: "FK_Vehicles_Brands_BrandId",
+                        column: x => x.BrandId,
+                        principalTable: "Brands",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Vehicles_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Vehicles_Collaborators_CollaboratorId",
-                        column: x => x.CollaboratorId,
-                        principalTable: "Collaborators",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -345,9 +332,9 @@ namespace DriveWise.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Vehicles_Motor_MotorId",
+                        name: "FK_Vehicles_Motors_MotorId",
                         column: x => x.MotorId,
-                        principalTable: "Motor",
+                        principalTable: "Motors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -359,56 +346,11 @@ namespace DriveWise.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Carpools",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EndAddressId = table.Column<int>(type: "int", nullable: false),
-                    StartAddressId = table.Column<int>(type: "int", nullable: false),
-                    DateId = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    VehicleId = table.Column<int>(type: "int", nullable: false),
-                    DriverId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Carpools", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Carpools_Addresses_EndAddressId",
-                        column: x => x.EndAddressId,
-                        principalTable: "Addresses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Carpools_Addresses_StartAddressId",
-                        column: x => x.StartAddressId,
-                        principalTable: "Addresses",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Carpools_Collaborators_DriverId",
-                        column: x => x.DriverId,
-                        principalTable: "Collaborators",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Carpools_Dates_DateId",
-                        column: x => x.DateId,
-                        principalTable: "Dates",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Carpools_Vehicles_VehicleId",
-                        column: x => x.VehicleId,
-                        principalTable: "Vehicles",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Rentals",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VehiculeId = table.Column<int>(type: "int", nullable: false),
                     VehicleId = table.Column<int>(type: "int", nullable: false),
                     CollaboratorId = table.Column<int>(type: "int", nullable: false),
                     StartDateId = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -437,6 +379,50 @@ namespace DriveWise.Migrations
                         name: "FK_Rentals_Vehicles_VehicleId",
                         column: x => x.VehicleId,
                         principalTable: "Vehicles",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Carpools",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EndAddressId = table.Column<int>(type: "int", nullable: false),
+                    StartAddressId = table.Column<int>(type: "int", nullable: false),
+                    DateId = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RentalId = table.Column<int>(type: "int", nullable: false),
+                    DriverId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carpools", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Carpools_Addresses_EndAddressId",
+                        column: x => x.EndAddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Carpools_Addresses_StartAddressId",
+                        column: x => x.StartAddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Carpools_Collaborators_DriverId",
+                        column: x => x.DriverId,
+                        principalTable: "Collaborators",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Carpools_Dates_DateId",
+                        column: x => x.DateId,
+                        principalTable: "Dates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Carpools_Rentals_RentalId",
+                        column: x => x.RentalId,
+                        principalTable: "Rentals",
                         principalColumn: "Id");
                 });
 
@@ -535,25 +521,20 @@ namespace DriveWise.Migrations
                 column: "EndAddressId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Carpools_RentalId",
+                table: "Carpools",
+                column: "RentalId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Carpools_StartAddressId",
                 table: "Carpools",
                 column: "StartAddressId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Carpools_VehicleId",
-                table: "Carpools",
-                column: "VehicleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_Name",
                 table: "Categories",
                 column: "Name",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Collaborators_AddressId",
-                table: "Collaborators",
-                column: "AddressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Collaborators_AppUserId",
@@ -567,14 +548,8 @@ namespace DriveWise.Migrations
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Models_Name",
-                table: "Models",
-                column: "Name",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Motor_Type",
-                table: "Motor",
+                name: "IX_Motors_Type",
+                table: "Motors",
                 column: "Type",
                 unique: true);
 
@@ -599,19 +574,14 @@ namespace DriveWise.Migrations
                 column: "VehicleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_AddressId",
+                name: "IX_Vehicles_BrandId",
                 table: "Vehicles",
-                column: "AddressId");
+                column: "BrandId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_CategoryId",
                 table: "Vehicles",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_CollaboratorId",
-                table: "Vehicles",
-                column: "CollaboratorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_ModelId",
@@ -657,13 +627,22 @@ namespace DriveWise.Migrations
                 name: "CarpoolCollaborator");
 
             migrationBuilder.DropTable(
-                name: "Rentals");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Carpools");
+
+            migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.DropTable(
+                name: "Rentals");
+
+            migrationBuilder.DropTable(
+                name: "Cities");
+
+            migrationBuilder.DropTable(
+                name: "Collaborators");
 
             migrationBuilder.DropTable(
                 name: "Dates");
@@ -672,31 +651,22 @@ namespace DriveWise.Migrations
                 name: "Vehicles");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Collaborators");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Models");
 
             migrationBuilder.DropTable(
-                name: "Motor");
+                name: "Motors");
 
             migrationBuilder.DropTable(
                 name: "Statuses");
 
             migrationBuilder.DropTable(
-                name: "Addresses");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Brands");
-
-            migrationBuilder.DropTable(
-                name: "Cities");
         }
     }
 }

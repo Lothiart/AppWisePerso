@@ -8,137 +8,31 @@ namespace Repositories;
 
 public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 {
+
+    ///////////  Admin  ///////////
+
     public async Task<List<VehicleAdminDto>> GetAllAdminAsync()
     {
-        List<Vehicle> allVehicles = await _context
-                                            .Vehicles
-                                            .Include(v => v.Category)
-                                            .Include(v => v.Motor)
-                                            .Include(v => v.Model)
-                                            .Include(v => v.Status)
-                                            .ToListAsync();
-
-        if (allVehicles == null)
-            return null;
-
-        List<VehicleAdminDto> listVehiclesDto = new List<VehicleAdminDto>();
-
-        foreach (Vehicle vehicle in allVehicles)
-        {
-            VehicleAdminDto allVehiclesDto = new VehicleAdminDto
-            {
-                Id = vehicle.Id,
-                Registration = vehicle.Registration,
-                TotalSeats = vehicle.TotalSeats,
-                CO2EmissionKm = vehicle.CO2EmissionKm,
-                CategoryName = vehicle.Category.Name,
-                MotorType = vehicle.Motor.Type,
-                ModelName = vehicle.Model.Name,
-                StatusName = vehicle.Status.Name,
-            };
-            listVehiclesDto.Add(allVehiclesDto);
-        }
-        return listVehiclesDto;
-    }
-
-    public async Task<List<VehicleGetDto>> GetAllAsync()
-    {
-        List<Vehicle> allVehicles = await _context
-                                                .Vehicles
-                                                .ToListAsync();
-
-        if (allVehicles == null)
-            return null;
-
-        List<VehicleGetDto> listVehiclesDto = new List<VehicleGetDto>();
-
-        foreach (Vehicle vehicle in allVehicles)
-        {
-            VehicleGetDto allVehiclesDto = new VehicleGetDto
-            {
-                Id = vehicle.Id,
-                Registration = vehicle.Registration,
-                TotalSeats = vehicle.TotalSeats,
-                CO2EmissionKm = vehicle.CO2EmissionKm,
-                CategoryName = vehicle.Category.Name,
-                MotorType = vehicle.Motor.Type,
-                ModelName = vehicle.Model.Name,
-            };
-            listVehiclesDto.Add(allVehiclesDto);
-        }
-        return listVehiclesDto;
-    }
-
-    public async Task<VehicleAdminDto> GetByIdAdminAsync(int id)
-    {
-        Vehicle currentVehicle = await _context
-                                            .Vehicles
-                                            .FirstOrDefaultAsync(v => v.Id == id);
-
-        if (currentVehicle == null)
-            return null;
-
-        VehicleAdminDto oneVehicleDto = new VehicleAdminDto
-        {
-            Id = currentVehicle.Id,
-            Registration = currentVehicle.Registration,
-            TotalSeats = currentVehicle.TotalSeats,
-            CO2EmissionKm = currentVehicle.CO2EmissionKm,
-            CategoryName = currentVehicle.Category.Name,
-            MotorType = currentVehicle.Motor.Type,
-            ModelName = currentVehicle.Model.Name,
-            StatusName = currentVehicle.Status.Name,
-        };
-        return oneVehicleDto;
-    }
-
-    public async Task<VehicleGetDto> GetByIdAsync(int id)
-    {
-        Vehicle currentVehicle = await _context
-                                            .Vehicles
-                                            .FirstOrDefaultAsync(v => v.Id == id);
-
-        if (currentVehicle == null)
-            return null;
-
-        VehicleGetDto oneVehicleDto = new VehicleGetDto
-        {
-            Id = currentVehicle.Id,
-            Registration = currentVehicle.Registration,
-            TotalSeats = currentVehicle.TotalSeats,
-            CO2EmissionKm = currentVehicle.CO2EmissionKm,
-            CategoryName = currentVehicle.Category.Name,
-            MotorType = currentVehicle.Motor.Type,
-            ModelName = currentVehicle.Model.Name,
-        };
-        return oneVehicleDto;
-    }
-
-    public async Task<VehicleAdminDto> AddAdminAsync(VehicleAdminDto vehicleAddDto)
-    {
-
         try
         {
-            await _context
-                    .Vehicles
-                    // .Include(v => v.Category)
-                    // .Include(v => v.Motor)
-                    // .Include(v => v.Model)
-                    // .Include(v => v.Status)
-                    .AddAsync(new Vehicle
-                    {
-                        Registration = vehicleAddDto.Registration,
-                        TotalSeats = vehicleAddDto.TotalSeats,
-                        CO2EmissionKm = vehicleAddDto.CO2EmissionKm,
-                        // CategoryName = vehicleAddDto.Category.Name,
-                        // MotorType = vehicleAddDto.Motor.Type,
-                        // ModelName = vehicleAddDto.Model.Name,
-                        // StatusName = vehicleAddDto.Status.Name,
-                    });
+            List<VehicleAdminDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Select(v => new VehicleAdminDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                            StatusName = v.Status.Name,
+                        })
+                        .ToListAsync();
 
-            await _context.SaveChangesAsync();
-            return vehicleAddDto;
-
+            return listAllVehicles;
         }
         catch (Exception)
         {
@@ -148,120 +42,403 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleAdminDto>> GetAllAddressesAdminAsync(string param)
+    public async Task<List<VehicleAdminDto>> GetAllByBrandAdminAsync(string brandName)
     {
-        // List<VehicleAdminDto> allVehiclesByAdresses = await _context.Vehicles.Include(v => v.
-
-        // entité vehicle n'a pas d'addresses
-        throw new NotImplementedException();
-
-    }
-
-    public async Task<List<VehicleGetDto>> GetAllAddressesAsync(string param)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    public async Task<List<VehicleAdminDto>> GetAllBrandsAdminAsync(string param)
-    {
-        List<Vehicle> allVehiclesByBrand = await _context
-                                                     .Vehicles
-                                                     .Where(v => v.Model.Brand.Name == param)
-                                                     .ToListAsync();
-
-        if (allVehiclesByBrand == null)
-            return null;
-
-        List<VehicleAdminDto> listVehiclesDto = new List<VehicleAdminDto>();
-
-        foreach (Vehicle vehicle in allVehiclesByBrand)
+        try
         {
-            VehicleAdminDto allVehiclesDto = new VehicleAdminDto
-            {
-                Id = vehicle.Id,
-                Registration = vehicle.Registration,
-                TotalSeats = vehicle.TotalSeats,
-                CO2EmissionKm = vehicle.CO2EmissionKm,
-                CategoryId = vehicle.CategoryId,
-                MotorId = vehicle.MotorId,
-                ModelId = vehicle.ModelId,
-                StatusId = vehicle.StatusId,
-            };
-            listVehiclesDto.Add(allVehiclesDto);
+            List<VehicleAdminDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Where(v => v.Model.Brand.Name == brandName)
+                        .Select(v => new VehicleAdminDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                            StatusName = v.Status.Name,
+                        })
+                        .ToListAsync();
+
+            return listAllVehicles;
         }
-        return listVehiclesDto;
-    }
-
-    public async Task<List<VehicleGetDto>> GetAllBrandsAsync(string param)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<VehicleAdminDto>> GetAllCategoriesAdminAsync(string param)
-    {
-        List<Vehicle> allVehiclesByAdresses = await _context
-                                                        .Vehicles
-                                                        .Where(v => v.Category.Name == param)
-                                                        .ToListAsync();
-
-        if (allVehiclesByAdresses == null)
-            return null;
-
-
-        List<VehicleAdminDto> listVehiclesDto = new List<VehicleAdminDto>();
-
-        foreach (Vehicle vehicle in allVehiclesByAdresses)
+        catch (Exception)
         {
-            VehicleAdminDto allVehiclesDto = new VehicleAdminDto
-            {
-                Id = vehicle.Id,
-                Registration = vehicle.Registration,
-                TotalSeats = vehicle.TotalSeats,
-                CO2EmissionKm = vehicle.CO2EmissionKm,
-                CategoryId = vehicle.CategoryId,// inutile ->faire un nouveau dto
-                MotorId = vehicle.MotorId,
-                ModelId = vehicle.ModelId,
-                StatusId = vehicle.StatusId,
-            };
-            listVehiclesDto.Add(allVehiclesDto);
+
+            throw;
         }
-        return listVehiclesDto;
-
-    }
-
-    public async Task<List<VehicleGetDto>> GetAllCategoriesAsync(string param)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<VehicleAdminDto>> GetAllModelsAdminAsync(string param)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<VehicleGetDto>> GetAllModelsAsync(string param)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<VehicleAdminDto>> GetAllMotorsAdminAsync(string param)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<VehicleGetDto>> GetAllMotorsAsync(string param)
-    {
-        throw new NotImplementedException();
     }
 
 
-    public async Task<VehicleUpdateDto> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto)
+    public async Task<List<VehicleAdminDto>> GetAllByCategoryAdminAsync(string categoryName)
     {
-        throw new NotImplementedException();
+        try
+        {
+            List<VehicleAdminDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Where(v => v.Category.Name == categoryName)
+                        .Select(v => new VehicleAdminDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                            StatusName = v.Status.Name,
+                        })
+                        .ToListAsync();
+
+            return listAllVehicles;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
-    public async Task DeleteAdminAsync(int id)
+
+
+    public async Task<List<VehicleAdminDto>> GetAllByMotorTypeAdminAsync(string motorType)
     {
-        throw new NotImplementedException();
+        try
+        {
+            List<VehicleAdminDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Where(v => v.Motor.Type == motorType)
+                        .Select(v => new VehicleAdminDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                            StatusName = v.Status.Name,
+                        })
+                        .ToListAsync();
+
+            return listAllVehicles;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+
+    public async Task<List<VehicleAdminDto>> GetAllByStatusNameAdminAsync(string statusName)
+    {
+        try
+        {
+            List<VehicleAdminDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Where(v => v.Status.Name == statusName)
+                        .Select(v => new VehicleAdminDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                            StatusName = v.Status.Name,
+                        })
+                        .ToListAsync();
+
+            return listAllVehicles;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+
+    public async Task<VehicleAdminDto> GetByIdAdminAsync(int id)
+    {
+        try
+        {
+            VehicleAdminDto? currentVehicle =
+                await _context
+                        .Vehicles
+                        .Select(v => new VehicleAdminDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                            StatusName = v.Status.Name,
+                        })
+                        .FirstOrDefaultAsync(v => v.Id == id);
+
+            return currentVehicle;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+
+    public async Task<VehicleAdminDto> AddAdminAsync(VehicleAdminDto vehicleAdminDto)
+    {
+        try
+        {
+            await _context
+                    .Vehicles
+                    .AddAsync(new Vehicle
+                    {
+                        Registration = vehicleAdminDto.Registration,
+                        TotalSeats = vehicleAdminDto.TotalSeats,
+                        CO2EmissionKm = vehicleAdminDto.CO2EmissionKm,
+                        StatusId = vehicleAdminDto.StatusId,
+                        CategoryId = (int)vehicleAdminDto.CategoryId,
+                        MotorId = (int)vehicleAdminDto.MotorId,
+                        ModelId = (int)vehicleAdminDto.ModelId,
+                        //Brand ????
+                    });
+
+            await _context.SaveChangesAsync();
+            return vehicleAdminDto;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+
+    public async Task<Vehicle> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto)
+    {
+        try
+        {
+            Vehicle? vehicleToUpdate =
+                await _context
+                        .Vehicles
+                        .FirstOrDefaultAsync(v => v.Id == vehicleUpdateDto.Id);
+
+            if (vehicleToUpdate == null)
+                return null;
+
+            vehicleToUpdate.Registration = vehicleUpdateDto.Registration;
+            vehicleToUpdate.TotalSeats = vehicleUpdateDto.TotalSeats;
+            vehicleToUpdate.CO2EmissionKm = vehicleUpdateDto.CO2EmissionKm;
+            vehicleToUpdate.StatusId = vehicleUpdateDto.StatusId;
+            vehicleToUpdate.CategoryId = (int)vehicleUpdateDto.CategoryId;
+            vehicleToUpdate.MotorId = (int)vehicleUpdateDto.MotorId;
+            vehicleToUpdate.ModelId = (int)vehicleUpdateDto.ModelId;
+            //Brand ????
+
+
+            await _context.SaveChangesAsync();
+            return vehicleToUpdate;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+
+    public async Task<Vehicle> DeleteAsync(int id)
+    {
+        try
+        {
+            Vehicle? vehicleToDelete = await _context.Vehicles.FirstOrDefaultAsync(v => v.Id == id);
+
+            if (vehicleToDelete == null)
+                return null;
+
+            _context.Vehicles.Remove(vehicleToDelete);
+            await _context.SaveChangesAsync();
+            return vehicleToDelete;
+
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+
+    ///////////  Collaborator  ///////////
+
+
+    public async Task<List<VehicleGetDto>> GetAllByDatesAsync(VehicleByDateDto vehicleByDateDto)
+    {
+        try
+        {
+            List<VehicleGetDto> listVehicleGetDtos =
+                await _context
+                        .Rentals
+                        .Where(r => ((vehicleByDateDto.EndDateId < r.StartDateId)
+                                || (vehicleByDateDto.StartDateId > r.EndDateId))
+                                && r.Vehicle.Status.Name == "AVAILABLE"
+                                )
+                        .Select(r => new VehicleGetDto
+                        {
+                            Id = r.Id,
+                            Registration = r.Vehicle.Registration,
+                            TotalSeats = r.Vehicle.TotalSeats,
+                            CO2EmissionKm = r.Vehicle.CO2EmissionKm,
+                            CategoryName = r.Vehicle.Category.Name,
+                            MotorType = r.Vehicle.Motor.Type,
+                            ModelName = r.Vehicle.Model.Name,
+                            BrandName = r.Vehicle.Model.Brand.Name,
+                        })
+                        .ToListAsync();
+
+            return listVehicleGetDtos;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+
+
+    public async Task<List<VehicleGetDto>> GetAllByBrandAsync(string brandName)
+    {
+        try
+        {
+            List<VehicleGetDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Where(v => v.Model.Brand.Name == brandName)
+                        .Select(v => new VehicleGetDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+
+                        })
+                        .ToListAsync();
+
+            return listAllVehicles;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+
+    public async Task<List<VehicleGetDto>> GetAllByCategoryAsync(string categoryName)
+    {
+        try
+        {
+            List<VehicleGetDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Where(v => v.Category.Name == categoryName)
+                        .Select(v => new VehicleGetDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+
+                        })
+                        .ToListAsync();
+
+            return listAllVehicles;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+
+    public async Task<List<VehicleGetDto>> GetAllByMotorTypeAsync(string motorType)
+    {
+        try
+        {
+            List<VehicleGetDto> listAllVehicles =
+                await _context
+                        .Vehicles
+                        .Where(v => v.Motor.Type == motorType)
+                        .Select(v => new VehicleGetDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                        })
+                        .ToListAsync();
+
+            return listAllVehicles;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+
+    public async Task<VehicleGetDto> GetByIdAsync(int id)
+    {
+        try
+        {
+            VehicleGetDto? currentVehicle =
+                await _context
+                        .Vehicles
+                        .Select(v => new VehicleGetDto
+                        {
+                            Id = v.Id,
+                            Registration = v.Registration,
+                            TotalSeats = v.TotalSeats,
+                            CO2EmissionKm = v.CO2EmissionKm,
+                            CategoryName = v.Category.Name,
+                            MotorType = v.Motor.Type,
+                            ModelName = v.Model.Name,
+                            BrandName = v.Model.Brand.Name,
+                        })
+                        .FirstOrDefaultAsync(v => v.Id == id);
+
+            return currentVehicle;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
 }

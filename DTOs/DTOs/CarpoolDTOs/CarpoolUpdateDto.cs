@@ -1,6 +1,6 @@
 ﻿using DTOs.DTOs.AddressDTOs;
 using DTOs.DTOs.CollaboratorDTOs;
-using DTOs.DTOs.VehicleDTOs;
+using DTOs.DTOs.RentalDTOs;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ public class CarpoolUpdateDto
     public CollaboratorGetDto CollaboratorGetDto { get; set; }
     public List<CollaboratorGetDto> PassengersGetDto { get; set; }
     public int RemainingSeats { get; set; }
-    public VehicleGetDto VehicleGetDto { get; set; }
+    public RentalGetDto RentalGetDto { get; set; }
     public AddressGetDto StartAddressDto { get; set; }
     public AddressGetDto EndAddress { get; set; }
     public DateTime DateId { get; set; }

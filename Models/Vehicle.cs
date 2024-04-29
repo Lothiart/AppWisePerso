@@ -26,7 +26,10 @@ public class Vehicle
     public int ModelId { get; set; }
     public Model Model { get; set; }
 
-    public List<Carpool> Carpools { get; set; }
+    public int BrandId { get; set; }
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+
+    public Brand Brand { get; set; }
 
     public List<Rental> Rentals { get; set; }
 }

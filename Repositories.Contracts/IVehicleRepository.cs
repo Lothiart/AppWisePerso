@@ -1,30 +1,29 @@
 ﻿using DTOs.DTOs.VehicleDTOs;
+using Entities;
 
 namespace Repositories.Contracts;
 
 public interface IVehicleRepository
 {
-    Task<VehicleAdminDto> AddAdminAsync(VehicleAdminDto vehicleAddDto);
+    Task<List<VehicleAdminDto>> GetAllAdminAsync();
+    Task<List<VehicleAdminDto>> GetAllByBrandAdminAsync(string brandName);
+    Task<List<VehicleAdminDto>> GetAllByCategoryAdminAsync(string categoryName);
+    Task<List<VehicleAdminDto>> GetAllByMotorTypeAdminAsync(string motorType);
+    Task<List<VehicleAdminDto>> GetAllByStatusNameAdminAsync(string statusName);
+    Task<VehicleAdminDto> GetByIdAdminAsync(int id);
+    Task<VehicleAdminDto> AddAdminAsync(VehicleAdminDto vehicleAdminDto);
+    Task<Vehicle> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto);
+    Task<Vehicle> DeleteAsync(int id);
+    Task<List<VehicleGetDto>> GetAllByDatesAsync(VehicleByDateDto vehicleByDateDto);
+    Task<List<VehicleGetDto>> GetAllByBrandAsync(string brandName);
+    Task<List<VehicleGetDto>> GetAllByCategoryAsync(string categoryName);
+    Task<List<VehicleGetDto>> GetAllByMotorTypeAsync(string motorType);
+    Task<VehicleGetDto> GetByIdAsync(int id);
 
-    Task<List<VehicleGetDto>> GetAllAsync(); //ok
-    Task<VehicleGetDto> GetByIdAsync(int id);//ok
-    Task<List<VehicleGetDto>> GetAllModelsAsync(string param);
-    Task<List<VehicleGetDto>> GetAllBrandsAsync(string param);
-    Task<List<VehicleGetDto>> GetAllMotorsAsync(string param);
-    Task<List<VehicleGetDto>> GetAllCategoriesAsync(string param);
-    Task<List<VehicleGetDto>> GetAllAddressesAsync(string param);
 
 
 
-    Task<List<VehicleAdminDto>> GetAllAdminAsync();//ok
-    Task<VehicleAdminDto> GetByIdAdminAsync(int id);//ok
-    Task<List<VehicleAdminDto>> GetAllModelsAdminAsync(string param);
-    Task<List<VehicleAdminDto>> GetAllBrandsAdminAsync(string param);
-    Task<List<VehicleAdminDto>> GetAllMotorsAdminAsync(string param);
-    Task<List<VehicleAdminDto>> GetAllCategoriesAdminAsync(string param);
-    Task<List<VehicleAdminDto>> GetAllAddressesAdminAsync(string param);
 
-    Task<VehicleUpdateDto> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto);
 
-    Task DeleteAdminAsync(int id);
+
 }

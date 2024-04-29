@@ -73,7 +73,7 @@ public class CarpoolRepository(
             List<Carpool> carpools = await context.Carpools
                 .Include(c => c.StartAddress)
                 .Include(c => c.EndAddress)
-                .Include(c => c.Vehicle)
+                .Include(c => c.Rental)
                 .Include(c => c.Driver)
                 .Include(c => c.Passengers)
                 .ToListAsync();
@@ -101,7 +101,7 @@ public class CarpoolRepository(
             List<Carpool> carpools = await context.Carpools
                     .Include(c => c.StartAddress)
                     .Include(c => c.EndAddress)
-                    .Include(c => c.Vehicle)
+                    .Include(c => c.Rental)
                     .Include(c => c.Driver)
                     .Include(c => c.Passengers)
                     .Where(c => c.StartAddress.City.Name == startCity && c.EndAddress.City.Name == endCity && c.DateId == dateId)
@@ -125,7 +125,7 @@ public class CarpoolRepository(
             Carpool c = await context.Carpools
                     .Include(c => c.StartAddress)
                     .Include(c => c.EndAddress)
-                    .Include(c => c.Vehicle)
+                    .Include(c => c.Rental)
                     .Include(c => c.Driver)
                     .Include(c => c.Passengers)
                     .FirstOrDefaultAsync(c => c.Id == id) ?? throw new Exception("Carpool not found)");
@@ -146,7 +146,7 @@ public class CarpoolRepository(
             List<Carpool> carpools = await context.Carpools
                     .Include(c => c.StartAddress)
                     .Include(c => c.EndAddress)
-                    .Include(c => c.Vehicle)
+                    .Include(c => c.Rental)
                     .Include(c => c.Driver)
                     .Include(c => c.Passengers)
                     .Where(c => c.DriverId == id)
@@ -178,7 +178,7 @@ public class CarpoolRepository(
                 c.DateId = carpoolUpdateDto.DateId;
                 c.StartAddressId = carpoolUpdateDto.StartAddressDto.Id;
                 c.EndAddressId = carpoolUpdateDto.EndAddress.Id;
-                c.VehicleId = carpoolUpdateDto.VehicleGetDto.Id;
+                c.RentalId = carpoolUpdateDto.RentalGetDto.Id;
 
                 await context.SaveChangesAsync();
             }

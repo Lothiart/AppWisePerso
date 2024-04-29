@@ -17,13 +17,13 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 {
 
     /// <summary>
-    /// Get all motors  A VERIFIER
+    /// Get all motors test OK
     /// </summary>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
-    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
+
     [HttpGet]
 
     public async Task<ActionResult<List<MotorGetDto>>> GetAllMotors()
@@ -32,7 +32,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         {
             List<MotorGetDto> listMotorsDto = await motorRepository.GetAllAsync();
 
-            return listMotorsDto == null ? NotFound() : Ok(listMotorsDto);
+            return Ok(listMotorsDto);
         }
         catch (Exception)
         {
@@ -42,7 +42,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
 
     /// <summary>
-    /// Get one motor by Id  A VERIFIER
+    /// Get one motor by Id test OK
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -51,6 +51,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
+
     [HttpGet]
 
     public async Task<ActionResult<MotorGetDto>> GetMotorById(int id)
@@ -72,7 +73,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
 
     /// <summary>
-    /// Add new motor  A VERIFIER
+    /// Add new motor test OK
     /// </summary>
     /// <param name="motorAddDto"></param>
     /// <returns></returns>
@@ -103,7 +104,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
 
     /// <summary>
-    /// Update a motor   A VERIFIER
+    /// Update a motor test OK
     /// </summary>
     /// <param name="motorUpdateDto"></param>
     /// <returns></returns>
@@ -114,7 +115,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
     [HttpPut]
 
-    public async Task<ActionResult<MotorUpdateDto>> UpdateMotor(MotorUpdateDto motorUpdateDto)
+    public async Task<ActionResult<Motor>> UpdateMotor(MotorUpdateDto motorUpdateDto)
     {
         if (motorUpdateDto.Id <= 0)
             return BadRequest("\"Id\" must be a positive number");
@@ -122,7 +123,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         try
         {
 
-            MotorUpdateDto motorToUpdate = await motorRepository.UpdateAsync(motorUpdateDto);
+            Motor motorToUpdate = await motorRepository.UpdateAsync(motorUpdateDto);
 
             return motorToUpdate == null ? NotFound() : Ok($"The status has been updated to {motorToUpdate.Type}");
 
@@ -131,14 +132,11 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         {
             throw;
         }
-
-
-
     }
 
 
     /// <summary>
-    /// Delete a motor   A VERIFIER
+    /// Delete a motor test OK
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -166,6 +164,5 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         {
             throw;
         }
-
     }
 }
