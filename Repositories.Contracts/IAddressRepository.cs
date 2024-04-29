@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.AddressDTOs;
+﻿using Services.DTOs.AddressDTOs;
 using Services.DTOs.AddressDTOs;
 using Entities;
 using System;
