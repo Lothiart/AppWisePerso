@@ -16,10 +16,11 @@ public class CarpoolRepository(
 {
     public async Task AddAsync(CarpoolAddDto carpoolAddDto)
     {
-        //vérifier les dates
-
         try
         {
+            if (carpoolAddDto.DateId >= carpoolAddDto.Rental.StartDate && carpoolAddDto.DateId <= carpoolAddDto.DateId.Rental.EndDate)
+                throw new Exception("Date must be within your rental dates");
+
             Carpool c = carpoolMapper.CarpoolAddDtoToCarpool(carpoolAddDto);
 
             await context.Carpools.AddAsync(c);
@@ -163,10 +164,13 @@ public class CarpoolRepository(
         }
     }
 
-    public async Task Update(CarpoolUpdateDto carpoolUpdateDto)
+    public async Task UpdateAsync(CarpoolUpdateDto carpoolUpdateDto)
     {
         try
         {
+            if (carpoolUpdateDto.DateId >= carpoolUpdateDto.Rental.StartDate && carpoolUpdateDto.DateId <= carpoolUpdateDto.DateId.Rental.EndDate)
+                throw new Exception("Date must be within your rental dates");
+
             Carpool c = await context.Carpools.FindAsync(carpoolUpdateDto.Id) ?? throw new Exception("Carpool not found");
 
             if (carpoolUpdateDto.PassengersGetDto.Count <= 0)

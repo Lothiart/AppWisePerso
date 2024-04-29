@@ -1,4 +1,5 @@
 ﻿using DTOs.DTOs.BrandDTOs;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 namespace Repositories.Contracts;
 public interface IBrandRepository
 {
-    Task AddAsync(BrandAddDto brandDto);
-    Task<BrandGetDto> GetById(int id);
+    Task<BrandAddDto> AddAsync(BrandAddDto brandDto);
+    Task<BrandGetDto> GetByIdAsync(int id);
     Task<List<BrandGetDto>> GetAllAsync();
-    Task UpdateAsync(BrandUpdateDto brandUpdateDto);
-    Task DeleteAsync(int id);
+    Task<Brand> UpdateAsync(BrandUpdateDto brandUpdateDto);
+    Task<bool> DeleteAsync(int id);
 }

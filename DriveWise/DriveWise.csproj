@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DTOs\DTOs.csproj" />
     <ProjectReference Include="..\Models\Entities.csproj" />
     <ProjectReference Include="..\Repositories.Contracts\Repositories.Contracts.csproj" />
     <ProjectReference Include="..\Repositories\Repositories.csproj" />

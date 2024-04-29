@@ -8,13 +8,14 @@ using Services.DTOs.AddressDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Repositories;
 public class AddressRepository(DriveWiseContext context, ILogger<AddressRepository> logger) : IAddressRepository
 {
-    public async Task AddAsync(AddressAddDto addressAddDto)
+    public async Task<AddressAddDto> AddAsync(AddressAddDto addressAddDto)
     {
         try
         {
@@ -27,6 +28,8 @@ public class AddressRepository(DriveWiseContext context, ILogger<AddressReposito
 
             await context.Addresses.AddAsync(a);
             await context.SaveChangesAsync();
+
+            return addressAddDto;
         }
         catch (Exception ex)
         {
@@ -35,17 +38,18 @@ public class AddressRepository(DriveWiseContext context, ILogger<AddressReposito
         }
     }
 
-    public async Task DeleteByIdAsync(int id)
+    public async Task<Address> DeleteAsync(int id)
     {
-        Address a = context.Addresses.Find(id) ?? throw new Exception("Address not found");
+        Address? a = context.Addresses.Find(id) ?? null;
 
         context.Addresses.Remove(a);
         await context.SaveChangesAsync();
+        return a;
     }
 
     public async Task<AddressGetDto> GetByIdAsync(int id)
     {
-        Address a = await context.Addresses.Include(a => a.City).FirstOrDefaultAsync(a => a.Id == id) ?? throw new Exception("Address not found");
+        Address? a = await context.Addresses.Include(a => a.City).FirstOrDefaultAsync(a => a.Id == id) ?? null;
 
         AddressGetDto addressDto = new AddressGetDto()
         {
@@ -59,15 +63,15 @@ public class AddressRepository(DriveWiseContext context, ILogger<AddressReposito
         return addressDto;
     }
 
-    public async Task Update(AddressUpdateDto addressUpdateDto)
+    public async Task<AddressUpdateDto> UpdateAsync(AddressUpdateDto addressUpdateDto)
     {
-        Address a = await context.Addresses.FirstOrDefaultAsync(a => a.Id == addressUpdateDto.Id) ?? throw new Exception("Address not found");
+        Address? a = await context.Addresses.FirstOrDefaultAsync(a => a.Id == addressUpdateDto.Id) ?? null;
 
         a.Line1 = addressUpdateDto.Line1;
         a.Line2 = addressUpdateDto.Line2;
         a.CityId = addressUpdateDto.CityId;
 
         await context.SaveChangesAsync();
-
+        return addressUpdateDto;
     }
 }
