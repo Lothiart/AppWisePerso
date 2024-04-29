@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services.DTOs.RentalDTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,4 +13,5 @@ public class CarpoolAddDto
     public DateTime DateId { get; set; }
     public int RentalId { get; set; }
     public int DriverId { get; set; }
+    public RentalGetDto RentalGetDto { get; set; }
 }

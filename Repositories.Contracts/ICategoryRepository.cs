@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.CategoryDTOs;
+﻿using Services.DTOs.CategoryDTOs;
 using Entities;
 using Services.DTOs.CategoryDTOs;
 using System;

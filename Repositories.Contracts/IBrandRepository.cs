@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.BrandDTOs;
+﻿using Services.DTOs.BrandDTOs;
 using Entities;
 using System;
 using System.Collections.Generic;

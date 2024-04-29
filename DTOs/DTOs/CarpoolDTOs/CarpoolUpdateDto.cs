@@ -1,5 +1,5 @@
-﻿using DTOs.DTOs.CollaboratorDTOs;
-using DTOs.DTOs.RentalDTOs;
+﻿using Services.DTOs.CollaboratorDTOs;
+using Services.DTOs.RentalDTOs;
 using Entities;
 using Services.DTOs.AddressDTOs;
 using System;
