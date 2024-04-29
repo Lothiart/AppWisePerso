@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.StatusDTOs;
+﻿using Services.DTOs.StatusDTOs;
 using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Repositories.Contracts;
-using DTOs.DTOs.ModelDTOs;
+using Services.DTOs.ModelDTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repositories

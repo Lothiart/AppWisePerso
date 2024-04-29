@@ -5,13 +5,13 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriveWise", "DriveWise\DriveWise.csproj", "{C0D980CD-E944-4F5B-B71D-51B83669620A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Models\Entities.csproj", "{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Models\Entities.csproj", "{C856ECDE-1835-4F2C-9F9F-D64528F1CAD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories.Contracts", "Repositories.Contracts\Repositories.Contracts.csproj", "{F2DAA72C-B4A7-4398-8794-7A192C511080}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories.Contracts", "Repositories.Contracts\Repositories.Contracts.csproj", "{F2DAA72C-B4A7-4398-8794-7A192C511080}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{D4E76524-8B72-4CFC-82D6-D07BD448F545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{D4E76524-8B72-4CFC-82D6-D07BD448F545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{8655B693-629B-4D2C-B80E-05DED780056B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "DTOs\Services.csproj", "{8655B693-629B-4D2C-B80E-05DED780056B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

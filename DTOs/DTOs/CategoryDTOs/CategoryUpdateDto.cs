@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTOs.DTOs.CategoryDTOs;
+namespace Services.DTOs.CategoryDTOs;
 public class CategoryUpdateDto : CategoryAddDto
 {
     public int Id { get; set; }

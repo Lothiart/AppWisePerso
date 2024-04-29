@@ -1,5 +1,5 @@
-﻿using DTOs.DTOs.CityDTOs;
-using DTOs.DTOs.ModelDTOs;
+﻿using Services.DTOs.CityDTOs;
+using Services.DTOs.ModelDTOs;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;

@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.CityDTOs;
+﻿using Services.DTOs.CityDTOs;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 using System.ComponentModel;

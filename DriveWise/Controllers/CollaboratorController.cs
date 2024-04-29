@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.CollaboratorDTOs;
+﻿using Services.DTOs.CollaboratorDTOs;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 

@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.BrandDTOs;
+﻿using Services.DTOs.BrandDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +13,16 @@ using System.Threading.Tasks;
 namespace Repositories;
 public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> logger) : IBrandRepository
 {
-    public async Task AddAsync(BrandAddDto brandDto)
+    public async Task<BrandAddDto> AddAsync(BrandAddDto brandDto)
     {
         try
         {
             Brand b = new Brand() { Name = brandDto.Name };
+
+            await context.AddAsync(b);
             await context.SaveChangesAsync();
+
+            return brandDto;
         }
         catch (Exception ex)
         {
@@ -27,12 +31,27 @@ public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> 
         }
     }
 
-    public async Task DeleteAsync(int id)
+    /// <summary>
+    /// Delete a brand.
+    /// Returns number of deleted data in database
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public async Task<bool> DeleteAsync(int id)
     {
-        Brand b = await context.Brands.FindAsync(id) ?? throw new Exception("Brand not found");
+        try
+        {
+            Brand? b = await context.Brands.FindAsync(id) ?? null;
 
-        context.Remove(b);
-        await context.SaveChangesAsync();
+            int numDeleted = await context.SaveChangesAsync();
+
+            return numDeleted == 1 ? true : false;
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to delete brand");
+            throw;
+        }
     }
 
     public async Task<List<BrandGetDto>> GetAllAsync()
@@ -63,21 +82,37 @@ public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> 
         }
     }
 
-    public async Task<BrandGetDto> GetById(int id)
+    public async Task<BrandGetDto> GetByIdAsync(int id)
     {
-        Brand b = await context.Brands.FirstOrDefaultAsync(b => b.Id == id) ?? throw new Exception("Brand not found");
+        try
+        {
+            Brand? b = await context.Brands.FirstOrDefaultAsync(b => b.Id == id) ?? null;
 
-        BrandGetDto brandDto = new BrandGetDto() { Id = b.Id, Name = b.Name };
+            BrandGetDto brandDto = new BrandGetDto() { Id = b.Id, Name = b.Name };
 
-        return brandDto;
+            return brandDto;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 
-    public async Task UpdateAsync(BrandUpdateDto brandUpdateDto)
+    public async Task<Brand> UpdateAsync(BrandUpdateDto brandDto)
     {
-        Brand b = await context.Brands.FindAsync(brandUpdateDto.Id) ?? throw new Exception("Brand not found");
+        try
+        {
+            Brand? b = await context.Brands.FindAsync(brandDto.Id) ?? null;
 
-        b.Name = brandUpdateDto.Name;
+            b.Name = brandDto.Name;
 
-        await context.SaveChangesAsync();
+            await context.SaveChangesAsync();
+
+            return b;
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 }

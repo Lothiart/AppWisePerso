@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTOs.DTOs.AddressDTOs;
+namespace Services.DTOs.AddressDTOs;
 public class AddressGetDto : AddressAddDto
 {
     public int Id { get; set; }

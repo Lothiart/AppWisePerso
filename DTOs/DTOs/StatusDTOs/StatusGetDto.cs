@@ -1,4 +1,4 @@
-﻿namespace DTOs.DTOs.StatusDTOs;
+﻿namespace Services.DTOs.StatusDTOs;
 
 public class StatusGetDto : StatusAddDto
 {

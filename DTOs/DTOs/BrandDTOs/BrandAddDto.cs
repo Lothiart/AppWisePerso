@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTOs.DTOs.BrandDTOs;
+namespace Services.DTOs.BrandDTOs;
 public class BrandAddDto
 {
     public string Name { get; set; }

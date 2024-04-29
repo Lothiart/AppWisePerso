@@ -1,6 +1,4 @@
-using Entities;
-
-namespace DTOs.DTOs.VehicleDTOs;
+namespace Services.DTOs.VehicleDTOs;
 
 public class VehicleAdminDto : VehicleAddDto
 {

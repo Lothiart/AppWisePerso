@@ -1,4 +1,6 @@
 ﻿using DTOs.DTOs.AddressDTOs;
+using Services.DTOs.AddressDTOs;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +10,8 @@ using System.Threading.Tasks;
 namespace Repositories.Contracts;
 public interface IAddressRepository
 {
-    Task AddAsync(AddressAddDto addressAddDto);
+    Task<AddressAddDto> AddAsync(AddressAddDto addressAddDto);
     Task<AddressGetDto> GetByIdAsync(int id);
-    Task Update(AddressUpdateDto addressUpdateDto);
-    Task DeleteByIdAsync(int id);
+    Task<AddressUpdateDto> UpdateAsync(AddressUpdateDto addressUpdateDto);
+    Task<Address> DeleteAsync(int id);
 }
