@@ -1,8 +1,10 @@
+using Entities;
+
 namespace DTOs.DTOs.VehicleDTOs;
 
-public class VehicleAdminDto : VehicleGetDto
+public class VehicleAdminDto : VehicleAddDto
 {
     public int StatusId { get; set; }
-    public string StatusName { get; set; }
+
 }
 

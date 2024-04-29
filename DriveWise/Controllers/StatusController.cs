@@ -83,13 +83,8 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
 
         try
         {
-            StatusAddDto status = new StatusAddDto
-            {
-                Name = statusAddDto.Name,
-            };
-
-            status = await statusRepository.AddAsync(status);
-            return Ok($"New status {status.Name} has been created");
+            StatusAddDto statusToCreate = await statusRepository.AddAsync(statusAddDto);
+            return Ok($"New status {statusToCreate.Name} has been created");
         }
         catch (Exception)
         {

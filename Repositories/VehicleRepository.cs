@@ -11,24 +11,26 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
     ///////////  Admin  ///////////
 
-    public async Task<List<VehicleAdminDto>> GetAllAdminAsync()
+    #region Admin
+
+    public async Task<List<VehicleGetAdminDto>> GetAllAdminAsync()
     {
         try
         {
-            List<VehicleAdminDto> listAllVehicles =
+            List<VehicleGetAdminDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Select(v => new VehicleAdminDto
+                        .Select(v => new VehicleGetAdminDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
-                            StatusName = v.Status.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
+                            StatusId = v.Status.Id,
                         })
                         .ToListAsync();
 
@@ -42,25 +44,25 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleAdminDto>> GetAllByBrandAdminAsync(string brandName)
+    public async Task<List<VehicleGetAdminDto>> GetAllByBrandAdminAsync(int id)
     {
         try
         {
-            List<VehicleAdminDto> listAllVehicles =
+            List<VehicleGetAdminDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Where(v => v.Model.Brand.Name == brandName)
-                        .Select(v => new VehicleAdminDto
+                        .Where(v => v.Model.Brand.Id == id)
+                        .Select(v => new VehicleGetAdminDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
-                            StatusName = v.Status.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
+                            StatusId = v.Status.Id,
                         })
                         .ToListAsync();
 
@@ -74,25 +76,25 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleAdminDto>> GetAllByCategoryAdminAsync(string categoryName)
+    public async Task<List<VehicleGetAdminDto>> GetAllByCategoryAdminAsync(int id)
     {
         try
         {
-            List<VehicleAdminDto> listAllVehicles =
+            List<VehicleGetAdminDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Where(v => v.Category.Name == categoryName)
-                        .Select(v => new VehicleAdminDto
+                        .Where(v => v.Category.Id == id)
+                        .Select(v => new VehicleGetAdminDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
-                            StatusName = v.Status.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
+                            StatusId = v.Status.Id,
                         })
                         .ToListAsync();
 
@@ -106,25 +108,25 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleAdminDto>> GetAllByMotorTypeAdminAsync(string motorType)
+    public async Task<List<VehicleGetAdminDto>> GetAllByMotorTypeAdminAsync(int id)
     {
         try
         {
-            List<VehicleAdminDto> listAllVehicles =
+            List<VehicleGetAdminDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Where(v => v.Motor.Type == motorType)
-                        .Select(v => new VehicleAdminDto
+                        .Where(v => v.Motor.Id == id)
+                        .Select(v => new VehicleGetAdminDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
-                            StatusName = v.Status.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
+                            StatusId = v.Status.Id,
                         })
                         .ToListAsync();
 
@@ -138,25 +140,25 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleAdminDto>> GetAllByStatusNameAdminAsync(string statusName)
+    public async Task<List<VehicleGetAdminDto>> GetAllByStatusNameAdminAsync(int id)
     {
         try
         {
-            List<VehicleAdminDto> listAllVehicles =
+            List<VehicleGetAdminDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Where(v => v.Status.Name == statusName)
-                        .Select(v => new VehicleAdminDto
+                        .Where(v => v.Status.Id == id)
+                        .Select(v => new VehicleGetAdminDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
-                            StatusName = v.Status.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
+                            StatusId = v.Status.Id,
                         })
                         .ToListAsync();
 
@@ -170,24 +172,24 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<VehicleAdminDto> GetByIdAdminAsync(int id)
+    public async Task<VehicleGetAdminDto> GetByIdAdminAsync(int id)
     {
         try
         {
-            VehicleAdminDto? currentVehicle =
+            VehicleGetAdminDto? currentVehicle =
                 await _context
                         .Vehicles
-                        .Select(v => new VehicleAdminDto
+                        .Select(v => new VehicleGetAdminDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
-                            StatusName = v.Status.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
+                            StatusId = v.Status.Id,
                         })
                         .FirstOrDefaultAsync(v => v.Id == id);
 
@@ -212,11 +214,11 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                         Registration = vehicleAdminDto.Registration,
                         TotalSeats = vehicleAdminDto.TotalSeats,
                         CO2EmissionKm = vehicleAdminDto.CO2EmissionKm,
-                        StatusId = vehicleAdminDto.StatusId,
+                        StatusId = vehicleAdminDto.StatusId,// 1
                         CategoryId = (int)vehicleAdminDto.CategoryId,
                         MotorId = (int)vehicleAdminDto.MotorId,
                         ModelId = (int)vehicleAdminDto.ModelId,
-                        //Brand ????
+                        BrandId = (int)vehicleAdminDto.BrandId,
                     });
 
             await _context.SaveChangesAsync();
@@ -248,7 +250,7 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             vehicleToUpdate.CategoryId = (int)vehicleUpdateDto.CategoryId;
             vehicleToUpdate.MotorId = (int)vehicleUpdateDto.MotorId;
             vehicleToUpdate.ModelId = (int)vehicleUpdateDto.ModelId;
-            //Brand ????
+            vehicleToUpdate.BrandId = (int)vehicleUpdateDto.BrandId;
 
 
             await _context.SaveChangesAsync();
@@ -261,7 +263,7 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<Vehicle> DeleteAsync(int id)
+    public async Task<Vehicle> DeleteAdminAsync(int id)
     {
         try
         {
@@ -281,9 +283,11 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
         }
     }
 
+    #endregion
 
     ///////////  Collaborator  ///////////
 
+    #region Collaborator
 
     public async Task<List<VehicleGetDto>> GetAllByDatesAsync(VehicleByDateDto vehicleByDateDto)
     {
@@ -294,7 +298,7 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                         .Rentals
                         .Where(r => ((vehicleByDateDto.EndDateId < r.StartDateId)
                                 || (vehicleByDateDto.StartDateId > r.EndDateId))
-                                && r.Vehicle.Status.Name == "AVAILABLE"
+                                && r.Vehicle.Status.Id == 1
                                 )
                         .Select(r => new VehicleGetDto
                         {
@@ -302,10 +306,11 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             Registration = r.Vehicle.Registration,
                             TotalSeats = r.Vehicle.TotalSeats,
                             CO2EmissionKm = r.Vehicle.CO2EmissionKm,
-                            CategoryName = r.Vehicle.Category.Name,
-                            MotorType = r.Vehicle.Motor.Type,
-                            ModelName = r.Vehicle.Model.Name,
-                            BrandName = r.Vehicle.Model.Brand.Name,
+                            CategoryId = r.Vehicle.Category.Id,
+                            MotorId = r.Vehicle.Motor.Id,
+                            ModelId = r.Vehicle.Model.Id,
+                            BrandId = r.Vehicle.Model.Brand.Id,
+
                         })
                         .ToListAsync();
 
@@ -318,24 +323,24 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleGetDto>> GetAllByBrandAsync(string brandName)
+    public async Task<List<VehicleGetDto>> GetAllByBrandAsync(int id)
     {
         try
         {
             List<VehicleGetDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Where(v => v.Model.Brand.Name == brandName)
+                        .Where(v => v.Model.Brand.Id == id)
                         .Select(v => new VehicleGetDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
 
                         })
                         .ToListAsync();
@@ -350,24 +355,24 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleGetDto>> GetAllByCategoryAsync(string categoryName)
+    public async Task<List<VehicleGetDto>> GetAllByCategoryAsync(int id)
     {
         try
         {
             List<VehicleGetDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Where(v => v.Category.Name == categoryName)
+                        .Where(v => v.Category.Id == id)
                         .Select(v => new VehicleGetDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
 
                         })
                         .ToListAsync();
@@ -382,24 +387,24 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     }
 
 
-    public async Task<List<VehicleGetDto>> GetAllByMotorTypeAsync(string motorType)
+    public async Task<List<VehicleGetDto>> GetAllByMotorTypeAsync(int id)
     {
         try
         {
             List<VehicleGetDto> listAllVehicles =
                 await _context
                         .Vehicles
-                        .Where(v => v.Motor.Type == motorType)
+                        .Where(v => v.Motor.Id == id)
                         .Select(v => new VehicleGetDto
                         {
                             Id = v.Id,
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
                         })
                         .ToListAsync();
 
@@ -426,10 +431,10 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             Registration = v.Registration,
                             TotalSeats = v.TotalSeats,
                             CO2EmissionKm = v.CO2EmissionKm,
-                            CategoryName = v.Category.Name,
-                            MotorType = v.Motor.Type,
-                            ModelName = v.Model.Name,
-                            BrandName = v.Model.Brand.Name,
+                            CategoryId = v.Category.Id,
+                            MotorId = v.Motor.Id,
+                            ModelId = v.Model.Id,
+                            BrandId = v.Model.Brand.Id,
                         })
                         .FirstOrDefaultAsync(v => v.Id == id);
 
@@ -441,4 +446,7 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             throw;
         }
     }
+
+    #endregion
+
 }

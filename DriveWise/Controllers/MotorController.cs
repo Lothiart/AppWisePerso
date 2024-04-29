@@ -88,13 +88,8 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
     {
         try
         {
-            MotorAddDto motor = new MotorAddDto
-            {
-                Type = motorAddDto.Type,
-            };
-
-            motor = await motorRepository.AddAsync(motorAddDto);
-            return Ok($"New motor type {motor.Type} has been added");
+            MotorAddDto motorToCreate = await motorRepository.AddAsync(motorAddDto);
+            return Ok($"New motor type {motorToCreate.Type} has been added");
         }
         catch (Exception)
         {
@@ -111,6 +106,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
     [HttpPut]

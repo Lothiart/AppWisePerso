@@ -109,16 +109,99 @@
         </member>
         <member name="M:DriveWise.Controllers.VehicleController.GetAllAdmin">
             <summary>
-            Get all vehicles for Admin A VERIFIER
+            Get all vehicles for Admin TEST OK
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByBrandAdmin(System.Int32)">
+            <summary>
+            Get all vehicles by brand name for Admin TEST OK
+            </summary>
+            <param name="brandName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByCategoryAdmin(System.Int32)">
+            <summary>
+            Get all vehicles by category name for Admin TEST OK
+            </summary>
+            <param name="categoryName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByMotorAdmin(System.Int32)">
+            <summary>
+            Get all vehicles by motor type for Admin TEST OK
+            </summary>
+            <param name="motorType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByStatusAdmin(System.Int32)">
+            <summary>
+            Get all vehicles by status name for Admin TEST OK
+            </summary>
+            <param name="statusName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetByIdAdmin(System.Int32)">
+            <summary>
+            Get a vehicle by Id for Admin TEST OK
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.Add(DTOs.DTOs.VehicleDTOs.VehicleAdminDto)">
+            <summary>
+            Create a new vehicle for Admin TEST OK
+            </summary>
+            <param name="vehicleAdminDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.Update(DTOs.DTOs.VehicleDTOs.VehicleUpdateDto)">
+            <summary>
+             Update a vehicle for Admin TEST OK
+            </summary>
+            <param name="vehicleUpdateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.Delete(System.Int32)">
+            <summary>
+            Delete a vehicle for Admin TEST OK
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.VehicleController.GetAllByDates(DTOs.DTOs.VehicleDTOs.VehicleByDateDto)">
             <summary>
             Look for a list of cars to rent by dates A VERIFIER
-            
             </summary>
             <param name="vehicleByDateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByBrand(System.Int32)">
+            <summary>
+            Get all vehicles by brand name  A VERIFIER
+            </summary>
+            <param name="brandName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByCategory(System.Int32)">
+            <summary>
+            Get all vehicles by category name A VERIFIER
+            </summary>
+            <param name="categoryName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByMotor(System.Int32)">
+            <summary>
+            Get all vehicles by motor type A VERIFIER
+            </summary>
+            <param name="motorType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetById(System.Int32)">
+            <summary>
+            Get a vehicle by Id A VERIFIER
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:DriveWise.Migrations.Init">

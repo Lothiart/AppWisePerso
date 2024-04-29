@@ -121,9 +121,9 @@ public class RentalController(IRentalRepository rentalRepository) : ControllerBa
     {
         try
         {
-            rentalAddDto = await rentalRepository.AddAsync(rentalAddDto);
+            RentalAddDto rentalToCreate = await rentalRepository.AddAsync(rentalAddDto);
 
-            return Ok($"Your rental has been successfully added");
+            return Ok($"Your rental has been successfully created and will start on {rentalToCreate.StartDateId.ToShortDateString}");
         }
         catch (Exception)
         {

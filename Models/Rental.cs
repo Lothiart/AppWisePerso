@@ -19,4 +19,6 @@ public class Rental
     public DateTime EndDateId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]
     public Date EndDate { get; set; }
+
+    public List<Carpool> Carpools { get; set; }
 }

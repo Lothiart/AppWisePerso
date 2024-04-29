@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace DTOs.Mappers;
 public class VehicleMapper
 {
-    public VehicleGetDto VehicleToVehicleGetDto(Vehicle vehicle)
+    public VehicleTempDto VehicleToVehicleGetDto(Vehicle vehicle)
     {
-        VehicleGetDto vehicleDto = new VehicleGetDto()
+        VehicleTempDto vehicleDto = new VehicleTempDto()
         {
             Id = vehicle.Id,
             CategoryId = vehicle.CategoryId,
@@ -25,6 +25,6 @@ public class VehicleMapper
             TotalSeats = vehicle.TotalSeats
         };
 
-        return vehicleDto;  
+        return vehicleDto;
     }
 }
