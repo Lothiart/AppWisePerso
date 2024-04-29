@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace DriveWise.Controllers;
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class CarpoolController : ControllerBase
 {

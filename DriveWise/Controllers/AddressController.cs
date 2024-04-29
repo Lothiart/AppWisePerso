@@ -1,11 +1,11 @@
-﻿using DTOs.DTOs.AddressDTOs;
+﻿using Services.DTOs.AddressDTOs;
 using Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 
 namespace DriveWise.Controllers;
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class AddressController(IAddressRepository addressRepository) : ControllerBase
 {

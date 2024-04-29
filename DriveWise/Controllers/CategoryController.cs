@@ -1,10 +1,10 @@
-﻿using DTOs.DTOs.CategoryDTOs;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
+using Services.DTOs.CategoryDTOs;
 
 namespace DriveWise.Controllers;
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class CategoryController(ICategoryRepository categoryRepository) : ControllerBase
 {

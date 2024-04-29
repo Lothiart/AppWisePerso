@@ -4,6 +4,89 @@
         <name>DriveWise</name>
     </assembly>
     <members>
+        <member name="M:DriveWise.Controllers.AddressController.Add(Services.DTOs.AddressDTOs.AddressAddDto)">
+            <summary>
+            Add an address (with city id) - VERIFIER
+            </summary>
+            <param name="addressDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.AddressController.GetById(System.Int32)">
+            <summary>
+            Get address by id - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.AddressController.Delete(System.Int32)">
+            <summary>
+            Provide address id to delete it - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.AddressController.Update(Services.DTOs.AddressDTOs.AddressUpdateDto)">
+            <summary>
+            Update address (including city id) - VERIFIER
+            </summary>
+            <param name="addressDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.BrandController.Add(Services.DTOs.BrandDTOs.BrandAddDto)">
+            <summary>
+            Add brand - VERIFIER
+            </summary>
+            <param name="brandAddDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.BrandController.Delete(System.Int32)">
+            <summary>
+            Delete brand - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.BrandController.GetById(System.Int32)">
+            <summary>
+            Get brand by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CategoryController.Add(Services.DTOs.CategoryDTOs.CategoryAddDto)">
+            <summary>
+            Add new category - VERIFER
+            </summary>
+            <param name="categoryAddDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Delete existing category - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CategoryController.GetAll">
+            <summary>
+            Get all existing categories - VERIFIER
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CategoryController.GetById(System.Int32)">
+            <summary>
+            Get catgory by id - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CategoryController.Update(Services.DTOs.CategoryDTOs.CategoryUpdateDto)">
+            <summary>
+            Update existing category - VERIFIER
+            </summary>
+            <param name="categoryDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:DriveWise.Controllers.MotorController.GetAllMotors">
             <summary>
             Get all motors test OK
@@ -17,7 +100,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.MotorController.AddMotor(DTOs.DTOs.MotorDTOs.MotorAddDto)">
+        <member name="M:DriveWise.Controllers.MotorController.AddMotor(Services.DTOs.MotorDTOs.MotorAddDto)">
             <summary>
             Add new motor test OK
             </summary>
@@ -25,7 +108,7 @@
             <returns></returns>
             
         </member>
-        <member name="M:DriveWise.Controllers.MotorController.UpdateMotor(DTOs.DTOs.MotorDTOs.MotorUpdateDto)">
+        <member name="M:DriveWise.Controllers.MotorController.UpdateMotor(Services.DTOs.MotorDTOs.MotorUpdateDto)">
             <summary>
             Update a motor test OK
             </summary>
@@ -52,14 +135,14 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.RentalController.Add(DTOs.DTOs.RentalDTOs.RentalAddDto)">
+        <member name="M:DriveWise.Controllers.RentalController.Add(Services.DTOs.RentalDTOs.RentalAddDto)">
             <summary>
             Create a new rental A VERIFIER
             </summary>
             <param name="rentalAddDto"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.RentalController.Update(DTOs.DTOs.RentalDTOs.RentalUpdateDto)">
+        <member name="M:DriveWise.Controllers.RentalController.Update(Services.DTOs.RentalDTOs.RentalUpdateDto)">
             <summary>
              Update a rental A VERIFIER
             </summary>
@@ -86,14 +169,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.StatusController.AddStatus(DTOs.DTOs.StatusDTOs.StatusAddDto)">
+        <member name="M:DriveWise.Controllers.StatusController.AddStatus(Services.DTOs.StatusDTOs.StatusAddDto)">
             <summary>
             Create a new status by giving it a name test OK
             </summary>
             <param name="statusAddDto"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.StatusController.UpdateStatus(DTOs.DTOs.StatusDTOs.StatusUpdateDto)">
+        <member name="M:DriveWise.Controllers.StatusController.UpdateStatus(Services.DTOs.StatusDTOs.StatusUpdateDto)">
             <summary>
             Update a Status test OK
             </summary>
@@ -148,14 +231,14 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.Add(DTOs.DTOs.VehicleDTOs.VehicleAdminDto)">
+        <member name="M:DriveWise.Controllers.VehicleController.Add(Services.DTOs.VehicleDTOs.VehicleAdminDto)">
             <summary>
             Create a new vehicle for Admin TEST OK
             </summary>
             <param name="vehicleAdminDto"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.Update(DTOs.DTOs.VehicleDTOs.VehicleUpdateDto)">
+        <member name="M:DriveWise.Controllers.VehicleController.Update(Services.DTOs.VehicleDTOs.VehicleUpdateDto)">
             <summary>
              Update a vehicle for Admin TEST OK
             </summary>
@@ -169,7 +252,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByDates(DTOs.DTOs.VehicleDTOs.VehicleByDateDto)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByDates(Services.DTOs.VehicleDTOs.VehicleByDateDto)">
             <summary>
             Look for a list of cars to rent by dates A VERIFIER
             </summary>
