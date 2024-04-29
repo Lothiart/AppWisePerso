@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Repositories;
 public class CategoryRepository(DriveWiseContext context, CategoryMapper categoryMapper, ILogger<CategoryRepository> logger) : ICategoryRepository
 {
-    public async Task AddAsync(CategoryAddDto categoryAddDto)
+    public async Task<CategoryAddDto> AddAsync(CategoryAddDto categoryAddDto)
     {
         Category? c = await context.Categories.FirstOrDefaultAsync(c => c.Name.ToUpper() == categoryAddDto.Name.ToUpper());
 
@@ -22,18 +22,21 @@ public class CategoryRepository(DriveWiseContext context, CategoryMapper categor
         {
             Category newCategory = categoryMapper.CategoryAddDtoToCategory(categoryAddDto);
             await context.AddAsync(newCategory);
+
+            return categoryAddDto;
         }
         else throw new Exception("Category already exists");
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
         try
         {
             Category c = await context.Categories.FindAsync(id) ?? throw new Exception("Category not found");
 
             context.Categories.Remove(c);
-            await context.SaveChangesAsync();
+
+            return await context.SaveChangesAsync() == 1 ? true : false;
         }
         catch (Exception ex)
         {
@@ -64,12 +67,12 @@ public class CategoryRepository(DriveWiseContext context, CategoryMapper categor
         return categoryMapper.CategoryToCategoryGetDto(c);
     }
 
-    public async Task UpdateAsync(CategoryUpdateDto categoryDto)
+    public async Task<bool> UpdateAsync(CategoryUpdateDto categoryDto)
     {
         Category c = await context.Categories.FindAsync(categoryDto.Id) ?? throw new Exception("Category not found");
 
         c.Name = categoryDto.Name;
 
-        await context.SaveChangesAsync();
+        return await context.SaveChangesAsync() == 1 ? true : false;
     }
 }
