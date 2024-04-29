@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.CollaboratorDTOs;
+﻿using Services.DTOs.CollaboratorDTOs;
 using Entities;
 using System;
 using System.Collections.Generic;

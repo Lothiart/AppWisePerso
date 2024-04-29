@@ -1,6 +1,6 @@
 using Entities.Const;
-using DTOs.DTOs.CityDTOs;
-using DTOs.DTOs.CollaboratorDTOs;
+using Services.DTOs.CityDTOs;
+using Services.DTOs.CollaboratorDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.AspNetCore.Identity;

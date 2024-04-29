@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTOs.DTOs.CollaboratorDTOs
+namespace Services.DTOs.CollaboratorDTOs
 {
     public class CollaboratorUpdateDto : CollaboratorAddDto
     {

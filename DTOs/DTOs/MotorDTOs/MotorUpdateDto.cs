@@ -1,4 +1,4 @@
-﻿namespace DTOs.DTOs.MotorDTOs;
+﻿namespace Services.DTOs.MotorDTOs;
 
 public class MotorUpdateDto : MotorGetDto
 {

@@ -1,5 +1,5 @@
-﻿using DTOs.DTOs.AddressDTOs;
-using Entities;
+﻿using Entities;
+using Services.DTOs.AddressDTOs;
 
 
 namespace DTOs.Mappers;

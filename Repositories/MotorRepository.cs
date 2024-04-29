@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.MotorDTOs;
+﻿using Services.DTOs.MotorDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;

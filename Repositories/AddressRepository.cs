@@ -1,9 +1,10 @@
-﻿using DTOs.DTOs.AddressDTOs;
+﻿using Services.DTOs.AddressDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
+using Services.DTOs.AddressDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,6 @@ public class AddressRepository(DriveWiseContext context, ILogger<AddressReposito
     {
         try
         {
-
             Address a = new Address()
             {
                 Line1 = addressAddDto.Line1,

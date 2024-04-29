@@ -1,4 +1,4 @@
-﻿namespace DTOs.DTOs.RentalDTOs;
+﻿namespace Services.DTOs.RentalDTOs;
 
 public class RentalUpdateDto : RentalAddDto
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTOs.DTOs.CarpoolDTOs;
+namespace Services.DTOs.CarpoolDTOs;
 public class CarpoolAddDto
 {
     public int EndAddressId { get; set; }

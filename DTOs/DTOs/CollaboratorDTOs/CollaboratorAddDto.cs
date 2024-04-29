@@ -7,8 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 using Entities;
 
-
-namespace DTOs.DTOs.CollaboratorDTOs
+namespace Services.DTOs.CollaboratorDTOs
 {
     public class CollaboratorAddDto
     {

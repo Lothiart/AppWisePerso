@@ -1,4 +1,4 @@
-﻿using DTOs.DTOs.CategoryDTOs;
+﻿using Services.DTOs.CategoryDTOs;
 using DTOs.Mappers;
 using Entities;
 using Entities.Contexts;
