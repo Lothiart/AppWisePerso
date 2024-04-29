@@ -22,7 +22,6 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
     /// <returns></returns>
 
     [ProducesResponseType(200)]
-    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
     [HttpGet]
@@ -33,7 +32,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         {
             List<MotorGetDto> listMotorsDto = await motorRepository.GetAllAsync();
 
-            return listMotorsDto == null ? NotFound() : Ok(listMotorsDto);
+            return Ok(listMotorsDto);
         }
         catch (Exception)
         {
@@ -116,7 +115,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
     [HttpPut]
 
-    public async Task<ActionResult<MotorUpdateDto>> UpdateMotor(MotorUpdateDto motorUpdateDto)
+    public async Task<ActionResult<Motor>> UpdateMotor(MotorUpdateDto motorUpdateDto)
     {
         if (motorUpdateDto.Id <= 0)
             return BadRequest("\"Id\" must be a positive number");
@@ -124,7 +123,7 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         try
         {
 
-            MotorUpdateDto motorToUpdate = await motorRepository.UpdateAsync(motorUpdateDto);
+            Motor motorToUpdate = await motorRepository.UpdateAsync(motorUpdateDto);
 
             return motorToUpdate == null ? NotFound() : Ok($"The status has been updated to {motorToUpdate.Type}");
 
@@ -133,9 +132,6 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         {
             throw;
         }
-
-
-
     }
 
 

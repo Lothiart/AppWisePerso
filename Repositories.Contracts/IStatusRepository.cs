@@ -8,6 +8,6 @@ public interface IStatusRepository
     Task<StatusAddDto> AddAsync(StatusAddDto statusAddDto);
     Task<List<StatusGetDto>> GetAllAsync();
     Task<StatusGetDto> GetByIdAsync(int id);
-    Task<StatusUpdateDto> UpdateAsync(StatusUpdateDto statusUpdateDto);
+    Task<Status> UpdateAsync(StatusUpdateDto statusUpdateDto);
     Task<Status> DeleteAsync(int id);
 }

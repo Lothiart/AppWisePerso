@@ -13,7 +13,7 @@ public class Vehicle
     public int TotalSeats { get; set; }
 
     public int CO2EmissionKm { get; set; }
-    public string ImageUrl { get; set; }
+
     public int StatusId { get; set; }
     public Status Status { get; set; } //faire fichier const
 
@@ -26,7 +26,10 @@ public class Vehicle
     public int ModelId { get; set; }
     public Model Model { get; set; }
 
-    public List<Carpool> Carpools { get; set; }
+    public int BrandId { get; set; }
+    [DeleteBehavior(DeleteBehavior.NoAction)]
+
+    public Brand Brand { get; set; }
 
     public List<Rental> Rentals { get; set; }
 }

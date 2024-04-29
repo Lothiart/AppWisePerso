@@ -165,10 +165,10 @@ namespace DriveWise.Migrations
                     b.Property<int>("EndAddressId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StartAddressId")
+                    b.Property<int>("RentalId")
                         .HasColumnType("int");
 
-                    b.Property<int>("VehicleId")
+                    b.Property<int>("StartAddressId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -179,9 +179,9 @@ namespace DriveWise.Migrations
 
                     b.HasIndex("EndAddressId");
 
-                    b.HasIndex("StartAddressId");
+                    b.HasIndex("RentalId");
 
-                    b.HasIndex("VehicleId");
+                    b.HasIndex("StartAddressId");
 
                     b.ToTable("Carpools");
                 });
@@ -368,16 +368,13 @@ namespace DriveWise.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AddressId")
+                    b.Property<int>("BrandId")
                         .HasColumnType("int");
 
                     b.Property<int>("CO2EmissionKm")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CollaboratorId")
                         .HasColumnType("int");
 
                     b.Property<int>("ModelId")
@@ -398,11 +395,9 @@ namespace DriveWise.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
+                    b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("CollaboratorId");
 
                     b.HasIndex("ModelId");
 
@@ -595,15 +590,15 @@ namespace DriveWise.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entities.Address", "StartAddress")
-                        .WithMany("CarpoolStartAdresses")
-                        .HasForeignKey("StartAddressId")
+                    b.HasOne("Entities.Rental", "Rental")
+                        .WithMany()
+                        .HasForeignKey("RentalId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("Entities.Vehicle", "Vehicle")
-                        .WithMany("Carpools")
-                        .HasForeignKey("VehicleId")
+                    b.HasOne("Entities.Address", "StartAddress")
+                        .WithMany("CarpoolStartAdresses")
+                        .HasForeignKey("StartAddressId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -611,9 +606,9 @@ namespace DriveWise.Migrations
 
                     b.Navigation("EndAddress");
 
-                    b.Navigation("StartAddress");
+                    b.Navigation("Rental");
 
-                    b.Navigation("Vehicle");
+                    b.Navigation("StartAddress");
                 });
 
             modelBuilder.Entity("Entities.Collaborator", b =>
@@ -675,19 +670,17 @@ namespace DriveWise.Migrations
 
             modelBuilder.Entity("Entities.Vehicle", b =>
                 {
-                    b.HasOne("Entities.Address", null)
-                        .WithMany("VehicleLocations")
-                        .HasForeignKey("AddressId");
+                    b.HasOne("Entities.Brand", "Brand")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("Entities.Category", "Category")
                         .WithMany("Vehicles")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Entities.Collaborator", null)
-                        .WithMany("Vehicles")
-                        .HasForeignKey("CollaboratorId");
 
                     b.HasOne("Entities.Model", "Model")
                         .WithMany("Vehicles")
@@ -706,6 +699,8 @@ namespace DriveWise.Migrations
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Brand");
 
                     b.Navigation("Category");
 
@@ -772,8 +767,6 @@ namespace DriveWise.Migrations
                     b.Navigation("CarpoolEndAdresses");
 
                     b.Navigation("CarpoolStartAdresses");
-
-                    b.Navigation("VehicleLocations");
                 });
 
             modelBuilder.Entity("Entities.AppUser", b =>
@@ -785,6 +778,8 @@ namespace DriveWise.Migrations
             modelBuilder.Entity("Entities.Brand", b =>
                 {
                     b.Navigation("Models");
+
+                    b.Navigation("Vehicles");
                 });
 
             modelBuilder.Entity("Entities.Category", b =>
@@ -802,8 +797,6 @@ namespace DriveWise.Migrations
                     b.Navigation("CarpoolsAsDriver");
 
                     b.Navigation("Rentals");
-
-                    b.Navigation("Vehicles");
                 });
 
             modelBuilder.Entity("Entities.Date", b =>
@@ -832,8 +825,6 @@ namespace DriveWise.Migrations
 
             modelBuilder.Entity("Entities.Vehicle", b =>
                 {
-                    b.Navigation("Carpools");
-
                     b.Navigation("Rentals");
                 });
 #pragma warning restore 612, 618

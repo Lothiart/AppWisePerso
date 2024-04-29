@@ -131,39 +131,6 @@ public class RentalController(IRentalRepository rentalRepository) : ControllerBa
         }
     }
 
-    /// <summary>
-    /// Research a car to rent by dates A VERIFIER
-    /// </summary>
-    /// <param name="rentalResearchDateDto"></param>
-    /// <returns></returns>
-
-    [ProducesResponseType(200)]
-    [ProducesResponseType(400)]
-    [ProducesResponseType(500)]
-
-    [HttpPost]
-
-    public async Task<ActionResult<List<VehicleGetDto>>> ResearchCarByDates(RentalResearchDateDto rentalResearchDateDto)
-    {
-        if (rentalResearchDateDto.EndDateId <= rentalResearchDateDto.StartDateId)
-            return BadRequest("Ending rental date must be later than starting rental date");
-
-        try
-        {
-            List<VehicleGetDto> listVehiclesDto = new List<VehicleGetDto>();
-
-            listVehiclesDto = await rentalRepository.ResearchCarRentalAsync(rentalResearchDateDto);
-
-            return Ok(listVehiclesDto);
-
-        }
-        catch (Exception)
-        {
-
-            throw;
-        }
-    }
-
 
     /// <summary>
     ///  Update a rental A VERIFIER

@@ -17,9 +17,9 @@ public class Carpool
     [ForeignKey(nameof(Date))]
     public DateTime DateId { get; set; }
 
-    public int VehicleId { get; set; }
+    public int RentalId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]
-    public Vehicle Vehicle { get; set; }
+    public Rental Rental { get; set; }
 
     public int DriverId { get; set; }
     [DeleteBehavior(DeleteBehavior.NoAction)]

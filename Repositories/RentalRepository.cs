@@ -92,39 +92,6 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
     }
 
 
-    public async Task<List<VehicleGetDto>> ResearchCarRentalAsync(RentalResearchDateDto rentalResearchDateDto)
-    {
-        try
-        {
-            List<VehicleGetDto> listVehicleGetDtos = await _context
-                                                            .Rentals
-                                                            .Where(r => ((rentalResearchDateDto.StartDateId < r.StartDateId && rentalResearchDateDto.EndDateId < r.StartDateId)
-                                                                            || (rentalResearchDateDto.StartDateId > r.EndDateId && rentalResearchDateDto.EndDateId > r.EndDateId))
-                                                                            && r.Vehicle.Status.Name == "AVAILABLE"
-                                                                    )
-                                                            .Select(r => new VehicleGetDto
-                                                            {
-                                                                Id = r.Id,
-                                                                Registration = r.Vehicle.Registration,
-                                                                TotalSeats = r.Vehicle.TotalSeats,
-                                                                CO2EmissionKm = r.Vehicle.CO2EmissionKm,
-                                                                ImageUrl = r.Vehicle.ImageUrl,
-                                                                CategoryName = r.Vehicle.Category.Name,
-                                                                MotorType = r.Vehicle.Motor.Type,
-                                                                ModelName = r.Vehicle.Model.Name,
-                                                                BrandName = r.Vehicle.Model.Brand.Name,
-                                                            })
-                                                            .ToListAsync();
-
-            return listVehicleGetDtos;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
-    }
-
-
     public async Task<Rental> UpdateAsync(RentalUpdateDto rentalUpdateDto)
     {
         try
@@ -132,7 +99,8 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
             Rental? rentalToUpdate = await _context
                                             .Rentals
                                             .Where(r => ((rentalUpdateDto.StartDateId < r.StartDateId && rentalUpdateDto.EndDateId < r.StartDateId)
-                                                || (rentalUpdateDto.StartDateId > r.EndDateId && rentalUpdateDto.EndDateId > r.EndDateId)) && r.Collaborator.CarpoolsAsPassenger.Count() == 0)
+                                                || (rentalUpdateDto.StartDateId > r.EndDateId && rentalUpdateDto.EndDateId > r.EndDateId))
+                                                && r.Collaborator.CarpoolsAsPassenger.Count() == 0)
                                             .FirstOrDefaultAsync(r => r.Id == rentalUpdateDto.Id);
 
             if (rentalToUpdate == null)

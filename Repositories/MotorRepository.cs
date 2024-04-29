@@ -10,48 +10,62 @@ public class MotorRepository(DriveWiseContext _context) : IMotorRepository
 {
     public async Task<List<MotorGetDto>> GetAllAsync()
     {
-        List<Motor> AllMotors = await _context.Motors.ToListAsync();
-
-        if (AllMotors == null)
-            return null;
-
-        List<MotorGetDto> ListMotorsDto = new List<MotorGetDto>();
-
-        foreach (Motor motor in AllMotors)
+        try
         {
-            MotorGetDto allMotorsDto = new MotorGetDto
-            {
-                Id = motor.Id,
-                Type = motor.Type,
-            };
-            ListMotorsDto.Add(allMotorsDto);
+            List<MotorGetDto> listAllMotors =
+                await _context
+                        .Motors
+                        .Select(m => new MotorGetDto
+                        {
+                            Id = m.Id,
+                            Type = m.Type,
+                        })
+                        .ToListAsync();
+
+            return listAllMotors;
         }
-        return ListMotorsDto;
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
+
 
     public async Task<MotorGetDto> GetByIdAsync(int id)
     {
-        Motor currentMotor = await _context.Motors.FirstOrDefaultAsync(m => m.Id == id);
-
-        if (currentMotor == null)
-            return null;
-
-        MotorGetDto OneMotorDto = new MotorGetDto
+        try
         {
-            Id = currentMotor.Id,
-            Type = currentMotor.Type,
-        };
-        return OneMotorDto;
+            MotorGetDto? currentMotor =
+                await _context
+                        .Motors
+                        .Select(m => new MotorGetDto
+                        {
+                            Id = m.Id,
+                            Type = m.Type,
+                        })
+                        .FirstOrDefaultAsync(m => m.Id == id);
+
+            return currentMotor;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
     }
+
 
     public async Task<MotorAddDto> AddAsync(MotorAddDto motorAddDto)
     {
         try
         {
-            await _context.Motors.AddAsync(new Motor
-            {
-                Type = motorAddDto.Type,
-            });
+            await _context
+                    .Motors
+                    .AddAsync(new Motor
+                    {
+                        Type = motorAddDto.Type,
+                    });
 
             await _context.SaveChangesAsync();
             return motorAddDto;
@@ -62,38 +76,44 @@ public class MotorRepository(DriveWiseContext _context) : IMotorRepository
         }
     }
 
-    public async Task<MotorUpdateDto> UpdateAsync(MotorUpdateDto motorUpdateDto)
+
+    public async Task<Motor> UpdateAsync(MotorUpdateDto motorUpdateDto)
     {
-        Motor motorToUpdate = await _context.Motors.FirstOrDefaultAsync(m => m.Id == motorUpdateDto.Id);
-        if (motorToUpdate == null)
-            return null;
-
-        motorToUpdate.Id = motorUpdateDto.Id;
-        motorToUpdate.Type = motorUpdateDto.Type;
-
         try
         {
+            Motor? motorToUpdate =
+                await _context
+                        .Motors
+                        .FirstOrDefaultAsync(m => m.Id == motorUpdateDto.Id);
+
+            if (motorToUpdate == null)
+                return null;
+
+            motorToUpdate.Id = motorUpdateDto.Id;
+            motorToUpdate.Type = motorUpdateDto.Type;
+
             await _context.SaveChangesAsync();
-            return new MotorUpdateDto
-            {
-                Id = motorUpdateDto.Id,
-                Type = motorUpdateDto.Type,
-            };
+            return motorToUpdate;
         }
         catch (Exception)
         {
             throw;
         }
     }
+
+
     public async Task<Motor> DeleteAsync(int id)
     {
-        Motor motorToDelete = await _context.Motors.FirstOrDefaultAsync(m => m.Id == id);
-
-        if (motorToDelete == null)
-            return null;
-
         try
         {
+            Motor? motorToDelete =
+                await _context
+                        .Motors
+                        .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (motorToDelete == null)
+                return null;
+
             _context.Motors.Remove(motorToDelete);
             await _context.SaveChangesAsync();
             return motorToDelete;

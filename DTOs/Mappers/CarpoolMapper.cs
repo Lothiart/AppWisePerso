@@ -35,8 +35,8 @@ public class CarpoolMapper(CollaboratorMapper collaboratorMapper,
             DriverId = carpool.DriverId,
             Driver = collaboratorMapper.CollaboratorToCollaboratorGetDto(carpool.Driver),
             DateId = carpool.DateId,
-            VehicleGetDto = vehicleMapper.VehicleToVehicleGetDto(carpool.Vehicle),
-            RemainingSeats = carpool.Vehicle.TotalSeats - carpool.Passengers.Count - 1, //-1 = driver seat
+            VehicleGetDto = vehicleMapper.VehicleToVehicleGetDto(carpool.Rental.Vehicle),
+            RemainingSeats = carpool.Rental.Vehicle.TotalSeats - carpool.Passengers.Count - 1, //-1 = driver seat
             StartAddressDto = addressMapper.AddressToAddressGetDto(carpool.StartAddress),
             EndAddressDto = addressMapper.AddressToAddressGetDto(carpool.EndAddress),
             PassengersDto = collaboratorMapper.ListCollaboratorToListCollaboratorGetDto(carpool.Passengers),
@@ -58,7 +58,7 @@ public class CarpoolMapper(CollaboratorMapper collaboratorMapper,
             DriverId = carpoolDto.DriverId,
             EndAddressId = carpoolDto.EndAddressId,
             StartAddressId = carpoolDto.StartAddressId,
-            VehicleId = carpoolDto.VehicleId,
+            RentalId = carpoolDto.RentalId,
         };
 
         return c;

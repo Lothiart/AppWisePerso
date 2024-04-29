@@ -24,6 +24,7 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
+
     [HttpGet]
     public async Task<ActionResult<List<StatusGetDto>>> GetAllStatuses()
     {
@@ -109,14 +110,14 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
 
     [HttpPut]
 
-    public async Task<ActionResult<StatusUpdateDto>> UpdateStatus(StatusUpdateDto statusUpdateDto)
+    public async Task<ActionResult<Status>> UpdateStatus(StatusUpdateDto statusUpdateDto)
     {
         if (statusUpdateDto.Id <= 0)
             return BadRequest("\"Id\" must be a positive number");
 
         try
         {
-            StatusUpdateDto statusToUpdate = await statusRepository.UpdateAsync(statusUpdateDto);
+            Status statusToUpdate = await statusRepository.UpdateAsync(statusUpdateDto);
             return statusToUpdate == null ? NotFound() : Ok($"The status has been updated to {statusToUpdate.Name}");
         }
         catch (Exception)

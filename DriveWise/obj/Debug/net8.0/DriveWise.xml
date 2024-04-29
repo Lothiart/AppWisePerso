@@ -59,13 +59,6 @@
             <param name="rentalAddDto"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.RentalController.ResearchCarByDates(DTOs.DTOs.RentalDTOs.RentalResearchDateDto)">
-            <summary>
-            Research a car to rent by dates A VERIFIER
-            </summary>
-            <param name="rentalResearchDateDto"></param>
-            <returns></returns>
-        </member>
         <member name="M:DriveWise.Controllers.RentalController.Update(DTOs.DTOs.RentalDTOs.RentalUpdateDto)">
             <summary>
              Update a rental A VERIFIER
@@ -114,64 +107,30 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="T:DriveWise.Migrations.init">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllAdmin">
+            <summary>
+            Get all vehicles for Admin A VERIFIER
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByDates(DTOs.DTOs.VehicleDTOs.VehicleByDateDto)">
+            <summary>
+            Look for a list of cars to rent by dates A VERIFIER
+            
+            </summary>
+            <param name="vehicleByDateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DriveWise.Migrations.Init">
             <inheritdoc />
         </member>
-        <member name="M:DriveWise.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:DriveWise.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:DriveWise.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:DriveWise.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:DriveWise.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DriveWise.Migrations.fixcollaboratorIdinaddress">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.fixcollaboratorIdinaddress.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.fixcollaboratorIdinaddress.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.fixcollaboratorIdinaddress.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DriveWise.Migrations.deleted_collab_prop_from_Vehicle">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.deleted_collab_prop_from_Vehicle.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.deleted_collab_prop_from_Vehicle.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.deleted_collab_prop_from_Vehicle.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DriveWise.Migrations.updateDb">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.updateDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.updateDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.updateDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.vehiculeIdMisspellingCorrectedToVehicleId.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:DriveWise.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

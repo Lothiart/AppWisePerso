@@ -13,8 +13,6 @@ public class Collaborator
 
     public string LastName { get; set; }
 
-    public List<Vehicle> Vehicles { get; set; }
-
     public List<Rental> Rentals { get; set; }
 
     [DeleteBehavior(DeleteBehavior.NoAction)]
