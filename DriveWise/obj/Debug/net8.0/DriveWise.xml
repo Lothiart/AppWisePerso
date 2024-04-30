@@ -87,6 +87,104 @@
             <param name="categoryDto"></param>
             <returns></returns>
         </member>
+        <member name="M:DriveWise.Controllers.CityController.Add(Services.DTOs.CityDTOs.CityAddDto)">
+            <summary>
+            Add city - VERIFIER
+            </summary>
+            <param name="cityAddDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CityController.GetById(System.Int32)">
+            <summary>
+            Get city by id - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CityController.StartsWith(System.String)">
+            <summary>
+            Get cities by search - A VERIFIER
+            </summary>
+            <param name="research"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CityController.Update(Services.DTOs.CityDTOs.CityUpdateDto)">
+            <summary>
+            Update city - VERIFIER
+            </summary>
+            <param name="cityUpdateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CityController.Delete(System.Int32)">
+            <summary>
+            Delete city - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CollaboratorController.GetByIdPerso(System.Int32)">
+            <summary>
+            Get collaborator with info by id - A VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CollaboratorController.GetById(System.Int32)">
+            <summary>
+            Get collaborator by id - A VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CollaboratorController.GiveAdminRole(System.Int32)">
+            <summary>
+            Give collaborator admin role - A VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.ModelController.Add(Services.DTOs.ModelDTOs.ModelAddDto)">
+            <summary>
+            Add model - A VERIFIER
+            </summary>
+            <param name="modelAddDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.ModelController.GetById(System.Int32)">
+            <summary>
+            Get model by id A VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.ModelController.GetAll">
+            <summary>
+            Get all models A VERIFIER
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.ModelController.Update(Services.DTOs.ModelDTOs.ModelUpdateDto)">
+            <summary>
+            Update model - A VERIFIER
+            </summary>
+            <param name="modelUpdateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.ModelController.Delete(System.Int32)">
+            <summary>
+            Delete model - A VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.ModelController.GetByBrand(Entities.Brand)">
+            <summary>
+            Get models by search A VERIFIER
+            </summary>
+            <param name="brand"></param>
+            <returns></returns>
+        </member>
         <member name="M:DriveWise.Controllers.MotorController.GetAllMotors">
             <summary>
             Get all motors test OK
