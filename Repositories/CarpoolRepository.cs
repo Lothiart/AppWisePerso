@@ -50,14 +50,16 @@ public class CarpoolRepository(
         }
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
         try
         {
             Carpool c = await context.Carpools.FindAsync(id) ?? throw new Exception("Carpool not found");
 
             context.Remove(c);
-            await context.SaveChangesAsync();
+            int modifiedLines = await context.SaveChangesAsync();
+
+            return modifiedLines == 1 ? true : false;
         }
         catch (Exception ex)
         {
@@ -94,7 +96,7 @@ public class CarpoolRepository(
     /// <param name="endCity"></param>
     /// <param name="dateId"></param>
     /// <returns></returns>
-    public async Task<List<CarpoolGetDto>> GetByCitiesAndDateAsync(string startCity, string endCity, DateTime dateId)
+    public async Task<List<CarpoolGetDto>> GetByCitiesAndDateAsync(CarpoolSearchDto carpoolSearch)
     {
         try
         {
@@ -104,7 +106,9 @@ public class CarpoolRepository(
                     .Include(c => c.Rental)
                     .Include(c => c.Driver)
                     .Include(c => c.Passengers)
-                    .Where(c => c.StartAddress.City.Name == startCity && c.EndAddress.City.Name == endCity && c.DateId == dateId)
+                    .Where(c => c.StartAddress.City.Name == carpoolSearch.StartCity 
+                                    && c.EndAddress.City.Name == carpoolSearch.EndCity 
+                                    && c.DateId == carpoolSearch.DateId)
                     .ToListAsync();
 
             List<CarpoolGetDto> carpoolDtos = carpoolMapper.ListCarpoolToListCarpoolGetDto(carpools);
@@ -139,7 +143,7 @@ public class CarpoolRepository(
         }
     }
 
-    public async Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync(int id)
+    public async Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync(int userId)
     {
         try
         {
@@ -149,7 +153,7 @@ public class CarpoolRepository(
                     .Include(c => c.Rental)
                     .Include(c => c.Driver)
                     .Include(c => c.Passengers)
-                    .Where(c => c.DriverId == id)
+                    .Where(c => c.DriverId == collaboratorId)
                     .OrderBy(c => c.DateId)
                     .ToListAsync();
 
@@ -164,7 +168,7 @@ public class CarpoolRepository(
         }
     }
 
-    public async Task UpdateAsync(CarpoolUpdateDto carpoolUpdateDto)
+    public async Task<bool> UpdateAsync(CarpoolUpdateDto carpoolUpdateDto)
     {
         try
         {
@@ -180,7 +184,9 @@ public class CarpoolRepository(
                 c.EndAddressId = carpoolUpdateDto.EndAddress.Id;
                 c.RentalId = carpoolUpdateDto.RentalGetDto.Id;
 
-                await context.SaveChangesAsync();
+                int modifiedLines = await context.SaveChangesAsync();
+
+                return modifiedLines == 1 ? true : false;
             }
 
             else throw new Exception("Cannot update carpool : carpool has passengers.");
