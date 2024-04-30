@@ -11,6 +11,29 @@ namespace DriveWise.Controllers
         ILogger<CollaboratorController> logger) : ControllerBase
     {
 
+        /// <summary>
+        /// Add collaborator and appuser - VERIFIER
+        /// </summary>
+        /// <param name="collaboratorAddDto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Add(CollaboratorAddDto collaboratorAddDto)
+        {
+            try
+            {
+                await collaboratorRepository.AddAsync(collaboratorAddDto);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return Problem(e!.InnerException!.Message);
+            }
+        }
+        /// <summary>
+        /// Get collaborator with info by id - A VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetByIdPerso(int id)
         {
@@ -23,6 +46,12 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+
+        /// <summary>
+        /// Get collaborator by id - A VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
@@ -36,6 +65,11 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+        /// <summary>
+        /// Give collaborator admin role - A VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> GiveAdminRole(int id)
         {

@@ -11,6 +11,11 @@ namespace DriveWise.Controllers
         ICityRepository cityRepository,
         ILogger<CityController> logger) : ControllerBase
     {
+        /// <summary>
+        /// Add city - VERIFIER
+        /// </summary>
+        /// <param name="cityAddDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Add(CityAddDto cityAddDto)
         {
@@ -25,6 +30,12 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+
+        /// <summary>
+        /// Get city by id - VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
@@ -38,12 +49,18 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+
+        /// <summary>
+        /// Get cities by search - A VERIFIER
+        /// </summary>
+        /// <param name="research"></param>
+        /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> StartsWith(string recherche)
+        public async Task<IActionResult> StartsWith(string research)
         {
             try
             {
-                List<CityGetDto> listCity = await cityRepository.StartsWithAsync(recherche);
+                List<CityGetDto> listCity = await cityRepository.StartsWithAsync(research);
 
                 return Ok(listCity);
             }
@@ -52,8 +69,12 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
-
-        [HttpPost]
+        /// <summary>
+        /// Update city - VERIFIER
+        /// </summary>
+        /// <param name="cityUpdateDto"></param>
+        /// <returns></returns>
+        [HttpPut]
         public async Task<IActionResult> Update(CityUpdateDto cityUpdateDto)
         {
             try
@@ -67,7 +88,13 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
-        [HttpPost]
+
+        /// <summary>
+        /// Delete city - VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
             try
