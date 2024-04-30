@@ -10,10 +10,10 @@ public interface ICarpoolRepository
 {
     Task AddAsync(CarpoolAddDto carpoolAddDto);
     Task AddPassengerAsync(int carpoolId, int collaboratorId);
-    Task DeleteAsync(int id);
+    Task<bool> DeleteAsync(int id);
     Task<CarpoolGetDto> GetByIdAsync(int id);
     Task<List<CarpoolGetDto>> GetAllAsync();
-    Task<List<CarpoolGetDto>> GetByCitiesAndDateAsync(string startCity, string endCity, DateTime dateId);
-    Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync(int id);
-    Task UpdateAsync(CarpoolUpdateDto carpoolUpdateDto);
+    Task<List<CarpoolGetDto>> GetByCitiesAndDateAsync(CarpoolSearchDto carpoolSearch);
+    Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync(int userId);
+    Task<bool> UpdateAsync(CarpoolUpdateDto carpoolUpdateDto);
 }
