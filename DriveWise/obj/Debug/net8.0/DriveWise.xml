@@ -6,14 +6,14 @@
     <members>
         <member name="M:DriveWise.Controllers.AddressController.Add(Services.DTOs.AddressDTOs.AddressAddDto)">
             <summary>
-            Add an address (with city id) - VERIFIER
+            Add an address (with city id)
             </summary>
             <param name="addressDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.AddressController.GetById(System.Int32)">
             <summary>
-            Get address by id - VERIFIER
+            Get address by id
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -46,12 +46,92 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:DriveWise.Controllers.BrandController.GetAll">
+            <summary>
+            Get all brands - VERFIIER
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:DriveWise.Controllers.BrandController.GetById(System.Int32)">
             <summary>
             Get brand by id
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.BrandController.Update(Services.DTOs.BrandDTOs.BrandUpdateDto)">
+            <summary>
+            Update existing brand - VERIFIER
+            </summary>
+            <param name="brandDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.Add(Services.DTOs.CarpoolDTOs.CarpoolAddDto)">
+            <summary>
+            Add a carpool - VERIFIER
+            </summary>
+            <param name="carpoolAddDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.AddPassenger(System.Int32,System.Int32)">
+            <summary>
+            Add passenger to existing carpool - VERIFIER
+            </summary>
+            <param name="carpoolId"></param>
+            <param name="collaboratorId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.Delete(System.Int32)">
+            <summary>
+            Delete carpool if it doesn't have passengers - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.GetById(System.Int32)">
+            <summary>
+            Get carpool by Id - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.GetAll">
+            <summary>
+            Get all carpools - VERIFIER
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.GetByCitiesAndDate(Services.DTOs.CarpoolDTOs.CarpoolSearchDto)">
+            <summary>
+            Get carpools from search fields : date and cities of departure and destination - VERIFIER
+            </summary>
+            <param name="carpoolSearch"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.Update(Services.DTOs.CarpoolDTOs.CarpoolUpdateDto)">
+            <summary>
+            Update carpool - VERIFER
+            </summary>
+            <param name="carpoolDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.GetAllAsDriver(System.Int32)">
+            <summary>
+            Get user's carpools where user is driver - VERIFIER
+            </summary>
+            <param name="collaboratorId"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:DriveWise.Controllers.CarpoolController.GetAllAsPassenger(System.Int32)">
+            <summary>
+            Get user's carpools where user is passenger - VERIFIER
+            </summary>
+            <param name="collaboratorId"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
         </member>
         <member name="M:DriveWise.Controllers.CategoryController.Add(Services.DTOs.CategoryDTOs.CategoryAddDto)">
             <summary>

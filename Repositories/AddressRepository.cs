@@ -4,13 +4,6 @@ using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
-using Services.DTOs.AddressDTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositories;
 public class AddressRepository(DriveWiseContext context, ILogger<AddressRepository> logger) : IAddressRepository
@@ -40,38 +33,69 @@ public class AddressRepository(DriveWiseContext context, ILogger<AddressReposito
 
     public async Task<Address> DeleteAsync(int id)
     {
-        Address? a = context.Addresses.Find(id) ?? null;
+        try
+        {
+            Address? a = context.Addresses.Find(id);
 
-        context.Addresses.Remove(a);
-        await context.SaveChangesAsync();
-        return a;
+            if (a == null) return null;
+
+            context.Addresses.Remove(a);
+            await context.SaveChangesAsync();
+            return a;
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to delete address");
+            throw;
+        }
     }
 
     public async Task<AddressGetDto> GetByIdAsync(int id)
     {
-        Address? a = await context.Addresses.Include(a => a.City).FirstOrDefaultAsync(a => a.Id == id) ?? null;
-
-        AddressGetDto addressDto = new AddressGetDto()
+        try
         {
-            Id = a.Id,
-            Line1 = a.Line1,
-            Line2 = a.Line2,
-            CityId = a.CityId,
-            City = a.City.Name
-        };
+            Address? a = await context.Addresses.Include(a => a.City).FirstOrDefaultAsync(a => a.Id == id);
 
-        return addressDto;
+            if (a == null) return null;
+
+            AddressGetDto addressDto = new AddressGetDto()
+            {
+                Id = a.Id,
+                Line1 = a.Line1,
+                Line2 = a.Line2,
+                CityId = a.CityId,
+                City = a.City.Name
+            };
+
+            return addressDto;
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to get address");
+            throw;
+        }
     }
 
     public async Task<AddressUpdateDto> UpdateAsync(AddressUpdateDto addressUpdateDto)
     {
-        Address? a = await context.Addresses.FirstOrDefaultAsync(a => a.Id == addressUpdateDto.Id) ?? null;
+        try
+        {
+            Address? a = await context.Addresses.FirstOrDefaultAsync(a => a.Id == addressUpdateDto.Id);
 
-        a.Line1 = addressUpdateDto.Line1;
-        a.Line2 = addressUpdateDto.Line2;
-        a.CityId = addressUpdateDto.CityId;
+            if (a == null) return null;
 
-        await context.SaveChangesAsync();
-        return addressUpdateDto;
+            a.Line1 = addressUpdateDto.Line1;
+            a.Line2 = addressUpdateDto.Line2;
+            a.CityId = addressUpdateDto.CityId;
+
+            await context.SaveChangesAsync();
+            return addressUpdateDto;
+
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to update address");
+            throw;
+        }
     }
 }

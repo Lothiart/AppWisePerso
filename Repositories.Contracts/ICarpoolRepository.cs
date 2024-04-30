@@ -14,6 +14,7 @@ public interface ICarpoolRepository
     Task<CarpoolGetDto> GetByIdAsync(int id);
     Task<List<CarpoolGetDto>> GetAllAsync();
     Task<List<CarpoolGetDto>> GetByCitiesAndDateAsync(CarpoolSearchDto carpoolSearch);
-    Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync(int userId);
     Task<bool> UpdateAsync(CarpoolUpdateDto carpoolUpdateDto);
+    Task<List<CarpoolGetDto>> GetAllAsDriverAsync(int collaboratorId);
+    Task<List<CarpoolGetDto>> GetAllAsPassengerAsync(int collaboratorId);
 }
