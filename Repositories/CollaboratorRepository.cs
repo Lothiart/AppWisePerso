@@ -27,10 +27,25 @@ namespace Repositories
         RoleManager<IdentityRole> roleManager;
         public CollaboratorRepository(DriveWiseContext driveWiseContext, ILogger<CityRepository> logger,UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            this.context = context;
+            this.context = driveWiseContext;
             this.logger = logger;
             this.userManager = userManager;
             this.roleManager = roleManager;
+        }
+
+        public async Task AddAsync(CollaboratorAddDto collaboratorAddDto)
+        {
+            try
+            {
+                await context.Users.AddAsync(new AppUser() {Id = collaboratorAddDto.AppUserId, Email = collaboratorAddDto.Email, PhoneNumber = collaboratorAddDto.PhoneNumber, UserName = collaboratorAddDto.UserName });
+                await context.Collaborators.AddAsync(new Collaborator() { AppUserId = collaboratorAddDto.AppUserId, FirstName = collaboratorAddDto.FirstName, LastName = collaboratorAddDto.LastName});
+                await context.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e!.InnerException!.Message);
+                throw;
+            }
         }
         public async Task<CollaboratorGetDto> GetByIdAsync(int id)
         {
