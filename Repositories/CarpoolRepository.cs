@@ -106,8 +106,8 @@ public class CarpoolRepository(
                     .Include(c => c.Rental)
                     .Include(c => c.Driver)
                     .Include(c => c.Passengers)
-                    .Where(c => c.StartAddress.City.Name == carpoolSearch.StartCity 
-                                    && c.EndAddress.City.Name == carpoolSearch.EndCity 
+                    .Where(c => c.StartAddress.City.Name == carpoolSearch.StartCity
+                                    && c.EndAddress.City.Name == carpoolSearch.EndCity
                                     && c.DateId == carpoolSearch.DateId)
                     .ToListAsync();
 
@@ -143,7 +143,12 @@ public class CarpoolRepository(
         }
     }
 
-    public async Task<List<CarpoolGetDto>> GetByUserAndDateAscAsync(int userId)
+    /// <summary>
+    /// Get list ascendant of all carpools with their rental (address, driver and passengers) for a collaborator as driver
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    public async Task<List<CarpoolGetDto>> GetAllAsDriverAsync(int userId)
     {
         try
         {
@@ -153,7 +158,7 @@ public class CarpoolRepository(
                     .Include(c => c.Rental)
                     .Include(c => c.Driver)
                     .Include(c => c.Passengers)
-                    .Where(c => c.DriverId == collaboratorId)
+                    .Where(c => c.DriverId == userId)
                     .OrderBy(c => c.DateId)
                     .ToListAsync();
 
@@ -196,5 +201,33 @@ public class CarpoolRepository(
             logger.LogError(ex.Message, "Failed to update carpool");
             throw;
         }
+    }
+
+    /// <summary>
+    /// Get list of all carpools with their rental (address, driver and passengers) for a collaborator as passenger
+    /// </summary>
+    /// <param name="collaboratorId"></param>
+    /// <returns></returns>
+    public async Task<List<CarpoolGetDto>> GetAllAsPassengerAsync(int collaboratorId)
+    {
+        try
+        {
+            List<Carpool> carpools = await context.Carpools
+                .Include(c => c.StartAddress)
+                .Include(c => c.EndAddress)
+                .Include(c => c.Rental)
+                .Include(c => c.Driver)
+                .Include(c => c.Passengers)
+                .Where(c => c.Passengers.Any(p => p.Id == collaboratorId))
+                .OrderBy(c => c.DateId)
+                .ToListAsync();
+
+            return carpoolMapper.ListCarpoolToListCarpoolGetDto(carpools);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message, "Failed to get carpools");
+            throw;
+        };
     }
 }

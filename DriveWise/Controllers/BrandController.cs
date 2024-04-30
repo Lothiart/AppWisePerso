@@ -52,6 +52,12 @@ public class BrandController(IBrandRepository brandRepository) : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Get all brands - VERFIIER
+    /// </summary>
+    /// <returns></returns>
+    [ProducesResponseType(200)]
+    [ProducesResponseType(500)]
     [HttpGet]
     public async Task<ActionResult<List<BrandGetDto>>> GetAll()
     {
@@ -90,6 +96,11 @@ public class BrandController(IBrandRepository brandRepository) : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Update existing brand - VERIFIER
+    /// </summary>
+    /// <param name="brandDto"></param>
+    /// <returns></returns>
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]

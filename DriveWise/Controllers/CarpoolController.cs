@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Const;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 using Services.DTOs.CarpoolDTOs;
 
@@ -7,6 +9,11 @@ namespace DriveWise.Controllers;
 [ApiController]
 public class CarpoolController(ICarpoolRepository carpoolRepository) : ControllerBase
 {
+    /// <summary>
+    /// Add a carpool - VERIFIER
+    /// </summary>
+    /// <param name="carpoolAddDto"></param>
+    /// <returns></returns>
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
     [HttpPost]
@@ -23,6 +30,12 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
         }
     }
 
+    /// <summary>
+    /// Add passenger to existing carpool - VERIFIER
+    /// </summary>
+    /// <param name="carpoolId"></param>
+    /// <param name="collaboratorId"></param>
+    /// <returns></returns>
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
     [HttpPost]
@@ -39,6 +52,11 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
         }
     }
 
+    /// <summary>
+    /// Delete carpool if it doesn't have passengers - VERIFIER
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
     [ProducesResponseType(500)]
@@ -57,6 +75,11 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
         }
     }
 
+    /// <summary>
+    /// Get carpool by Id - VERIFIER
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [ProducesResponseType(200)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
@@ -75,6 +98,12 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
         }
     }
 
+    /// <summary>
+    /// Get all carpools - VERIFIER
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    //[Authorize(Roles = ROLES.ADMIN)]
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
     [HttpGet]
@@ -89,6 +118,12 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
         else throw new Exception("Failed to get carpools");
     }
 
+    /// <summary>
+    /// Get carpools from search fields : date and cities of departure and destination - VERIFIER
+    /// </summary>
+    /// <param name="carpoolSearch"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
     [HttpPost]
@@ -103,22 +138,11 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
         else throw new Exception("Failed to get carpools");
     }
 
-
-    [ProducesResponseType(200)]
-    [ProducesResponseType(500)]
-    [HttpGet]
-    public async Task<ActionResult<List<CarpoolGetDto>>> GetByUserAndDateAsc(int userId)
-    {
-        List<CarpoolGetDto> carpoolDtos = await carpoolRepository.GetByUserAndDateAscAsync(userId);
-
-        if (carpoolDtos.Count > 0)
-            return Ok(carpoolDtos);
-        else if (carpoolDtos.Count == 0)
-            return Ok("No carpools to display");
-        else throw new Exception("Failed to get carpools");
-    }
-
-
+    /// <summary>
+    /// Update carpool - VERIFER
+    /// </summary>
+    /// <param name="carpoolDto"></param>
+    /// <returns></returns>
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
     [HttpPut]
@@ -134,5 +158,45 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
         {
             throw;
         }
+    }
+
+    /// <summary>
+    /// Get user's carpools where user is driver - VERIFIER
+    /// </summary>
+    /// <param name="collaboratorId"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    [ProducesResponseType(200)]
+    [ProducesResponseType(500)]
+    [HttpGet]
+    public async Task<ActionResult<List<CarpoolGetDto>>> GetAllAsDriver(int collaboratorId)
+    {
+        List<CarpoolGetDto> carpoolDtos = await carpoolRepository.GetAllAsDriverAsync(collaboratorId);
+
+        if (carpoolDtos.Count > 0)
+            return Ok(carpoolDtos);
+        else if (carpoolDtos.Count == 0)
+            return Ok("No carpools to display");
+        else throw new Exception("Failed to get carpools");
+    }
+
+    /// <summary>
+    /// Get user's carpools where user is passenger - VERIFIER
+    /// </summary>
+    /// <param name="collaboratorId"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    [ProducesResponseType(200)]
+    [ProducesResponseType(500)]
+    [HttpGet]
+    public async Task<ActionResult<List<CarpoolGetDto>>> GetAllAsPassenger(int collaboratorId)
+    {
+        List<CarpoolGetDto> carpoolDtos = await carpoolRepository.GetAllAsPassengerAsync(collaboratorId);
+
+        if (carpoolDtos.Count > 0)
+            return Ok(carpoolDtos);
+        else if (carpoolDtos.Count == 0)
+            return Ok("No carpools to display");
+        else throw new Exception("Failed to get carpools");
     }
 }

@@ -10,7 +10,7 @@ namespace DriveWise.Controllers;
 public class AddressController(IAddressRepository addressRepository) : ControllerBase
 {
     /// <summary>
-    /// Add an address (with city id) - VERIFIER
+    /// Add an address (with city id)
     /// </summary>
     /// <param name="addressDto"></param>
     /// <returns></returns>
@@ -32,7 +32,7 @@ public class AddressController(IAddressRepository addressRepository) : Controlle
     }
 
     /// <summary>
-    /// Get address by id - VERIFIER
+    /// Get address by id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
