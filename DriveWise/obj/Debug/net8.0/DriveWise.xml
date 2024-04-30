@@ -122,6 +122,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:DriveWise.Controllers.CollaboratorController.Add(Services.DTOs.CollaboratorDTOs.CollaboratorAddDto)">
+            <summary>
+            Add collaborator and appuser - VERIFIER
+            </summary>
+            <param name="collaboratorAddDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:DriveWise.Controllers.CollaboratorController.GetByIdPerso(System.Int32)">
             <summary>
             Get collaborator with info by id - A VERIFIER
@@ -145,35 +152,35 @@
         </member>
         <member name="M:DriveWise.Controllers.ModelController.Add(Services.DTOs.ModelDTOs.ModelAddDto)">
             <summary>
-            Add model - A VERIFIER
+            Add model - VERIFIER
             </summary>
             <param name="modelAddDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.ModelController.GetById(System.Int32)">
             <summary>
-            Get model by id A VERIFIER
+            Get model by id VERIFIER
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.ModelController.GetAll">
             <summary>
-            Get all models A VERIFIER
+            Get all models VERIFIER
             </summary>
             <param></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.ModelController.Update(Services.DTOs.ModelDTOs.ModelUpdateDto)">
             <summary>
-            Update model - A VERIFIER
+            Update model - VERIFIER
             </summary>
             <param name="modelUpdateDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.ModelController.Delete(System.Int32)">
             <summary>
-            Delete model - A VERIFIER
+            Delete model - VERIFIER
             </summary>
             <param name="id"></param>
             <returns></returns>

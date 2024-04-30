@@ -10,6 +10,25 @@ namespace DriveWise.Controllers
         ICollaboratorRepository collaboratorRepository,
         ILogger<CollaboratorController> logger) : ControllerBase
     {
+
+        /// <summary>
+        /// Add collaborator and appuser - VERIFIER
+        /// </summary>
+        /// <param name="collaboratorAddDto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Add(CollaboratorAddDto collaboratorAddDto)
+        {
+            try
+            {
+                await collaboratorRepository.AddAsync(collaboratorAddDto);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return Problem(e!.InnerException!.Message);
+            }
+        }
         /// <summary>
         /// Get collaborator with info by id - A VERIFIER
         /// </summary>
