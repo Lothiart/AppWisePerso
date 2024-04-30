@@ -48,7 +48,7 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
     /// <summary>
     /// Get all vehicles by brand name for Admin TEST OK
     /// </summary>
-    /// <param name="brandName"></param>
+    /// <param name="id"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
@@ -75,7 +75,7 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
     /// <summary>
     /// Get all vehicles by category name for Admin TEST OK
     /// </summary>
-    /// <param name="categoryName"></param>
+    /// <param name="id"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
@@ -102,7 +102,7 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
     /// <summary>
     /// Get all vehicles by motor type for Admin TEST OK
     /// </summary>
-    /// <param name="motorType"></param>
+    /// <param name="id"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
@@ -129,7 +129,7 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
     /// <summary>
     /// Get all vehicles by status name for Admin TEST OK
     /// </summary>
-    /// <param name="statusName"></param>
+    /// <param name="id"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
@@ -279,7 +279,7 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
 
 
     /// <summary>
-    /// Look for a list of cars to rent by dates A VERIFIER
+    /// Look for a list of cars to rent by dates TEST OK
     /// </summary>
     /// <param name="vehicleByDateDto"></param>
     /// <returns></returns>
@@ -313,9 +313,9 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
 
 
     /// <summary>
-    /// Get all vehicles by brand name  A VERIFIER
+    /// Get all vehicles by brand name TEST OK
     /// </summary>
-    /// <param name="brandName"></param>
+    /// <param name="id"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
@@ -340,9 +340,9 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
 
 
     /// <summary>
-    /// Get all vehicles by category name A VERIFIER
+    /// Get all vehicles by category name TEST OK
     /// </summary>
-    /// <param name="categoryName"></param>
+    /// <param name="id"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
@@ -367,9 +367,9 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
 
 
     /// <summary>
-    /// Get all vehicles by motor type A VERIFIER
+    /// Get all vehicles by motor type TEST OK
     /// </summary>
-    /// <param name="motorType"></param>
+    /// <param name="id"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
@@ -393,7 +393,7 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
     }
 
     /// <summary>
-    /// Get a vehicle by Id A VERIFIER
+    /// Get a vehicle by Id TEST OK
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

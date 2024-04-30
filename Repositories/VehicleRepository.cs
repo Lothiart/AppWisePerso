@@ -294,25 +294,108 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
         try
         {
             List<VehicleGetDto> listVehicleGetDtos =
-                await _context
-                        .Rentals
-                        .Where(r => ((vehicleByDateDto.EndDateId < r.StartDateId)
-                                || (vehicleByDateDto.StartDateId > r.EndDateId))
-                                && r.Vehicle.Status.Id == 1
-                                )
-                        .Select(r => new VehicleGetDto
-                        {
-                            Id = r.Id,
-                            Registration = r.Vehicle.Registration,
-                            TotalSeats = r.Vehicle.TotalSeats,
-                            CO2EmissionKm = r.Vehicle.CO2EmissionKm,
-                            CategoryId = r.Vehicle.Category.Id,
-                            MotorId = r.Vehicle.Motor.Id,
-                            ModelId = r.Vehicle.Model.Id,
-                            BrandId = r.Vehicle.Model.Brand.Id,
+                await (
+                    from vehicle in _context.Vehicles
+                    join rental in _context.Rentals
+                    on vehicle.Id equals rental.VehicleId into joined
+                    from r in joined.DefaultIfEmpty()
+                    where
+                        ((r == null) ||
+                        (vehicleByDateDto.EndDateId < r.StartDateId) ||
+                        (vehicleByDateDto.StartDateId > r.EndDateId)) &&
+                        vehicle.Status != null &&
+                        vehicle.Status.Id == 1
+                    select new VehicleGetDto
+                    {
+                        Id = vehicle.Id,
+                        Registration = vehicle.Registration,
+                        TotalSeats = vehicle.TotalSeats,
+                        CO2EmissionKm = vehicle.CO2EmissionKm,
+                        CategoryId = vehicle.Category.Id,
+                        MotorId = vehicle.Motor.Id,
+                        ModelId = vehicle.Model.Id,
+                        BrandId = vehicle.Model.Brand.Id,
+                    }
+                ).ToListAsync();
 
-                        })
-                        .ToListAsync();
+
+
+
+
+
+
+
+
+
+
+
+
+            // await _context.Vehicles
+            //     .GroupJoin(
+            //         _context.Rentals,
+            //         vehicle => vehicle.Id,
+            //         rental => rental.VehicleId,
+            //         (vehicle, joined) => new { vehicle, joined }
+            //     )
+            //     .SelectMany(
+            //         group => group.joined.DefaultIfEmpty(),
+            //         (group, j) => new { Vehicle = group.vehicle, Rental = j }
+            //     )
+            //     .Where(x =>
+            //         ((x.Rental == null) ||
+            //         (vehicleByDateDto.EndDateId < x.Rental.StartDateId) ||
+            //          (vehicleByDateDto.StartDateId > x.Rental.EndDateId)) &&
+            //         x.Vehicle.Status.Id == 1
+            //     )
+            //     .Select(x => new VehicleGetDto
+            //     {
+            //         Id = x.Vehicle.Id,
+            //         Registration = x.Vehicle.Registration,
+            //         TotalSeats = x.Vehicle.TotalSeats,
+            //         CO2EmissionKm = x.Vehicle.CO2EmissionKm,
+            //         CategoryId = x.Vehicle.Category.Id,
+            //         MotorId = x.Vehicle.Motor.Id,
+            //         ModelId = x.Vehicle.Model.Id,
+            //         BrandId = x.Vehicle.Model.Brand.Id,
+            //     })
+            //     .ToListAsync();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // await _context
+            //         .Rentals
+            //         .Where(r => ((vehicleByDateDto.EndDateId < r.StartDateId)
+            //                 || (vehicleByDateDto.StartDateId > r.EndDateId))
+            //                 && r.Vehicle.Status.Id == 1
+            //                 )
+            //         .Select(r => new VehicleGetDto
+            //         {
+            //             Id = r.Id,
+            //             Registration = r.Vehicle.Registration,
+            //             TotalSeats = r.Vehicle.TotalSeats,
+            //             CO2EmissionKm = r.Vehicle.CO2EmissionKm,
+            //             CategoryId = r.Vehicle.Category.Id,
+            //             MotorId = r.Vehicle.Motor.Id,
+            //             ModelId = r.Vehicle.Model.Id,
+            //             BrandId = r.Vehicle.Model.Brand.Id,
+
+            //         })
+            //     .ToListAsync();
 
             return listVehicleGetDtos;
         }
