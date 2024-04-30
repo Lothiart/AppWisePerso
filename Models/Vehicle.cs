@@ -14,9 +14,8 @@ public class Vehicle
 
     public int CO2EmissionKm { get; set; }
 
-    public int StatusId { get; set; }
-    public Status Status { get; set; } //faire fichier const
-
+    public int StatusId { get; set; } = 1;
+    public Status Status { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
 
