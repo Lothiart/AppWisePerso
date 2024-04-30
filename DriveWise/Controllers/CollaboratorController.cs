@@ -10,7 +10,11 @@ namespace DriveWise.Controllers
         ICollaboratorRepository collaboratorRepository,
         ILogger<CollaboratorController> logger) : ControllerBase
     {
-
+        /// <summary>
+        /// Get collaborator with info by id - A VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetByIdPerso(int id)
         {
@@ -23,6 +27,12 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+
+        /// <summary>
+        /// Get collaborator by id - A VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
@@ -36,6 +46,11 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+        /// <summary>
+        /// Give collaborator admin role - A VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> GiveAdminRole(int id)
         {

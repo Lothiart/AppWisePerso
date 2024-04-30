@@ -13,6 +13,11 @@ namespace DriveWise.Controllers
         IModelRepository modelRepository,
         ILogger<ModelController> logger) : ControllerBase
     {
+        /// <summary>
+        /// Add model - VERIFIER
+        /// </summary>
+        /// <param name="modelAddDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Add(ModelAddDto modelAddDto)
         {
@@ -28,6 +33,11 @@ namespace DriveWise.Controllers
             }
         }
 
+        /// <summary>
+        /// Get model by id VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
@@ -41,6 +51,11 @@ namespace DriveWise.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all models VERIFIER
+        /// </summary>
+        /// <param></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -54,7 +69,12 @@ namespace DriveWise.Controllers
             }
         }
 
-        [HttpPost]
+        /// <summary>
+        /// Update model - VERIFIER
+        /// </summary>
+        /// <param name="modelUpdateDto"></param>
+        /// <returns></returns>
+        [HttpPut]
         public async Task<IActionResult> Update(ModelUpdateDto modelUpdateDto)
         {
             try
@@ -68,7 +88,12 @@ namespace DriveWise.Controllers
             }
         }
 
-        [HttpPost]
+        /// <summary>
+        /// Delete model - VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
             try
@@ -81,7 +106,11 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
-
+        /// <summary>
+        /// Get models by search A VERIFIER
+        /// </summary>
+        /// <param name="brand"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> GetByBrand(Brand brand)
         {
