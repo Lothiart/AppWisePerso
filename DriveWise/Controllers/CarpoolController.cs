@@ -1,6 +1,4 @@
-﻿using Entities.Const;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 using Services.DTOs.CarpoolDTOs;
 
@@ -33,17 +31,16 @@ public class CarpoolController(ICarpoolRepository carpoolRepository) : Controlle
     /// <summary>
     /// Add passenger to existing carpool - VERIFIER
     /// </summary>
-    /// <param name="carpoolId"></param>
-    /// <param name="collaboratorId"></param>
+    /// <param name="carpoolAddPassengerDto"></param>
     /// <returns></returns>
     [ProducesResponseType(200)]
     [ProducesResponseType(500)]
     [HttpPost]
-    public async Task<IActionResult> AddPassenger(int carpoolId, int collaboratorId)
+    public async Task<IActionResult> AddPassenger(CarpoolAddPassengerDto carpoolAddPassengerDto)
     {
         try
         {
-            await carpoolRepository.AddPassengerAsync(carpoolId, collaboratorId);
+            await carpoolRepository.AddPassengerAsync(carpoolAddPassengerDto);
             return Ok();
         }
         catch (Exception)

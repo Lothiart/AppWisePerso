@@ -5,7 +5,6 @@ using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
-using System.Collections.Generic;
 
 namespace Repositories;
 public class CarpoolRepository(
@@ -33,15 +32,21 @@ public class CarpoolRepository(
         }
     }
 
-    public async Task AddPassengerAsync(int carpoolId, int collaboratorId)
+    public async Task<bool> AddPassengerAsync(CarpoolAddPassengerDto carpoolAddPassengerDto)
     {
         try
         {
-            Carpool carpool = await context.Carpools.FindAsync(carpoolId) ?? throw new Exception("Carpool not found");
-            Collaborator collaborator = await context.Collaborators.FindAsync(collaboratorId) ?? throw new Exception("Collaborator not found");
+            Carpool? carpool = await context.Carpools.FindAsync(carpoolAddPassengerDto.CarpoolId);
+            if (carpool == null) return false;
+
+            Collaborator? collaborator = await context.Collaborators.FindAsync(carpoolAddPassengerDto.CollaboratorId);
+            if (collaborator == null) return false;
 
             carpool.Passengers.Add(collaborator);
             await context.SaveChangesAsync();
+
+            return true;
+            
         }
         catch (Exception ex)
         {
@@ -54,12 +59,13 @@ public class CarpoolRepository(
     {
         try
         {
-            Carpool c = await context.Carpools.FindAsync(id) ?? throw new Exception("Carpool not found");
+            Carpool? c = await context.Carpools.FindAsync(id);
+
+            if (c == null) return false;
 
             context.Remove(c);
-            int modifiedLines = await context.SaveChangesAsync();
 
-            return modifiedLines == 1 ? true : false;
+            return await context.SaveChangesAsync() == 1 ? true : false;
         }
         catch (Exception ex)
         {

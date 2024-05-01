@@ -11,11 +11,12 @@ namespace DriveWise.Controllers;
 public class BrandController(IBrandRepository brandRepository) : ControllerBase
 {
     /// <summary>
-    /// Add brand - VERIFIER
+    /// Add brand
     /// </summary>
     /// <param name="brandAddDto"></param>
     /// <returns></returns>
     [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
     [ProducesResponseType(500)]
     [HttpPost]
     public async Task<ActionResult<BrandAddDto>> Add(BrandAddDto brandAddDto)
@@ -32,11 +33,12 @@ public class BrandController(IBrandRepository brandRepository) : ControllerBase
     }
 
     /// <summary>
-    /// Delete brand - VERIFIER
+    /// Delete brand
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
     [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     [HttpDelete]
     public async Task<ActionResult<Brand>> Delete(int id)
@@ -44,7 +46,7 @@ public class BrandController(IBrandRepository brandRepository) : ControllerBase
         try
         {
             bool isDeleted = await brandRepository.DeleteAsync(id);
-            return isDeleted ? Ok() : Problem("Delete has encountered problems");
+            return isDeleted ? Ok("Brand deleted") : NotFound("Brand not found");
         }
         catch (Exception)
         {
@@ -53,7 +55,7 @@ public class BrandController(IBrandRepository brandRepository) : ControllerBase
     }
 
     /// <summary>
-    /// Get all brands - VERFIIER
+    /// Get all brands
     /// </summary>
     /// <returns></returns>
     [ProducesResponseType(200)]
@@ -97,7 +99,7 @@ public class BrandController(IBrandRepository brandRepository) : ControllerBase
     }
 
     /// <summary>
-    /// Update existing brand - VERIFIER
+    /// Update existing brand
     /// </summary>
     /// <param name="brandDto"></param>
     /// <returns></returns>

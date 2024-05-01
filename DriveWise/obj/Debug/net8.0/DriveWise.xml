@@ -20,35 +20,35 @@
         </member>
         <member name="M:DriveWise.Controllers.AddressController.Delete(System.Int32)">
             <summary>
-            Provide address id to delete it - VERIFIER
+            Provide address id to delete it
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.AddressController.Update(Services.DTOs.AddressDTOs.AddressUpdateDto)">
             <summary>
-            Update address (including city id) - VERIFIER
+            Update address (including city id)
             </summary>
             <param name="addressDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.BrandController.Add(Services.DTOs.BrandDTOs.BrandAddDto)">
             <summary>
-            Add brand - VERIFIER
+            Add brand
             </summary>
             <param name="brandAddDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.BrandController.Delete(System.Int32)">
             <summary>
-            Delete brand - VERIFIER
+            Delete brand
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.BrandController.GetAll">
             <summary>
-            Get all brands - VERFIIER
+            Get all brands
             </summary>
             <returns></returns>
         </member>
@@ -61,7 +61,7 @@
         </member>
         <member name="M:DriveWise.Controllers.BrandController.Update(Services.DTOs.BrandDTOs.BrandUpdateDto)">
             <summary>
-            Update existing brand - VERIFIER
+            Update existing brand
             </summary>
             <param name="brandDto"></param>
             <returns></returns>
@@ -73,12 +73,11 @@
             <param name="carpoolAddDto"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.CarpoolController.AddPassenger(System.Int32,System.Int32)">
+        <member name="M:DriveWise.Controllers.CarpoolController.AddPassenger(Services.DTOs.CarpoolDTOs.CarpoolAddPassengerDto)">
             <summary>
             Add passenger to existing carpool - VERIFIER
             </summary>
-            <param name="carpoolId"></param>
-            <param name="collaboratorId"></param>
+            <param name="carpoolAddPassengerDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.CarpoolController.Delete(System.Int32)">
@@ -135,7 +134,7 @@
         </member>
         <member name="M:DriveWise.Controllers.CategoryController.Add(Services.DTOs.CategoryDTOs.CategoryAddDto)">
             <summary>
-            Add new category - VERIFER
+            Add new category
             </summary>
             <param name="categoryAddDto"></param>
             <returns></returns>
@@ -149,20 +148,20 @@
         </member>
         <member name="M:DriveWise.Controllers.CategoryController.GetAll">
             <summary>
-            Get all existing categories - VERIFIER
+            Get all existing categories
             </summary>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.CategoryController.GetById(System.Int32)">
             <summary>
-            Get catgory by id - VERIFIER
+            Get catgory by id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.CategoryController.Update(Services.DTOs.CategoryDTOs.CategoryUpdateDto)">
             <summary>
-            Update existing category - VERIFIER
+            Update existing category
             </summary>
             <param name="categoryDto"></param>
             <returns></returns>
