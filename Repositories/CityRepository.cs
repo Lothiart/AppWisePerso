@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using Microsoft.EntityFrameworkCore;
+using Services.DTOs.MotorDTOs;
 
 namespace Repositories
 {
@@ -52,7 +53,29 @@ namespace Repositories
             }
 
         }
+        public async Task<List<CityGetDto>> GetAllAsync()
+        {
+            try
+            {
+                List<CityGetDto> listAllCity =
+                    await driveWiseContext
+                            .Cities
+                            .Select(m => new CityGetDto
+                            {
+                                Id = m.Id,
+                                Name = m.Name, 
+                                ZipCode = m.ZipCode
+                            })
+                            .ToListAsync();
 
+                return listAllCity;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public async Task<List<CityGetDto>> StartsWithAsync(string recherche)
         {
             try
