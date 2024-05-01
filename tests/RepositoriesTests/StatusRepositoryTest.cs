@@ -31,10 +31,10 @@ public class StatusRepositoryTest
             StatusRepository statusRepository = new StatusRepository(context);
 
             List<Status> statuses = new List<Status>
-        {
-            new Status { Id = 1,Name = "AVAILABLE",},
-            new Status { Id = 2, Name = "INREPAIR",}
-        };
+            {
+                new Status { Id = 1,Name = "AVAILABLE",},
+                new Status { Id = 2, Name = "INREPAIR",}
+            };
 
             await context.Statuses.AddRangeAsync(statuses);
             await context.SaveChangesAsync();
