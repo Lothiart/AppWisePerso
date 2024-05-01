@@ -49,7 +49,24 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+        /// <summary>
+        /// Get all city - VERIFIER
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetAll(int id)
+        {
+            try
+            {
 
+                return Ok(await cityRepository.GetAllAsync());
+            }
+            catch (Exception e)
+            {
+                return Problem(e!.InnerException!.Message);
+            }
+        }
         /// <summary>
         /// Get cities by search - A VERIFIER
         /// </summary>
