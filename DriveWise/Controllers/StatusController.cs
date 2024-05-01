@@ -22,7 +22,6 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
     /// <returns></returns>
 
     [ProducesResponseType(200)]
-    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
     [HttpGet]
@@ -31,7 +30,7 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
         try
         {
             List<StatusGetDto> listStatusesDTO = await statusRepository.GetAllAsync();
-            return listStatusesDTO == null ? NotFound() : Ok(listStatusesDTO);
+            return Ok(listStatusesDTO);
         }
         catch (Exception)
         {

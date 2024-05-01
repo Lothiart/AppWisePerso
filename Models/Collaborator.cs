@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
@@ -22,5 +23,5 @@ public class Collaborator
     public List<Carpool> CarpoolsAsPassenger { get; set; }
 
     public string AppUserId { get; set; }
-    public AppUser? AppUser { get; set; }
+    public AppUser AppUser { get; set; }
 }

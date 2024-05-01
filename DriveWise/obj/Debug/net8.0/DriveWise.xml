@@ -202,12 +202,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.CollaboratorController.Add(Services.DTOs.CollaboratorDTOs.CollaboratorAddDto)">
+        <member name="M:DriveWise.Controllers.CollaboratorController.CreateAuthor(Services.DTOs.CollaboratorDTOs.CreateCollaboratorDto)">
             <summary>
-            Add collaborator and appuser - VERIFIER
+            Register a new appUser and collaborator with Collaborator role . DO NOT USE IDENTITY REGISTER METHOD 
             </summary>
-            <param name="collaboratorAddDto"></param>
+            <param name="createCollaboratorDto"></param>
             <returns></returns>
+            
         </member>
         <member name="M:DriveWise.Controllers.CollaboratorController.GetByIdPerso(System.Int32)">
             <summary>
