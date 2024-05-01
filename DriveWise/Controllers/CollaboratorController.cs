@@ -1,6 +1,11 @@
 ﻿using Services.DTOs.CollaboratorDTOs;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
+using Microsoft.AspNetCore.Authorization;
+using Entities;
+using Microsoft.AspNetCore.Identity;
+using Entities.Const;
+
 
 namespace DriveWise.Controllers
 {
@@ -8,27 +13,63 @@ namespace DriveWise.Controllers
     [ApiController]
     public class CollaboratorController(
         ICollaboratorRepository collaboratorRepository,
+        UserManager<AppUser> userManager,
         ILogger<CollaboratorController> logger) : ControllerBase
     {
 
+
+
         /// <summary>
-        /// Add collaborator and appuser - VERIFIER
+        /// Register a new appUser and collaborator with Collaborator role . DO NOT USE IDENTITY REGISTER METHOD test ok
         /// </summary>
-        /// <param name="collaboratorAddDto"></param>
+        /// <param name="createCollaboratorDto"></param>
         /// <returns></returns>
+        /// 
+
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+
         [HttpPost]
-        public async Task<IActionResult> Add(CollaboratorAddDto collaboratorAddDto)
+        [AllowAnonymous]
+        public async Task<ActionResult<CreateCollaboratorDto>> CreateAuthor(CreateCollaboratorDto createCollaboratorDto)
         {
-            try
+
+            AppUser appUser = new AppUser
             {
-                await collaboratorRepository.AddAsync(collaboratorAddDto);
-                return Ok();
-            }
-            catch (Exception e)
+                UserName = createCollaboratorDto.Email,
+                Email = createCollaboratorDto.Email
+            };
+
+            IdentityResult result = await userManager.CreateAsync(appUser, createCollaboratorDto.Password);
+
+            if (result.Succeeded)
             {
-                return Problem(e!.InnerException!.Message);
+                try
+                {
+                    Collaborator newCollaborator = await collaboratorRepository.AddAsync(new Collaborator
+                    {
+                        FirstName = createCollaboratorDto.FirstName,
+                        LastName = createCollaboratorDto.LastName,
+                        AppUserId = appUser.Id,
+                    });
+
+                    await userManager.AddToRoleAsync(appUser, ROLES.COLLABORATOR);
+                    return Ok($"Congrats {createCollaboratorDto.FirstName} ! Your account is set up");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
+            else
+                return Problem(string.Join(" | ", result.Errors.Select(e => e.Description)));
         }
+
+
+
+
+
         /// <summary>
         /// Get collaborator with info by id - A VERIFIER
         /// </summary>

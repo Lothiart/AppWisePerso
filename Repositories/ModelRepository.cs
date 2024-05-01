@@ -16,9 +16,9 @@ namespace Repositories
     public class ModelRepository : IModelRepository
     {
         DriveWiseContext driveWiseContext;
-        ILogger<CityRepository> logger;
+        ILogger<ModelRepository> logger;
 
-        public ModelRepository(DriveWiseContext driveWiseContext, ILogger<CityRepository> logger)
+        public ModelRepository(DriveWiseContext driveWiseContext, ILogger<ModelRepository> logger)
         {
             this.driveWiseContext = driveWiseContext;
             this.logger = logger;

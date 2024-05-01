@@ -214,11 +214,11 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                         Registration = vehicleAdminDto.Registration,
                         TotalSeats = vehicleAdminDto.TotalSeats,
                         CO2EmissionKm = vehicleAdminDto.CO2EmissionKm,
-                        StatusId = vehicleAdminDto.StatusId,// 1
-                        CategoryId = (int)vehicleAdminDto.CategoryId,
-                        MotorId = (int)vehicleAdminDto.MotorId,
-                        ModelId = (int)vehicleAdminDto.ModelId,
-                        BrandId = (int)vehicleAdminDto.BrandId,
+                        StatusId = vehicleAdminDto.StatusId,
+                        CategoryId = vehicleAdminDto.CategoryId,
+                        MotorId = vehicleAdminDto.MotorId,
+                        ModelId = vehicleAdminDto.ModelId,
+                        BrandId = vehicleAdminDto.BrandId,
                     });
 
             await _context.SaveChangesAsync();
@@ -247,10 +247,10 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             vehicleToUpdate.TotalSeats = vehicleUpdateDto.TotalSeats;
             vehicleToUpdate.CO2EmissionKm = vehicleUpdateDto.CO2EmissionKm;
             vehicleToUpdate.StatusId = vehicleUpdateDto.StatusId;
-            vehicleToUpdate.CategoryId = (int)vehicleUpdateDto.CategoryId;
-            vehicleToUpdate.MotorId = (int)vehicleUpdateDto.MotorId;
-            vehicleToUpdate.ModelId = (int)vehicleUpdateDto.ModelId;
-            vehicleToUpdate.BrandId = (int)vehicleUpdateDto.BrandId;
+            vehicleToUpdate.CategoryId = vehicleUpdateDto.CategoryId;
+            vehicleToUpdate.MotorId = vehicleUpdateDto.MotorId;
+            vehicleToUpdate.ModelId = vehicleUpdateDto.ModelId;
+            vehicleToUpdate.BrandId = vehicleUpdateDto.BrandId;
 
 
             await _context.SaveChangesAsync();

@@ -1,45 +1,30 @@
 using Entities.Const;
-using Services.DTOs.CityDTOs;
 using Services.DTOs.CollaboratorDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+
 
 
 namespace Repositories
 {
-    public class CollaboratorRepository : ICollaboratorRepository
+    public class CollaboratorRepository(DriveWiseContext context,
+    ILogger<CityRepository> logger,
+    UserManager<AppUser> userManager) : ICollaboratorRepository
     {
-        DriveWiseContext context;
-        ILogger<CityRepository> logger;
-        UserManager<AppUser> userManager;
-        RoleManager<IdentityRole> roleManager;
-        public CollaboratorRepository(DriveWiseContext driveWiseContext, ILogger<CityRepository> logger,UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
-        {
-            this.context = driveWiseContext;
-            this.logger = logger;
-            this.userManager = userManager;
-            this.roleManager = roleManager;
-        }
-
-        public async Task AddAsync(CollaboratorAddDto collaboratorAddDto)
+        public async Task<Collaborator> AddAsync(Collaborator collaborator)
         {
             try
             {
-                await context.Users.AddAsync(new AppUser() {Id = collaboratorAddDto.AppUserId, Email = collaboratorAddDto.Email, PhoneNumber = collaboratorAddDto.PhoneNumber, UserName = collaboratorAddDto.UserName });
-                await context.Collaborators.AddAsync(new Collaborator() { AppUserId = collaboratorAddDto.AppUserId, FirstName = collaboratorAddDto.FirstName, LastName = collaboratorAddDto.LastName});
+                await context
+                    .Collaborators
+                    .AddAsync(collaborator);
+
                 await context.SaveChangesAsync();
+                return collaborator;
             }
             catch (Exception e)
             {
@@ -55,7 +40,7 @@ namespace Repositories
 
 
                 AppUser user = await context.Users.FirstOrDefaultAsync(u => u.Id == collaborator.AppUserId);
-            return new CollaboratorGetDto() { Id = user.Collaborator.Id, FirstName = user.Collaborator.FirstName, LastName = user.Collaborator.LastName, Email = user.Email };
+                return new CollaboratorGetDto() { Id = user.Collaborator.Id, FirstName = user.Collaborator.FirstName, LastName = user.Collaborator.LastName, Email = user.Email };
 
             }
             catch (Exception e)
