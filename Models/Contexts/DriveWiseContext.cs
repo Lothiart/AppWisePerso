@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Entities.Contexts;
@@ -60,6 +61,14 @@ public class DriveWiseContext : IdentityDbContext<AppUser>
             .HasMany(navigationExpression: c => c.CarpoolEndAdresses)
             .WithOne(c => c.EndAddress)
             .HasForeignKey(c => c.EndAddressId);
+
+        modelBuilder
+            .Entity<IdentityRole>()
+            .HasData(new List<IdentityRole>()
+                {
+                    new IdentityRole { Name = "ADMIN", NormalizedName = "ADMIN" },
+                    new IdentityRole { Name = "COLLABORATOR", NormalizedName = "COLLABORATOR" },
+                });
 
         base.OnModelCreating(modelBuilder);
     }

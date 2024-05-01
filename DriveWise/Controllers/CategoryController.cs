@@ -29,7 +29,7 @@ public class CategoryController(ICategoryRepository categoryRepository) : Contro
     }
 
     /// <summary>
-    /// Delete existing category - VERIFIER
+    /// Delete existing category
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

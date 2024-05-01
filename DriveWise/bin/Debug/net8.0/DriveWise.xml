@@ -141,7 +141,7 @@
         </member>
         <member name="M:DriveWise.Controllers.CategoryController.Delete(System.Int32)">
             <summary>
-            Delete existing category - VERIFIER
+            Delete existing category
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -180,6 +180,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:DriveWise.Controllers.CityController.GetAll(System.Int32)">
+            <summary>
+            Get all city - VERIFIER
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:DriveWise.Controllers.CityController.StartsWith(System.String)">
             <summary>
             Get cities by search - A VERIFIER
@@ -203,7 +210,7 @@
         </member>
         <member name="M:DriveWise.Controllers.CollaboratorController.CreateAuthor(Services.DTOs.CollaboratorDTOs.CreateCollaboratorDto)">
             <summary>
-            Register a new appUser and collaborator with Collaborator role . DO NOT USE IDENTITY REGISTER METHOD 
+            Register a new appUser and collaborator with Collaborator role . DO NOT USE IDENTITY REGISTER METHOD test ok
             </summary>
             <param name="createCollaboratorDto"></param>
             <returns></returns>
@@ -496,6 +503,18 @@
             <inheritdoc />
         </member>
         <member name="M:DriveWise.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:DriveWise.Migrations.AddRolesToDb">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.AddRolesToDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.AddRolesToDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DriveWise.Migrations.AddRolesToDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>
