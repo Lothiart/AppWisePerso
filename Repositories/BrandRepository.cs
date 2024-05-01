@@ -4,11 +4,6 @@ using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repositories;
 public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> logger) : IBrandRepository
@@ -41,8 +36,11 @@ public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> 
     {
         try
         {
-            Brand? b = await context.Brands.FindAsync(id) ?? null;
+            Brand? b = await context.Brands.FindAsync(id);
 
+            if (b == null) return false;
+
+            context.Brands.Remove(b);
             int numDeleted = await context.SaveChangesAsync();
 
             return numDeleted == 1 ? true : false;
@@ -86,7 +84,9 @@ public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> 
     {
         try
         {
-            Brand? b = await context.Brands.FirstOrDefaultAsync(b => b.Id == id) ?? null;
+            Brand? b = await context.Brands.FirstOrDefaultAsync(b => b.Id == id);
+
+            if (b == null) return null;
 
             BrandGetDto brandDto = new BrandGetDto() { Id = b.Id, Name = b.Name };
 
@@ -102,7 +102,9 @@ public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> 
     {
         try
         {
-            Brand? b = await context.Brands.FindAsync(brandDto.Id) ?? null;
+            Brand? b = await context.Brands.FindAsync(brandDto.Id);
+
+            if (b == null) return null;
 
             b.Name = brandDto.Name;
 

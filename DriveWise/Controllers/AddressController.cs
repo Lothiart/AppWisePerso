@@ -54,7 +54,7 @@ public class AddressController(IAddressRepository addressRepository) : Controlle
     }
 
     /// <summary>
-    /// Provide address id to delete it - VERIFIER
+    /// Provide address id to delete it
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -76,7 +76,7 @@ public class AddressController(IAddressRepository addressRepository) : Controlle
     }
 
     /// <summary>
-    /// Update address (including city id) - VERIFIER
+    /// Update address (including city id)
     /// </summary>
     /// <param name="addressDto"></param>
     /// <returns></returns>
