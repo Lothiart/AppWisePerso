@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DriveWise.Migrations
 {
     /// <inheritdoc />
@@ -271,8 +273,7 @@ namespace DriveWise.Migrations
                         name: "FK_Models_Brands_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brands",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -448,6 +449,25 @@ namespace DriveWise.Migrations
                         principalTable: "Collaborators",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "11a6ca9b-fbe7-4a19-badb-5727fd34c0ee", null, "ADMIN", "ADMIN" },
+                    { "1b22e30a-6737-4689-b76a-f8c75bf2a33f", null, "COLLABORATOR", "COLLABORATOR" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Statuses",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "AVAILABLE" },
+                    { 2, "IN REPAIR" },
+                    { 3, "OUT OF SERVICE" }
                 });
 
             migrationBuilder.CreateIndex(

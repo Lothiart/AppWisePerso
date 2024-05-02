@@ -14,26 +14,27 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
     {
         try
         {
-            List<RentalGetDto> listAllCurrent = await _context
-                                                        .Rentals
-                                                        .Where(r => r.StartDateId > DateTime.Now)
-                                                        .Select(r => new RentalGetDto
-                                                        {
-                                                            Id = r.Id,
-                                                            ModelName = r.Vehicle.Model.Name,
-                                                            BrandName = r.Vehicle.Model.Brand.Name,
-                                                            Registration = r.Vehicle.Registration,
-                                                            StartDate = r.StartDateId,
-                                                            EndDate = r.EndDateId,
-                                                        })
-                                                        .ToListAsync();
+            List<RentalGetDto> listAllCurrent =
+                await _context
+                    .Rentals
+                    .Where(r => r.StartDateId > DateTime.Now)
+                    .Select(r => new RentalGetDto
+                    {
+                        Id = r.Id,
+                        ModelName = r.Vehicle.Model.Name,
+                        BrandName = r.Vehicle.Model.Brand.Name,
+                        Registration = r.Vehicle.Registration,
+                        StartDate = r.StartDateId,
+                        EndDate = r.EndDateId,
+                    })
+                    .ToListAsync();
 
             if (listAllCurrent == null)
                 return null;
 
             return listAllCurrent;
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             throw;
         }
@@ -44,19 +45,20 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
     {
         try
         {
-            List<RentalGetDto> listAllPast = await _context
-                                                    .Rentals
-                                                    .Where(r => r.EndDateId < DateTime.Now)
-                                                    .Select(r => new RentalGetDto
-                                                    {
-                                                        Id = r.Id,
-                                                        ModelName = r.Vehicle.Model.Name,
-                                                        BrandName = r.Vehicle.Model.Brand.Name,
-                                                        Registration = r.Vehicle.Registration,
-                                                        StartDate = r.StartDateId,
-                                                        EndDate = r.EndDateId,
-                                                    })
-                                                    .ToListAsync();
+            List<RentalGetDto> listAllPast =
+                await _context
+                    .Rentals
+                    .Where(r => r.EndDateId < DateTime.Now)
+                    .Select(r => new RentalGetDto
+                    {
+                        Id = r.Id,
+                        ModelName = r.Vehicle.Model.Name,
+                        BrandName = r.Vehicle.Model.Brand.Name,
+                        Registration = r.Vehicle.Registration,
+                        StartDate = r.StartDateId,
+                        EndDate = r.EndDateId,
+                    })
+                    .ToListAsync();
 
             if (listAllPast == null)
                 return null;
@@ -78,8 +80,8 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
             {
                 VehicleId = rentalAddDto.VehicleId,
                 CollaboratorId = rentalAddDto.CollaboratorId,
-                StartDateId = rentalAddDto.StartDateId,
-                EndDateId = rentalAddDto.EndDateId,
+                StartDateId = rentalAddDto.StartDate.Id,
+                EndDateId = rentalAddDto.EndDate.Id,
             });
 
             await _context.SaveChangesAsync();

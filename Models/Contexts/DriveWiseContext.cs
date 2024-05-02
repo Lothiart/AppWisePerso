@@ -62,12 +62,33 @@ public class DriveWiseContext : IdentityDbContext<AppUser>
             .WithOne(c => c.EndAddress)
             .HasForeignKey(c => c.EndAddressId);
 
+        // modelBuilder
+        //     .Entity<Brand>()
+        //     .HasMany(navigationExpression: c => c.Models)
+        //     .WithOne(c => c.Brand)
+        //     .HasForeignKey(c => c.BrandId);
+
+        // modelBuilder
+        //     .Entity<Brand>()
+        //     .HasMany(navigationExpression: c => c.Vehicles)
+        //     .WithOne(c => c.Brand)
+        //     .HasForeignKey(c => c.BrandId);
+
         modelBuilder
             .Entity<IdentityRole>()
             .HasData(new List<IdentityRole>()
                 {
                     new IdentityRole { Name = "ADMIN", NormalizedName = "ADMIN" },
                     new IdentityRole { Name = "COLLABORATOR", NormalizedName = "COLLABORATOR" },
+                });
+
+        modelBuilder
+            .Entity<Status>()
+            .HasData(new List<Status>()
+                {
+                    new Status { Id = 1, Name = STATUS.AVAILABLE },
+                    new Status { Id = 2, Name = STATUS.INREPAIR },
+                    new Status { Id = 3, Name = STATUS.OUTOFSERVICE },
                 });
 
         base.OnModelCreating(modelBuilder);
