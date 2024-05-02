@@ -211,7 +211,6 @@
         <member name="M:DriveWise.Controllers.CollaboratorController.CreateAuthor(Services.DTOs.CollaboratorDTOs.CreateCollaboratorDto)">
             <summary>
             Register a new appUser and collaborator with Collaborator role . DO NOT USE IDENTITY REGISTER METHOD test ok
-            Register a new appUser and collaborator with Collaborator role . DO NOT USE IDENTITY REGISTER METHOD test ok
             </summary>
             <param name="createCollaboratorDto"></param>
             <returns></returns>
@@ -504,18 +503,6 @@
             <inheritdoc />
         </member>
         <member name="M:DriveWise.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:DriveWise.Migrations.AddRolesToDb">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.AddRolesToDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.AddRolesToDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.AddRolesToDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

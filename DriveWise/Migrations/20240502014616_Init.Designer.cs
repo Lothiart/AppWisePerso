@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DriveWise.Migrations
 {
     [DbContext(typeof(DriveWiseContext))]
-    [Migration("20240501162011_AddRolesToDb")]
-    partial class AddRolesToDb
+    [Migration("20240502014616_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -361,6 +361,23 @@ namespace DriveWise.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Statuses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "AVAILABLE"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "IN REPAIR"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "OUT OF SERVICE"
+                        });
                 });
 
             modelBuilder.Entity("Entities.Vehicle", b =>
@@ -443,13 +460,13 @@ namespace DriveWise.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "62daab7c-c663-4d7e-871f-aae218f551b0",
+                            Id = "11a6ca9b-fbe7-4a19-badb-5727fd34c0ee",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "e38b0e37-c299-4379-b68b-26fe2811566e",
+                            Id = "1b22e30a-6737-4689-b76a-f8c75bf2a33f",
                             Name = "COLLABORATOR",
                             NormalizedName = "COLLABORATOR"
                         });
@@ -644,7 +661,7 @@ namespace DriveWise.Migrations
                     b.HasOne("Entities.Brand", "Brand")
                         .WithMany("Models")
                         .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Brand");

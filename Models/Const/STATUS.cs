@@ -3,6 +3,6 @@
 public class STATUS
 {
     public const string AVAILABLE = "AVAILABLE";
-    public const string INREPAIR = "INREPAIR";
-    public const string OUTOFSERVICE = "OUTOFSERVICE";
+    public const string INREPAIR = "IN REPAIR";
+    public const string OUTOFSERVICE = "OUT OF SERVICE";
 }

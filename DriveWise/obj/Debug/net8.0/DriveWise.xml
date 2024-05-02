@@ -505,17 +505,5 @@
         <member name="M:DriveWise.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:DriveWise.Migrations.AddRolesToDb">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.AddRolesToDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.AddRolesToDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:DriveWise.Migrations.AddRolesToDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
     </members>
 </doc>
