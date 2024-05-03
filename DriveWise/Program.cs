@@ -26,6 +26,8 @@ builder.Services.AddScoped<IMotorRepository, MotorRepository>();
 builder.Services.AddScoped<IRentalRepository, RentalRepository>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+builder.Services.AddScoped<IDateRepository, DateRepository>();
+
 
 // Mappers
 builder.Services.AddScoped<VehicleMapper, VehicleMapper>();

@@ -7,24 +7,39 @@ using Services.DTOs.StatusDTOs;
 
 namespace RepositoriesTests;
 
+
+/* 
+
+
+At the database's initialisation,
+status table is automatically fulfilled with 3 statuses:
+
+[
+    {Id = 1, Name = STATUS.AVAILABLE},
+    {Id = 2, Name = STATUS.INREPAIR},
+    {Id = 3, Name = STATUS.OUTOFSERVICE}
+]
+
+
+*/
+
+
 [TestClass]
 public class StatusRepositoryTest
 {
-    private string databasePath;
+    private const string DATABASE_PATH = "DriveWiseDatabase.sqlite";
+
+    private DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
+        .UseSqlite($"DataSource={DATABASE_PATH}");
 
     [TestMethod]
     public async Task GetAllAsyncTest_Empty_StatusList()
     {
         //Arrange
-        databasePath = "DriveWiseDatabase.sqlite";
-
-
-        DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-            .UseSqlite($"DataSource={databasePath}");
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-
+            context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
 
@@ -49,19 +64,16 @@ public class StatusRepositoryTest
         }
     }
 
+
     [TestMethod]
 
-    public async Task GetByIdAsyncTest_Id_OneStatus()
+    public async Task GetByIdAsyncTest_Id_SingleStatus()
     {
         //Arrange
 
-        DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-            .UseSqlite($"DataSource={databasePath}");
-
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-
+            context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
 
@@ -86,13 +98,9 @@ public class StatusRepositoryTest
     {
         //Arrange
 
-        DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-            .UseSqlite($"DataSource={databasePath}");
-
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-
+            context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
 
@@ -115,13 +123,9 @@ public class StatusRepositoryTest
     {
         //Arrange
 
-        DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-            .UseSqlite($"DataSource={databasePath}");
-
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-
+            context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
 
@@ -136,19 +140,16 @@ public class StatusRepositoryTest
         }
     }
 
+
     [TestMethod]
 
     public async Task AddAsyncTest_StatusAddDto_StatusAddDto()
     {
         //Arrange
 
-        DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-            .UseSqlite($"DataSource={databasePath}");
-
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-
+            context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
 
@@ -176,19 +177,16 @@ public class StatusRepositoryTest
         }
     }
 
+
     [TestMethod]
 
     public async Task UpdateAsyncTest_StatusAddDto_StatusAddDto()
     {
         //Arrange
 
-        DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-            .UseSqlite($"DataSource={databasePath}");
-
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-
+            context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
 
@@ -218,26 +216,21 @@ public class StatusRepositoryTest
     {
         //Arrange
 
-        DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-            .UseSqlite($"DataSource={databasePath}");
-
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-
+            context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
 
             StatusRepository statusRepository = new StatusRepository(context);
-
 
             //Act
 
             await statusRepository.DeleteAsync(1);
 
             // Assert
-            Status? deletedStatus = await context.Statuses.FirstOrDefaultAsync(s => s.Id == 1);
-            Assert.IsNull(deletedStatus);
+            Status? result = await context.Statuses.FirstOrDefaultAsync(s => s.Id == 1);
+            Assert.IsNull(result);
         }
     }
 }

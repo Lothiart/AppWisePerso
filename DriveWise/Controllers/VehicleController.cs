@@ -290,14 +290,14 @@ public class VehicleController(IVehicleRepository vehicleRepository) : Controlle
 
     [HttpPost]
 
-    public async Task<ActionResult<List<VehicleGetDto>>> GetAllByDates(VehicleByDateDto vehicleByDateDto)
+    public async Task<ActionResult<List<VehicleRentalDto>>> GetAllByDates(VehicleByDateDto vehicleByDateDto)
     {
         if (vehicleByDateDto.EndDateId <= vehicleByDateDto.StartDateId)
             return BadRequest("Ending rental date must be later than starting rental date");
 
         try
         {
-            List<VehicleGetDto> listVehiclesDto = new List<VehicleGetDto>();
+            List<VehicleRentalDto> listVehiclesDto = new List<VehicleRentalDto>();
 
             listVehiclesDto = await vehicleRepository.GetAllByDatesAsync(vehicleByDateDto);
 

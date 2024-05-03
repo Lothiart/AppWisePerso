@@ -1,5 +1,4 @@
 ﻿using Services.DTOs.RentalDTOs;
-using Services.DTOs.VehicleDTOs;
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -22,15 +21,12 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
                     {
                         Id = r.Id,
                         ModelName = r.Vehicle.Model.Name,
-                        BrandName = r.Vehicle.Model.Brand.Name,
+                        BrandName = r.Vehicle.Brand.Name,
                         Registration = r.Vehicle.Registration,
                         StartDate = r.StartDateId,
                         EndDate = r.EndDateId,
                     })
                     .ToListAsync();
-
-            if (listAllCurrent == null)
-                return null;
 
             return listAllCurrent;
         }
@@ -53,15 +49,12 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
                     {
                         Id = r.Id,
                         ModelName = r.Vehicle.Model.Name,
-                        BrandName = r.Vehicle.Model.Brand.Name,
+                        BrandName = r.Vehicle.Brand.Name,
                         Registration = r.Vehicle.Registration,
                         StartDate = r.StartDateId,
                         EndDate = r.EndDateId,
                     })
                     .ToListAsync();
-
-            if (listAllPast == null)
-                return null;
 
             return listAllPast;
         }

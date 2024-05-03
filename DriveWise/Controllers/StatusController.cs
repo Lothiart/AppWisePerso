@@ -48,6 +48,7 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
+
     [HttpGet]
 
     public async Task<ActionResult<StatusGetDto>> GetStatusById(int id)

@@ -208,7 +208,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.CollaboratorController.CreateAuthor(Services.DTOs.CollaboratorDTOs.CreateCollaboratorDto)">
+        <member name="M:DriveWise.Controllers.CollaboratorController.CreateCollaborator(Services.DTOs.CollaboratorDTOs.CreateCollaboratorDto)">
             <summary>
             Register a new appUser and collaborator with Collaborator role . DO NOT USE IDENTITY REGISTER METHOD test ok
             </summary>
@@ -235,6 +235,34 @@
             Give collaborator admin role - A VERIFIER
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.DateController.GetByPeriod(Services.DTOs.DateDTOs.DateDto)">
+            <summary>
+            Get a list of 2 Dates (startDate and EndDate) that define a Rental period A Verifier
+            </summary>
+            <param name="dateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.DateController.GetByDate(System.DateTime)">
+            <summary>
+            Get one Date A verifier (for Carpool) A verifier
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.DateController.AddPeriod(Services.DTOs.DateDTOs.DateDto)">
+            <summary>
+            Create a new period (Add 2 dates for Rentals) A verifier
+            </summary>
+            <param name="dateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.DateController.AddDate(System.DateTime)">
+            <summary>
+            Add a single Date (for Carpool) A verifier
+            </summary>
+            <param name="dateTime"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.ModelController.Add(Services.DTOs.ModelDTOs.ModelAddDto)">

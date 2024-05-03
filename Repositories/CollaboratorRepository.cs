@@ -12,7 +12,7 @@ using Repositories.Contracts;
 namespace Repositories
 {
     public class CollaboratorRepository(DriveWiseContext context,
-    ILogger<CityRepository> logger,
+    ILogger<CollaboratorRepository> logger,
     UserManager<AppUser> userManager) : ICollaboratorRepository
     {
         public async Task<Collaborator> AddAsync(Collaborator collaborator)

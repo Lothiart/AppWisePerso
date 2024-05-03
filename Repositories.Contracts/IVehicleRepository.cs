@@ -14,7 +14,7 @@ public interface IVehicleRepository
     Task<VehicleAdminDto> AddAdminAsync(VehicleAdminDto vehicleGetAdminDto);
     Task<Vehicle> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto);
     Task<Vehicle> DeleteAdminAsync(int id);
-    Task<List<VehicleGetDto>> GetAllByDatesAsync(VehicleByDateDto vehicleByDateDto);
+    Task<List<VehicleRentalDto>> GetAllByDatesAsync(VehicleByDateDto vehicleByDateDto);
     Task<List<VehicleGetDto>> GetAllByBrandAsync(int id);
     Task<List<VehicleGetDto>> GetAllByCategoryAsync(int id);
     Task<List<VehicleGetDto>> GetAllByMotorTypeAsync(int id);

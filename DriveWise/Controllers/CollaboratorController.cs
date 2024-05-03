@@ -32,7 +32,7 @@ namespace DriveWise.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<CreateCollaboratorDto>> CreateAuthor(CreateCollaboratorDto createCollaboratorDto)
+        public async Task<ActionResult<CreateCollaboratorDto>> CreateCollaborator(CreateCollaboratorDto createCollaboratorDto)
         {
 
             AppUser appUser = new AppUser
