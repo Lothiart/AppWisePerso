@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "DTOs\Services.c
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8F9DA40A-B377-4096-85CE-7A55CA381E09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoriesTests", "tests\RepositoriesTests\RepositoriesTests.csproj", "{419C709D-DA47-4F73-922E-68C2B366D53B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoriesTests", "tests\RepositoriesTests\RepositoriesTests.csproj", "{419C709D-DA47-4F73-922E-68C2B366D53B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mocks", "Mocks\Mocks.csproj", "{27713DA2-9A9C-4FE7-9F67-67720ADB70A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,14 +49,19 @@ Global
 		{419C709D-DA47-4F73-922E-68C2B366D53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{419C709D-DA47-4F73-922E-68C2B366D53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{419C709D-DA47-4F73-922E-68C2B366D53B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27713DA2-9A9C-4FE7-9F67-67720ADB70A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27713DA2-9A9C-4FE7-9F67-67720ADB70A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27713DA2-9A9C-4FE7-9F67-67720ADB70A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27713DA2-9A9C-4FE7-9F67-67720ADB70A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C8F000F2-6414-499C-B57B-D2187BFF8EA2}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{419C709D-DA47-4F73-922E-68C2B366D53B} = {8F9DA40A-B377-4096-85CE-7A55CA381E09}
+		{27713DA2-9A9C-4FE7-9F67-67720ADB70A4} = {8F9DA40A-B377-4096-85CE-7A55CA381E09}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8F000F2-6414-499C-B57B-D2187BFF8EA2}
 	EndGlobalSection
 EndGlobal
