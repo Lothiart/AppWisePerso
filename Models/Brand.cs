@@ -12,5 +12,4 @@ public class Brand
 
     public List<Model> Models { get; set; }
 
-    public List<Vehicle> Vehicles { get; set; }
 }

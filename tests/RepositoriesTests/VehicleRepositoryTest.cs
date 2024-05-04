@@ -63,7 +63,6 @@ public class VehicleRepositoryTest
                     CategoryId = 1,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 },
                 new Vehicle
                 {
@@ -74,7 +73,6 @@ public class VehicleRepositoryTest
                     CategoryId = 2,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 }
             };
 
@@ -140,7 +138,6 @@ public class VehicleRepositoryTest
                     CategoryId = 1,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 },
                 new Vehicle
                 {
@@ -151,7 +148,6 @@ public class VehicleRepositoryTest
                     CategoryId = 2,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 }
             };
 
@@ -217,7 +213,6 @@ public class VehicleRepositoryTest
                     CategoryId = 1,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 },
                 new Vehicle
                 {
@@ -228,7 +223,6 @@ public class VehicleRepositoryTest
                     CategoryId = 2,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 }
             };
 
@@ -293,7 +287,6 @@ public class VehicleRepositoryTest
                     CategoryId = 1,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 },
                 new Vehicle
                 {
@@ -304,7 +297,6 @@ public class VehicleRepositoryTest
                     CategoryId = 2,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 }
             };
 
@@ -372,7 +364,6 @@ public class VehicleRepositoryTest
                     CategoryId = 1,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 },
                 new Vehicle
                 {
@@ -383,7 +374,6 @@ public class VehicleRepositoryTest
                     CategoryId = 2,
                     MotorId = 1,
                     ModelId = 1,
-                    BrandId = 1
                 }
             };
 
@@ -442,7 +432,6 @@ public class VehicleRepositoryTest
                 CategoryId = 1,
                 MotorId = 1,
                 ModelId = 1,
-                BrandId = 1
             };
 
 
@@ -454,7 +443,6 @@ public class VehicleRepositoryTest
                 CategoryId = vehicle.CategoryId,
                 MotorId = vehicle.MotorId,
                 ModelId = vehicle.ModelId,
-                BrandId = vehicle.BrandId,
                 StatusId = vehicle.StatusId
 
             };
@@ -508,7 +496,6 @@ public class VehicleRepositoryTest
                 CategoryId = 1,
                 MotorId = 1,
                 ModelId = 1,
-                BrandId = 1
             };
 
 
@@ -520,7 +507,6 @@ public class VehicleRepositoryTest
                 CategoryId = vehicle.CategoryId,
                 MotorId = vehicle.MotorId,
                 ModelId = vehicle.ModelId,
-                BrandId = vehicle.BrandId,
                 StatusId = vehicle.StatusId
 
             };
@@ -578,7 +564,6 @@ public class VehicleRepositoryTest
                 CategoryId = 1,
                 MotorId = 1,
                 ModelId = 1,
-                BrandId = 1
             };
 
 
@@ -591,7 +576,6 @@ public class VehicleRepositoryTest
                 CategoryId = vehicle.CategoryId,
                 MotorId = vehicle.MotorId,
                 ModelId = vehicle.ModelId,
-                BrandId = vehicle.BrandId,
                 StatusId = vehicle.StatusId
 
             };
@@ -649,7 +633,6 @@ public class VehicleRepositoryTest
                 CategoryId = 1,
                 MotorId = 1,
                 ModelId = 1,
-                BrandId = 1
             };
 
 
@@ -662,7 +645,6 @@ public class VehicleRepositoryTest
                 CategoryId = vehicle.CategoryId,
                 MotorId = vehicle.MotorId,
                 ModelId = vehicle.ModelId,
-                BrandId = vehicle.BrandId,
                 StatusId = vehicle.StatusId
 
             };
@@ -720,7 +702,6 @@ public class VehicleRepositoryTest
                 CategoryId = 1,
                 MotorId = 1,
                 ModelId = 1,
-                BrandId = 1
             };
 
 

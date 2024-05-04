@@ -21,7 +21,6 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
                     {
                         Id = r.Id,
                         ModelName = r.Vehicle.Model.Name,
-                        BrandName = r.Vehicle.Brand.Name,
                         Registration = r.Vehicle.Registration,
                         StartDate = r.StartDateId,
                         EndDate = r.EndDateId,
@@ -49,7 +48,6 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
                     {
                         Id = r.Id,
                         ModelName = r.Vehicle.Model.Name,
-                        BrandName = r.Vehicle.Brand.Name,
                         Registration = r.Vehicle.Registration,
                         StartDate = r.StartDateId,
                         EndDate = r.EndDateId,

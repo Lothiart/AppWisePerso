@@ -219,7 +219,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                         CategoryId = vehicleAdminDto.CategoryId,
                         MotorId = vehicleAdminDto.MotorId,
                         ModelId = vehicleAdminDto.ModelId,
-                        BrandId = vehicleAdminDto.BrandId,
                     });
 
             await _context.SaveChangesAsync();
@@ -251,8 +250,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             vehicleToUpdate.CategoryId = vehicleUpdateDto.CategoryId;
             vehicleToUpdate.MotorId = vehicleUpdateDto.MotorId;
             vehicleToUpdate.ModelId = vehicleUpdateDto.ModelId;
-            vehicleToUpdate.BrandId = vehicleUpdateDto.BrandId;
-
 
             await _context.SaveChangesAsync();
             return vehicleToUpdate;
