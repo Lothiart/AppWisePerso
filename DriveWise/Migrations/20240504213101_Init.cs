@@ -273,7 +273,8 @@ namespace DriveWise.Migrations
                         name: "FK_Models_Brands_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brands",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -309,17 +310,11 @@ namespace DriveWise.Migrations
                     StatusId = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     MotorId = table.Column<int>(type: "int", nullable: false),
-                    ModelId = table.Column<int>(type: "int", nullable: false),
-                    BrandId = table.Column<int>(type: "int", nullable: false)
+                    ModelId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Vehicles", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Vehicles_Brands_BrandId",
-                        column: x => x.BrandId,
-                        principalTable: "Brands",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Vehicles_Categories_CategoryId",
                         column: x => x.CategoryId,
@@ -456,8 +451,8 @@ namespace DriveWise.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "11a6ca9b-fbe7-4a19-badb-5727fd34c0ee", null, "ADMIN", "ADMIN" },
-                    { "1b22e30a-6737-4689-b76a-f8c75bf2a33f", null, "COLLABORATOR", "COLLABORATOR" }
+                    { "11ee75e9-7618-4b78-a3a5-c228e0ccaa38", null, "COLLABORATOR", "COLLABORATOR" },
+                    { "85691dd3-369d-4793-9d8c-5fc618748f60", null, "ADMIN", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -592,11 +587,6 @@ namespace DriveWise.Migrations
                 name: "IX_Rentals_VehicleId",
                 table: "Rentals",
                 column: "VehicleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_BrandId",
-                table: "Vehicles",
-                column: "BrandId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_CategoryId",

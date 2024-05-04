@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DriveWise.Migrations
 {
     [DbContext(typeof(DriveWiseContext))]
-    [Migration("20240502014616_Init")]
+    [Migration("20240504213101_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -388,9 +388,6 @@ namespace DriveWise.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BrandId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CO2EmissionKm")
                         .HasColumnType("int");
 
@@ -414,8 +411,6 @@ namespace DriveWise.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
 
@@ -460,13 +455,13 @@ namespace DriveWise.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "11a6ca9b-fbe7-4a19-badb-5727fd34c0ee",
+                            Id = "85691dd3-369d-4793-9d8c-5fc618748f60",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "1b22e30a-6737-4689-b76a-f8c75bf2a33f",
+                            Id = "11ee75e9-7618-4b78-a3a5-c228e0ccaa38",
                             Name = "COLLABORATOR",
                             NormalizedName = "COLLABORATOR"
                         });
@@ -661,7 +656,7 @@ namespace DriveWise.Migrations
                     b.HasOne("Entities.Brand", "Brand")
                         .WithMany("Models")
                         .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Brand");
@@ -704,12 +699,6 @@ namespace DriveWise.Migrations
 
             modelBuilder.Entity("Entities.Vehicle", b =>
                 {
-                    b.HasOne("Entities.Brand", "Brand")
-                        .WithMany("Vehicles")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("Entities.Category", "Category")
                         .WithMany("Vehicles")
                         .HasForeignKey("CategoryId")
@@ -733,8 +722,6 @@ namespace DriveWise.Migrations
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Brand");
 
                     b.Navigation("Category");
 
@@ -812,8 +799,6 @@ namespace DriveWise.Migrations
             modelBuilder.Entity("Entities.Brand", b =>
                 {
                     b.Navigation("Models");
-
-                    b.Navigation("Vehicles");
                 });
 
             modelBuilder.Entity("Entities.Category", b =>
