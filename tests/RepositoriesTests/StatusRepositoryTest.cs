@@ -155,25 +155,18 @@ public class StatusRepositoryTest
 
             StatusRepository statusRepository = new StatusRepository(context);
 
-            Status newStatus = new Status
+            StatusAddDto statusAddDto = new StatusAddDto
             {
                 Name = "Test"
             };
-
-            StatusAddDto statusAddDto = new StatusAddDto
-            {
-                Name = newStatus.Name,
-            };
-
-            await context.Statuses.AddAsync(newStatus);
-            await context.SaveChangesAsync();
 
             //Act
 
             StatusAddDto result = await statusRepository.AddAsync(statusAddDto);
 
             // Assert
-            Assert.AreEqual(newStatus.Name, result.Name);
+
+            Assert.AreEqual(statusAddDto.Name, result.Name);
         }
     }
 

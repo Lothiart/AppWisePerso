@@ -26,6 +26,7 @@
     <ProjectReference Include="..\..\Models\Entities.csproj" />
     <ProjectReference Include="..\..\Repositories\Repositories.csproj" />
     <ProjectReference Include="..\..\DriveWise\DriveWise.csproj" />
+    <ProjectReference Include="..\..\DTOs\Services.csproj" />
   </ItemGroup>
 
 </Project>

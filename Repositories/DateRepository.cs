@@ -21,8 +21,8 @@ public class DateRepository(DriveWiseContext _context) : IDateRepository
             };
 
             await _context
-            .Dates
-            .AddRangeAsync(newPeriod);
+                .Dates
+                .AddRangeAsync(newPeriod);
 
             await _context.SaveChangesAsync();
             return dateDto;

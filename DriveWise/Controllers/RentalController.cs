@@ -17,7 +17,7 @@ public class RentalController(IRentalRepository rentalRepository) : ControllerBa
 {
 
     /// <summary>
-    /// Get all currents rentals A VERIFIER
+    /// Get all currents rentals test OK
     /// </summary>
     /// <returns></returns>
 
@@ -43,7 +43,7 @@ public class RentalController(IRentalRepository rentalRepository) : ControllerBa
 
 
     /// <summary>
-    /// Get all past rentals A VERIFIER
+    /// Get all past rentals test OK
     /// </summary>
     /// <returns></returns>
 
@@ -106,24 +106,34 @@ public class RentalController(IRentalRepository rentalRepository) : ControllerBa
 
 
     /// <summary>
-    /// Create a new rental A VERIFIER
+    /// Create a new rental test OK
     /// </summary>
     /// <param name="rentalAddDto"></param>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
     [HttpPost]
 
     public async Task<ActionResult<RentalAddDto>> Add(RentalAddDto rentalAddDto)
     {
+
+        if (rentalAddDto.EndDateId <= rentalAddDto.StartDateId)
+            return BadRequest("Ending rental date must be later than starting rental date");
+
+        if (rentalAddDto.StartDateId < DateTime.Now)
+            return BadRequest("Sorry, as long as we're not able to time travel, you can't rent cars in the past");
+
+
+
         try
         {
             RentalAddDto rentalToCreate = await rentalRepository.AddAsync(rentalAddDto);
 
-            return Ok($"Your rental has been successfully created and will start on {rentalToCreate.StartDateId.ToShortDateString}");
+            return rentalToCreate == null ? NotFound() : Ok($"Your rental has been successfully created and starts on {rentalToCreate.StartDateId.ToLongDateString()} at {rentalToCreate.StartDateId.ToShortTimeString()}");
         }
         catch (Exception)
         {
@@ -133,7 +143,7 @@ public class RentalController(IRentalRepository rentalRepository) : ControllerBa
 
 
     /// <summary>
-    ///  Update a rental A VERIFIER
+    ///  Update a rental test OK
     /// </summary>
     /// <param name="rentalUpdateDto"></param>
     /// <returns></returns>
@@ -167,7 +177,7 @@ public class RentalController(IRentalRepository rentalRepository) : ControllerBa
 
 
     /// <summary>
-    /// Delete a rental A VERIFIER
+    /// Delete a rental test OK
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

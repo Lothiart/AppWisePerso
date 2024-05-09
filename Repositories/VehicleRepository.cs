@@ -30,7 +30,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                             StatusId = v.Status.Id,
                         })
                         .ToListAsync();
@@ -62,7 +61,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                             StatusId = v.Status.Id,
                         })
                         .ToListAsync();
@@ -94,7 +92,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                             StatusId = v.Status.Id,
                         })
                         .ToListAsync();
@@ -126,7 +123,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                             StatusId = v.Status.Id,
                         })
                         .ToListAsync();
@@ -158,7 +154,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                             StatusId = v.Status.Id,
                         })
                         .ToListAsync();
@@ -189,7 +184,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                             StatusId = v.Status.Id,
                         })
                         .FirstOrDefaultAsync(v => v.Id == id);
@@ -292,31 +286,26 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
         try
         {
             List<VehicleRentalDto> listVehicleRentalDto =
-                await (
-                    from vehicle in _context.Vehicles
-                    join rental in _context.Rentals
-                    on vehicle.Id equals rental.VehicleId into joined
-                    from r in joined.DefaultIfEmpty()
-                    where
-                        ((r == null) ||
-                        (vehicleByDateDto.EndDateId < r.StartDateId) ||
-                        (vehicleByDateDto.StartDateId > r.EndDateId)) &&
-                        vehicle.Status != null &&
-                        vehicle.Status.Id == 1
-                    select new VehicleRentalDto
+                await _context.Vehicles
+                    .Where(v => v.StatusId == 1)
+                    .Where(v => !v.Rentals.Any(r =>
+                        r.VehicleId == v.Id &&
+                        ((vehicleByDateDto.StartDateId >= r.StartDateId && vehicleByDateDto.StartDateId <= r.EndDateId) ||
+                        (vehicleByDateDto.EndDateId >= r.StartDateId && vehicleByDateDto.EndDateId <= r.EndDateId) ||
+                        (vehicleByDateDto.StartDateId <= r.StartDateId && vehicleByDateDto.EndDateId >= r.EndDateId))))
+                    .Select(v => new VehicleRentalDto
                     {
-                        Id = vehicle.Id,
-                        Registration = vehicle.Registration,
-                        TotalSeats = vehicle.TotalSeats,
-                        CO2EmissionKm = vehicle.CO2EmissionKm,
-                        CategoryId = vehicle.Category.Id,
-                        MotorId = vehicle.Motor.Id,
-                        ModelId = vehicle.Model.Id,
-                        BrandId = vehicle.Model.Brand.Id,
+                        Id = v.Id,
+                        Registration = v.Registration,
+                        TotalSeats = v.TotalSeats,
+                        CO2EmissionKm = v.CO2EmissionKm,
+                        CategoryId = v.Category.Id,
+                        MotorId = v.Motor.Id,
+                        ModelId = v.Model.Id,
                         StartDate = vehicleByDateDto.StartDateId,
                         EndDate = vehicleByDateDto.EndDateId,
-                    }
-                ).ToListAsync();
+                    })
+                    .ToListAsync();
 
             return listVehicleRentalDto;
         }
@@ -344,8 +333,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
-
                         })
                         .ToListAsync();
 
@@ -376,8 +363,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
-
                         })
                         .ToListAsync();
 
@@ -408,7 +393,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                         })
                         .ToListAsync();
 
@@ -438,7 +422,6 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             CategoryId = v.Category.Id,
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
-                            BrandId = v.Model.Brand.Id,
                         })
                         .FirstOrDefaultAsync(v => v.Id == id);
 

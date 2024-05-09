@@ -85,7 +85,7 @@ public class DateController(IDateRepository dateRepository) : ControllerBase
     public async Task<ActionResult<DateDto>> AddPeriod(DateDto dateDto)
     {
         DateDto dateDtoToCreate = await dateRepository.AddPeriodAsync(dateDto);
-        return Ok($"Congrats ! Your new Rental starts {dateDtoToCreate.StartDate} and ends {dateDtoToCreate.EndDate}");
+        return Ok($" Starting date {dateDtoToCreate.StartDate} and ending date {dateDtoToCreate.EndDate} have been registered");
     }
 
 

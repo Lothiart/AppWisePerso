@@ -3,10 +3,12 @@ using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
+using Services.DTOs.DateDTOs;
+using Services.DTOs.VehicleDTOs;
 
 namespace Repositories;
 
-public class RentalRepository(DriveWiseContext _context) : IRentalRepository
+public class RentalRepository(DriveWiseContext _context, IDateRepository dateRepository, IVehicleRepository vehicleRepository) : IRentalRepository
 {
 
     public async Task<List<RentalGetDto>> GetAllCurrentAsync()
@@ -20,7 +22,9 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
                     .Select(r => new RentalGetDto
                     {
                         Id = r.Id,
+                        DriverId = r.CollaboratorId,
                         ModelName = r.Vehicle.Model.Name,
+                        BrandName = r.Vehicle.Model.Brand.Name,
                         Registration = r.Vehicle.Registration,
                         StartDate = r.StartDateId,
                         EndDate = r.EndDateId,
@@ -47,7 +51,9 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
                     .Select(r => new RentalGetDto
                     {
                         Id = r.Id,
+                        DriverId = r.CollaboratorId,
                         ModelName = r.Vehicle.Model.Name,
+                        BrandName = r.Vehicle.Model.Brand.Name,
                         Registration = r.Vehicle.Registration,
                         StartDate = r.StartDateId,
                         EndDate = r.EndDateId,
@@ -67,13 +73,32 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
     {
         try
         {
-            await _context.Rentals.AddAsync(new Rental
+            List<VehicleRentalDto> listVehicleRentalDto =
+            await vehicleRepository.GetAllByDatesAsync(new VehicleByDateDto
             {
-                VehicleId = rentalAddDto.VehicleId,
-                CollaboratorId = rentalAddDto.CollaboratorId,
-                StartDateId = rentalAddDto.StartDate.Id,
-                EndDateId = rentalAddDto.EndDate.Id,
+                StartDateId = rentalAddDto.StartDateId,
+                EndDateId = rentalAddDto.EndDateId,
             });
+
+            if (listVehicleRentalDto.FirstOrDefault(v => v.Id == rentalAddDto.VehicleId) == null)
+                return null;
+
+
+            DateDto rentalPeriod = await dateRepository.AddPeriodAsync(new DateDto
+            {
+                StartDate = rentalAddDto.StartDateId,
+                EndDate = rentalAddDto.EndDateId,
+            });
+
+            await _context
+                    .Rentals
+                    .AddAsync(new Rental
+                    {
+                        VehicleId = rentalAddDto.VehicleId,
+                        CollaboratorId = rentalAddDto.CollaboratorId,
+                        StartDateId = rentalPeriod.StartDate,
+                        EndDateId = rentalPeriod.EndDate,
+                    });
 
             await _context.SaveChangesAsync();
             return rentalAddDto;
@@ -89,23 +114,36 @@ public class RentalRepository(DriveWiseContext _context) : IRentalRepository
     {
         try
         {
-            Rental? rentalToUpdate = await _context
+            Carpool? checkCarpool = await _context
+                                        .Carpools
+                                        .FirstOrDefaultAsync(c => c.RentalId == rentalUpdateDto.Id);
+
+            if (checkCarpool == null ||
+                 checkCarpool.Passengers == null ||
+                !(checkCarpool.Passengers.Count() != 0 &&
+                (rentalUpdateDto.StartDateId > checkCarpool.DateId ||
+                rentalUpdateDto.EndDateId < checkCarpool.DateId)))
+            {
+
+                Rental? rentalToUpdate = await _context
                                             .Rentals
-                                            .Where(r => ((rentalUpdateDto.StartDateId < r.StartDateId && rentalUpdateDto.EndDateId < r.StartDateId)
-                                                || (rentalUpdateDto.StartDateId > r.EndDateId && rentalUpdateDto.EndDateId > r.EndDateId))
-                                                && r.Collaborator.CarpoolsAsPassenger.Count() == 0)
                                             .FirstOrDefaultAsync(r => r.Id == rentalUpdateDto.Id);
 
-            if (rentalToUpdate == null)
-                return null;
+                if (rentalToUpdate == null)
+                    return null;
 
-            rentalToUpdate.VehicleId = rentalUpdateDto.VehicleId;
-            rentalToUpdate.CollaboratorId = rentalUpdateDto.CollaboratorId;
-            rentalToUpdate.StartDateId = rentalUpdateDto.StartDateId;
-            rentalToUpdate.EndDateId = rentalUpdateDto.EndDateId;
+                rentalToUpdate.VehicleId = rentalUpdateDto.VehicleId;
+                rentalToUpdate.CollaboratorId = rentalUpdateDto.CollaboratorId;
+                rentalToUpdate.StartDateId = rentalUpdateDto.StartDateId;
+                rentalToUpdate.EndDateId = rentalUpdateDto.EndDateId;
 
-            await _context.SaveChangesAsync();
-            return rentalToUpdate;
+                await _context.SaveChangesAsync();
+                return rentalToUpdate;
+            }
+            else
+            {
+                throw new Exception($"Sorry, you can't update your rental's dates. You already have a Carpool with {checkCarpool.Passengers.Count()} passenger(s) that starts on {checkCarpool.DateId.ToLongDateString()}");
+            }
         }
         catch (Exception)
         {

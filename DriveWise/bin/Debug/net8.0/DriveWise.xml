@@ -345,33 +345,33 @@
         </member>
         <member name="M:DriveWise.Controllers.RentalController.GetAllCurrent">
             <summary>
-            Get all currents rentals A VERIFIER
+            Get all currents rentals test OK
             </summary>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.RentalController.GetAllPast">
             <summary>
-            Get all past rentals A VERIFIER
+            Get all past rentals test OK
             </summary>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.RentalController.Add(Services.DTOs.RentalDTOs.RentalAddDto)">
             <summary>
-            Create a new rental A VERIFIER
+            Create a new rental test OK
             </summary>
             <param name="rentalAddDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.RentalController.Update(Services.DTOs.RentalDTOs.RentalUpdateDto)">
             <summary>
-             Update a rental A VERIFIER
+             Update a rental test OK
             </summary>
             <param name="rentalUpdateDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.RentalController.Delete(System.Int32)">
             <summary>
-            Delete a rental A VERIFIER
+            Delete a rental test OK
             </summary>
             <param name="id"></param>
             <returns></returns>

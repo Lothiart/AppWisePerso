@@ -10,15 +10,18 @@ namespace Repositories;
 public class CarpoolRepository(
     DriveWiseContext context,
     ILogger<CarpoolRepository> logger,
-    CarpoolMapper carpoolMapper
+    CarpoolMapper carpoolMapper,
+    IDateRepository dateRepository
     ) : ICarpoolRepository
 {
     public async Task AddAsync(CarpoolAddDto carpoolAddDto)
     {
         try
         {
-            if (carpoolAddDto.DateId >= carpoolAddDto.RentalGetDto.StartDate && carpoolAddDto.DateId <= carpoolAddDto.RentalGetDto.EndDate)
+            if (carpoolAddDto.DateId <= carpoolAddDto.RentalGetDto.StartDate && carpoolAddDto.DateId >= carpoolAddDto.RentalGetDto.EndDate)
                 throw new Exception("Date must be within your rental dates");
+
+            await dateRepository.AddAsync(carpoolAddDto.DateId);
 
             Carpool c = carpoolMapper.CarpoolAddDtoToCarpool(carpoolAddDto);
 
@@ -46,7 +49,7 @@ public class CarpoolRepository(
             await context.SaveChangesAsync();
 
             return true;
-            
+
         }
         catch (Exception ex)
         {

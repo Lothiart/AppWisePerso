@@ -67,6 +67,8 @@ namespace DriveWise.Controllers
                 return Problem(e!.InnerException!.Message);
             }
         }
+
+
         /// <summary>
         /// Get cities by search - A VERIFIER
         /// </summary>
