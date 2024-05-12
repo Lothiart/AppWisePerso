@@ -3,11 +3,11 @@ using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
-
+using Microsoft.Extensions.Logging;
 
 namespace Repositories;
 
-public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
+public class VehicleRepository(DriveWiseContext _context, ILogger<VehicleRepository> logger) : IVehicleRepository
 {
 
     ///////////  Admin  ///////////
@@ -36,15 +36,15 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles");
             throw;
         }
     }
 
 
-    public async Task<List<VehicleGetAdminDto>> GetAllByBrandAdminAsync(int id)
+    public async Task<List<VehicleGetAdminDto>> GetAllByBrandIdAdminAsync(int id)
     {
         try
         {
@@ -67,15 +67,15 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles by brand's id");
             throw;
         }
     }
 
 
-    public async Task<List<VehicleGetAdminDto>> GetAllByCategoryAdminAsync(int id)
+    public async Task<List<VehicleGetAdminDto>> GetAllByCategoryIdAdminAsync(int id)
     {
         try
         {
@@ -98,15 +98,15 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles by category's id");
             throw;
         }
     }
 
 
-    public async Task<List<VehicleGetAdminDto>> GetAllByMotorTypeAdminAsync(int id)
+    public async Task<List<VehicleGetAdminDto>> GetAllByMotorIdAdminAsync(int id)
     {
         try
         {
@@ -129,15 +129,15 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles by motor's id");
             throw;
         }
     }
 
 
-    public async Task<List<VehicleGetAdminDto>> GetAllByStatusNameAdminAsync(int id)
+    public async Task<List<VehicleGetAdminDto>> GetAllByStatusIdAdminAsync(int id)
     {
         try
         {
@@ -160,9 +160,9 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles by status id");
             throw;
         }
     }
@@ -172,7 +172,7 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     {
         try
         {
-            VehicleGetAdminDto? currentVehicle =
+            VehicleGetAdminDto currentVehicle =
                 await _context
                         .Vehicles
                         .Select(v => new VehicleGetAdminDto
@@ -186,13 +186,19 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             ModelId = v.Model.Id,
                             StatusId = v.Status.Id,
                         })
-                        .FirstOrDefaultAsync(v => v.Id == id);
+                        .FirstOrDefaultAsync(v => v.Id == id) ??
+                            throw new KeyNotFoundException($"No vehicle found for the provided Id {id}");
 
             return currentVehicle;
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
-
+            logger.LogInformation(e, e.Message);
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while fetching vehicle by Id");
             throw;
         }
     }
@@ -218,24 +224,28 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             await _context.SaveChangesAsync();
             return vehicleAdminDto;
         }
-        catch (Exception)
+        catch (DbUpdateException e)
         {
+            logger.LogError(e, $"The vehicle's registration {vehicleAdminDto.Registration} is unique and already exist in database");
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while adding the vehicle");
             throw;
         }
     }
 
 
-    public async Task<Vehicle> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto)
+    public async Task<VehicleUpdateDto> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto)
     {
         try
         {
-            Vehicle? vehicleToUpdate =
+            Vehicle vehicleToUpdate =
                 await _context
                         .Vehicles
-                        .FirstOrDefaultAsync(v => v.Id == vehicleUpdateDto.Id);
-
-            if (vehicleToUpdate == null)
-                return null;
+                        .FirstOrDefaultAsync(v => v.Id == vehicleUpdateDto.Id) ??
+                            throw new KeyNotFoundException($"No vehicle found for the provided Id {vehicleUpdateDto.Id}");
 
             vehicleToUpdate.Registration = vehicleUpdateDto.Registration;
             vehicleToUpdate.TotalSeats = vehicleUpdateDto.TotalSeats;
@@ -246,31 +256,48 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
             vehicleToUpdate.ModelId = vehicleUpdateDto.ModelId;
 
             await _context.SaveChangesAsync();
-            return vehicleToUpdate;
+            return vehicleUpdateDto;
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogInformation(e, e.Message);
+            throw;
+        }
+        catch (DbUpdateException e)
+        {
+            logger.LogError(e, $"The vehicle registration {vehicleUpdateDto.Registration} is unique and already exist in database");
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while updating the vehicle");
             throw;
         }
     }
 
 
-    public async Task<Vehicle> DeleteAdminAsync(int id)
+    public async Task DeleteAdminAsync(int id)
     {
         try
         {
-            Vehicle? vehicleToDelete = await _context.Vehicles.FirstOrDefaultAsync(v => v.Id == id);
-
-            if (vehicleToDelete == null)
-                return null;
+            Vehicle vehicleToDelete =
+                await _context
+                        .Vehicles
+                        .FirstOrDefaultAsync(v => v.Id == id) ??
+                            throw new KeyNotFoundException($"No vehicle found for the provided Id {id}");
 
             _context.Vehicles.Remove(vehicleToDelete);
             await _context.SaveChangesAsync();
-            return vehicleToDelete;
 
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogError(e.Message);
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while deleting the vehicle");
             throw;
         }
     }
@@ -309,14 +336,15 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listVehicleRentalDto;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            logger.LogError(e, "An unexpected error occurred while fetching available vehicles");
             throw;
         }
     }
 
 
-    public async Task<List<VehicleGetDto>> GetAllByBrandAsync(int id)
+    public async Task<List<VehicleGetDto>> GetAllByBrandIdAsync(int id)
     {
         try
         {
@@ -338,15 +366,15 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles by brand's Id");
             throw;
         }
     }
 
 
-    public async Task<List<VehicleGetDto>> GetAllByCategoryAsync(int id)
+    public async Task<List<VehicleGetDto>> GetAllByCategoryIdAsync(int id)
     {
         try
         {
@@ -368,15 +396,15 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles by category's Id");
             throw;
         }
     }
 
 
-    public async Task<List<VehicleGetDto>> GetAllByMotorTypeAsync(int id)
+    public async Task<List<VehicleGetDto>> GetAllByMotorIdAsync(int id)
     {
         try
         {
@@ -398,9 +426,9 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
 
             return listAllVehicles;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all vehicles by motor's Id");
             throw;
         }
     }
@@ -410,7 +438,7 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
     {
         try
         {
-            VehicleGetDto? currentVehicle =
+            VehicleGetDto currentVehicle =
                 await _context
                         .Vehicles
                         .Select(v => new VehicleGetDto
@@ -423,13 +451,19 @@ public class VehicleRepository(DriveWiseContext _context) : IVehicleRepository
                             MotorId = v.Motor.Id,
                             ModelId = v.Model.Id,
                         })
-                        .FirstOrDefaultAsync(v => v.Id == id);
+                        .FirstOrDefaultAsync(v => v.Id == id) ??
+                            throw new KeyNotFoundException($"No vehicle found for the provided Id {id}");
 
             return currentVehicle;
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
-
+            logger.LogInformation(e, e.Message);
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while fetching vehicle by Id");
             throw;
         }
     }

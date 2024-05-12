@@ -10,6 +10,5 @@ public class Motor
 
     public string Type { get; set; }
 
-
     public List<Vehicle> Vehicles { get; set; }
 }

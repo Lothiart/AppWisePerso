@@ -3,10 +3,11 @@ using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
+using Microsoft.Extensions.Logging;
 
 namespace Repositories;
 
-public class MotorRepository(DriveWiseContext _context) : IMotorRepository
+public class MotorRepository(DriveWiseContext _context, ILogger<MotorRepository> logger) : IMotorRepository
 {
     public async Task<List<MotorGetDto>> GetAllAsync()
     {
@@ -24,9 +25,9 @@ public class MotorRepository(DriveWiseContext _context) : IMotorRepository
 
             return listAllMotors;
         }
-        catch (Exception)
+        catch (Exception e)
         {
-
+            logger.LogError(e, "An unexpected error occurred while fetching all motors");
             throw;
         }
     }
@@ -36,7 +37,7 @@ public class MotorRepository(DriveWiseContext _context) : IMotorRepository
     {
         try
         {
-            MotorGetDto? currentMotor =
+            MotorGetDto currentMotor =
                 await _context
                         .Motors
                         .Select(m => new MotorGetDto
@@ -44,13 +45,19 @@ public class MotorRepository(DriveWiseContext _context) : IMotorRepository
                             Id = m.Id,
                             Type = m.Type,
                         })
-                        .FirstOrDefaultAsync(m => m.Id == id);
+                        .FirstOrDefaultAsync(m => m.Id == id) ??
+                            throw new KeyNotFoundException($"No motor found for the provided Id {id}");
 
             return currentMotor;
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
-
+            logger.LogInformation(e, e.Message);
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while fetching motor by Id");
             throw;
         }
     }
@@ -70,56 +77,74 @@ public class MotorRepository(DriveWiseContext _context) : IMotorRepository
             await _context.SaveChangesAsync();
             return motorAddDto;
         }
-        catch (Exception)
+        catch (DbUpdateException e)
         {
+            logger.LogError(e, $"The motor type {motorAddDto.Type} is unique and already exist in database");
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while adding the motor type");
             throw;
         }
     }
 
 
-    public async Task<Motor> UpdateAsync(MotorUpdateDto motorUpdateDto)
+    public async Task<MotorUpdateDto> UpdateAsync(MotorUpdateDto motorUpdateDto)
     {
         try
         {
-            Motor? motorToUpdate =
+            Motor motorToUpdate =
                 await _context
                         .Motors
-                        .FirstOrDefaultAsync(m => m.Id == motorUpdateDto.Id);
+                        .FirstOrDefaultAsync(m => m.Id == motorUpdateDto.Id) ??
+                            throw new KeyNotFoundException($"No motor found for the provided Id {motorUpdateDto.Id}");
 
-            if (motorToUpdate == null)
-                return null;
-
-            motorToUpdate.Id = motorUpdateDto.Id;
             motorToUpdate.Type = motorUpdateDto.Type;
 
             await _context.SaveChangesAsync();
-            return motorToUpdate;
+            return motorUpdateDto;
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogInformation(e.Message);
+            throw;
+        }
+        catch (DbUpdateException e)
+        {
+            logger.LogError(e, $"The motor type {motorUpdateDto.Type} is unique and already exist in database");
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while updating the motor type");
             throw;
         }
     }
 
 
-    public async Task<Motor> DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
         try
         {
-            Motor? motorToDelete =
+            Motor motorToDelete =
                 await _context
                         .Motors
-                        .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (motorToDelete == null)
-                return null;
+                        .FirstOrDefaultAsync(m => m.Id == id) ??
+                            throw new KeyNotFoundException($"No motor found for the provided Id {id}");
 
             _context.Motors.Remove(motorToDelete);
             await _context.SaveChangesAsync();
-            return motorToDelete;
+
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogError(e.Message);
+            throw;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while deleting the motor type");
             throw;
         }
     }

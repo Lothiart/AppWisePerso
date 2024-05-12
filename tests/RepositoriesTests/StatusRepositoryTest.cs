@@ -1,17 +1,13 @@
 using Entities;
 using Entities.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Mocks;
 using Repositories;
 using Services.DTOs.StatusDTOs;
 
-
-namespace RepositoriesTests;
-
-
 /* 
 
-
-At the database's initialisation,
+At database's initialisation,
 status table is automatically fulfilled with 3 statuses:
 
 [
@@ -20,36 +16,64 @@ status table is automatically fulfilled with 3 statuses:
     {Id = 3, Name = STATUS.OUTOFSERVICE}
 ]
 
-
 */
 
+namespace RepositoriesTests;
 
 [TestClass]
+
 public class StatusRepositoryTest
 {
     private const string DATABASE_PATH = "DriveWiseDatabase.sqlite";
 
     private DbContextOptionsBuilder<DriveWiseContext> builder = new DbContextOptionsBuilder<DriveWiseContext>()
-        .UseSqlite($"DataSource={DATABASE_PATH}");
+                                                                    .UseSqlite($"DataSource={DATABASE_PATH}");
 
-    [TestMethod]
-    public async Task GetAllAsyncTest_Empty_StatusList()
+    [TestInitialize]
+
+    public void Initialize()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
             context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
+        }
+    }
 
-            StatusRepository statusRepository = new StatusRepository(context);
+
+    [TestMethod]
+
+    public async Task GetAllAsyncTest_Empty_StatusGetDtoList()
+    {
+
+        using (DriveWiseContext context = new DriveWiseContext(builder.Options))
+        {
+
+            //Arrange
+
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
+
+            StatusRepository statusRepository = new StatusRepository(context, logger);
 
             List<Status> statuses = new List<Status>
             {
-                new Status { Id = 1,Name = STATUS.AVAILABLE,},
-                new Status { Id = 2, Name = STATUS.INREPAIR,},
-                new Status { Id = 3, Name = STATUS.OUTOFSERVICE,}
+                new Status
+                {
+                     Id = 1,
+                     Name = STATUS.AVAILABLE
+                },
+                new Status
+                {
+                     Id = 2,
+                      Name = STATUS.INREPAIR
+                },
+                new Status
+                {
+                     Id = 3,
+                      Name = STATUS.OUTOFSERVICE
+                }
             };
 
             //Act
@@ -58,6 +82,7 @@ public class StatusRepositoryTest
 
             //Assert
 
+            Assert.AreEqual(statuses.Count, result.Count);
             Assert.AreEqual(statuses[0].Name, result[0].Name);
             Assert.AreEqual(statuses[1].Name, result[1].Name);
             Assert.AreEqual(statuses[2].Name, result[2].Name);
@@ -67,19 +92,23 @@ public class StatusRepositoryTest
 
     [TestMethod]
 
-    public async Task GetByIdAsyncTest_Id_SingleStatus()
+    public async Task GetByIdAsyncTest_Id_StatusGetDto()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-            context.Database.EnsureDeleted();
-            context.Database.OpenConnection();
-            context.Database.EnsureCreated();
 
-            StatusRepository statusRepository = new StatusRepository(context);
+            //Arrange
 
-            Status status = new Status { Id = 1, Name = STATUS.AVAILABLE };
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
+
+            StatusRepository statusRepository = new StatusRepository(context, logger);
+
+            Status status = new Status
+            {
+                Id = 1,
+                Name = STATUS.AVAILABLE
+            };
 
             //Act
 
@@ -93,50 +122,24 @@ public class StatusRepositoryTest
 
 
     [TestMethod]
+    [ExpectedException(typeof(KeyNotFoundException))]
 
-    public async Task GetByIdAsyncTest_Id_Null()
+    public async Task GetByIdAsyncTest_Id_KeyNotFoundException()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-            context.Database.EnsureDeleted();
-            context.Database.OpenConnection();
-            context.Database.EnsureCreated();
 
-            StatusRepository statusRepository = new StatusRepository(context);
+            //Arrange
 
-            //Act
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
 
-            StatusGetDto result = await statusRepository.GetByIdAsync(4);
-
-            //Assert
-
-            Assert.IsNull(result);
-        }
-    }
-
-
-    [TestMethod]
-
-    public async Task GetByIdAsyncTest_Id_NullBadRequest()
-    {
-        //Arrange
-
-        using (DriveWiseContext context = new DriveWiseContext(builder.Options))
-        {
-            context.Database.EnsureDeleted();
-            context.Database.OpenConnection();
-            context.Database.EnsureCreated();
-
-            StatusRepository statusRepository = new StatusRepository(context);
+            StatusRepository statusRepository = new StatusRepository(context, logger);
 
             //Act
 
-            StatusGetDto result = await statusRepository.GetByIdAsync(-2);
+            await statusRepository.GetByIdAsync(4);
 
-            // Assert
-            Assert.IsNull(result);
         }
     }
 
@@ -145,15 +148,15 @@ public class StatusRepositoryTest
 
     public async Task AddAsyncTest_StatusAddDto_StatusAddDto()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-            context.Database.EnsureDeleted();
-            context.Database.OpenConnection();
-            context.Database.EnsureCreated();
 
-            StatusRepository statusRepository = new StatusRepository(context);
+            //Arrange
+
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
+
+            StatusRepository statusRepository = new StatusRepository(context, logger);
 
             StatusAddDto statusAddDto = new StatusAddDto
             {
@@ -166,64 +169,119 @@ public class StatusRepositoryTest
 
             // Assert
 
-            Assert.AreEqual(statusAddDto.Name, result.Name);
+            Assert.AreEqual("Test", result.Name);
         }
     }
 
 
     [TestMethod]
 
-    public async Task UpdateAsyncTest_StatusAddDto_StatusAddDto()
+    public async Task UpdateAsyncTest_StatusUpdateDto_StatusUpdateDto()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-            context.Database.EnsureDeleted();
-            context.Database.OpenConnection();
-            context.Database.EnsureCreated();
 
-            StatusRepository statusRepository = new StatusRepository(context);
+            //Arrange
 
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
+
+            StatusRepository statusRepository = new StatusRepository(context, logger);
 
             StatusUpdateDto statusUpdateDto = new StatusUpdateDto
             {
                 Id = 1,
-                Name = "Test",
+                Name = "Update",
             };
-
 
             //Act
 
-            Status result = await statusRepository.UpdateAsync(statusUpdateDto);
+            StatusUpdateDto result = await statusRepository.UpdateAsync(statusUpdateDto);
 
             // Assert
-            Assert.AreEqual(statusUpdateDto.Name, result.Name);
+
+            Assert.AreEqual("Update", result.Name);
         }
     }
 
 
     [TestMethod]
+    [ExpectedException(typeof(KeyNotFoundException))]
 
-    public async Task DeleteAsyncTest_int_Status()
+    public async Task UpdateAsyncTest_StatusUpdateDto_KeyNotFoundException()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
-            context.Database.EnsureDeleted();
-            context.Database.OpenConnection();
-            context.Database.EnsureCreated();
 
-            StatusRepository statusRepository = new StatusRepository(context);
+            //Arrange
+
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
+
+            StatusRepository statusRepository = new StatusRepository(context, logger);
+
+            StatusUpdateDto statusUpdateDto = new StatusUpdateDto
+            {
+                Id = 4,
+                Name = "Update",
+            };
+
+            //Act
+
+            await statusRepository.UpdateAsync(statusUpdateDto);
+
+        }
+    }
+
+
+
+
+    [TestMethod]
+
+    public async Task DeleteAsyncTest_int_Void()
+    {
+
+        using (DriveWiseContext context = new DriveWiseContext(builder.Options))
+        {
+
+            //Arrange
+
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
+
+            StatusRepository statusRepository = new StatusRepository(context, logger);
 
             //Act
 
             await statusRepository.DeleteAsync(1);
 
             // Assert
+
             Status? result = await context.Statuses.FirstOrDefaultAsync(s => s.Id == 1);
+
             Assert.IsNull(result);
+        }
+    }
+
+
+    [TestMethod]
+    [ExpectedException(typeof(KeyNotFoundException))]
+
+    public async Task DeleteAsyncTest_int_KeyNotFoundException()
+    {
+
+        using (DriveWiseContext context = new DriveWiseContext(builder.Options))
+        {
+
+            //Arrange
+
+            MockLogger<StatusRepository> logger = new MockLogger<StatusRepository>();
+
+            StatusRepository statusRepository = new StatusRepository(context, logger);
+
+            //Act
+
+            await statusRepository.DeleteAsync(4);
+
         }
     }
 }

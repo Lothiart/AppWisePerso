@@ -326,7 +326,6 @@
             </summary>
             <param name="motorAddDto"></param>
             <returns></returns>
-            
         </member>
         <member name="M:DriveWise.Controllers.MotorController.UpdateMotor(Services.DTOs.MotorDTOs.MotorUpdateDto)">
             <summary>
@@ -343,16 +342,47 @@
             <returns></returns>
             
         </member>
-        <member name="M:DriveWise.Controllers.RentalController.GetAllCurrent">
+        <member name="M:DriveWise.Controllers.RentalController.GetAllCurrentsAdmin">
+            <summary>
+            Get all currents rentals for ADMIN test OK
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.GetAllPastsAdmin">
+            <summary>
+            Get all pasts rentals for ADMIN test OK
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.GetAllFuturesAdmin">
+            <summary>
+            Get all futures rentals for ADMIN test OK
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.GetAllCurrents">
             <summary>
             Get all currents rentals test OK
             </summary>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.RentalController.GetAllPast">
+        <member name="M:DriveWise.Controllers.RentalController.GetAllPasts">
             <summary>
-            Get all past rentals test OK
+            Get all pasts rentals test OK
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.GetAllFutures">
+            <summary>
+            Get all futures rentals test OK
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DriveWise.Controllers.RentalController.GetById(System.Int32)">
+            <summary>
+            Get one rental by Id A VERIFIER
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.RentalController.Add(Services.DTOs.RentalDTOs.RentalAddDto)">
@@ -369,11 +399,12 @@
             <param name="rentalUpdateDto"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.RentalController.Delete(System.Int32)">
+        <member name="M:DriveWise.Controllers.RentalController.Delete(System.Int32,System.Int32)">
             <summary>
             Delete a rental test OK
             </summary>
             <param name="id"></param>
+            <param name="collaboratorId"></param>
             <returns></returns>
         </member>
         <member name="T:DriveWise.Controllers.RoleController">
@@ -430,30 +461,30 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByBrandAdmin(System.Int32)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByBrandIdAdmin(System.Int32)">
             <summary>
-            Get all vehicles by brand name for Admin TEST OK
+            Get all vehicles by brand's id for Admin TEST OK
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByCategoryAdmin(System.Int32)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByCategoryIdAdmin(System.Int32)">
             <summary>
-            Get all vehicles by category name for Admin TEST OK
+            Get all vehicles by category's id for Admin TEST OK
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByMotorAdmin(System.Int32)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByMotorIdAdmin(System.Int32)">
             <summary>
-            Get all vehicles by motor type for Admin TEST OK
+            Get all vehicles by motor's id for Admin TEST OK
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByStatusAdmin(System.Int32)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByStatusIdAdmin(System.Int32)">
             <summary>
-            Get all vehicles by status name for Admin TEST OK
+            Get all vehicles by status id for Admin TEST OK
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -493,23 +524,23 @@
             <param name="vehicleByDateDto"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByBrand(System.Int32)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByBrandId(System.Int32)">
             <summary>
-            Get all vehicles by brand name TEST OK
+            Get all vehicles by brand's id TEST OK
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByCategory(System.Int32)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByCategoryId(System.Int32)">
             <summary>
-            Get all vehicles by category name TEST OK
+            Get all vehicles by category's id TEST OK
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.VehicleController.GetAllByMotor(System.Int32)">
+        <member name="M:DriveWise.Controllers.VehicleController.GetAllByMotorId(System.Int32)">
             <summary>
-            Get all vehicles by motor type TEST OK
+            Get all vehicles by motor's id TEST OK
             </summary>
             <param name="id"></param>
             <returns></returns>

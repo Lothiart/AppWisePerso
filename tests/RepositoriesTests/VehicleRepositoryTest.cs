@@ -3,8 +3,8 @@ using Entities.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Mocks;
 using Repositories;
-using Services.DTOs.RentalDTOs;
 using Services.DTOs.VehicleDTOs;
 
 namespace RepositoriesTests;
@@ -26,6 +26,7 @@ public class VehicleRepositoryTest
     {
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
+
             context.Database.EnsureDeleted();
             context.Database.OpenConnection();
             context.Database.EnsureCreated();
@@ -66,12 +67,15 @@ public class VehicleRepositoryTest
 
     public async Task GetAllAdminAsyncTest_Empty_VehicleList()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             List<Vehicle> vehicles = new List<Vehicle>
             {
@@ -116,12 +120,15 @@ public class VehicleRepositoryTest
 
     public async Task GetAllByCategoryAsyncTest_Id_VehicleList()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             List<Vehicle> vehicles = new List<Vehicle>
             {
@@ -152,7 +159,7 @@ public class VehicleRepositoryTest
 
             //Act
 
-            List<VehicleGetAdminDto> result = await vehicleRepository.GetAllByCategoryAdminAsync(2);
+            List<VehicleGetAdminDto> result = await vehicleRepository.GetAllByCategoryIdAdminAsync(2);
 
             //Assert
 
@@ -166,12 +173,15 @@ public class VehicleRepositoryTest
 
     public async Task GetAllByCategoryAsyncTest_Id_Null()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             List<Vehicle> vehicles = new List<Vehicle>
             {
@@ -202,7 +212,7 @@ public class VehicleRepositoryTest
 
             //Act
 
-            List<VehicleGetAdminDto> result = await vehicleRepository.GetAllByCategoryAdminAsync(6);
+            List<VehicleGetAdminDto> result = await vehicleRepository.GetAllByCategoryIdAdminAsync(6);
 
             //Assert
 
@@ -218,13 +228,14 @@ public class VehicleRepositoryTest
 
         // Vehicules have No Rentals
 
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
             //Arrange
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             //Create VehicleByDateDto
 
@@ -279,7 +290,7 @@ public class VehicleRepositoryTest
     public async Task GetAllByDatesAsyncTest_VehicleByDateDto_ListVehicleRentalDto_WithRentals()
     {
 
-        // Vehicules have No Rentals
+        // Vehicules have Rentals
 
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
@@ -287,7 +298,9 @@ public class VehicleRepositoryTest
 
             //Arrange
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             // Create User
 
@@ -425,13 +438,14 @@ public class VehicleRepositoryTest
 
         // Status test
 
-
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
             //Arrange
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             //Create VehicleByDateDto
 
@@ -497,12 +511,15 @@ public class VehicleRepositoryTest
 
     public async Task GetByIdAdminAsyncTest_Id_VehicleGetAdminDto()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             List<Vehicle> vehicles = new List<Vehicle>
             {
@@ -545,15 +562,19 @@ public class VehicleRepositoryTest
 
 
     [TestMethod]
+    [ExpectedException(typeof(KeyNotFoundException))]
 
-    public async Task GetByIdAdminAsyncTest_Id_Null()
+    public async Task GetByIdAdminAsyncTest_Id_KeyNotFoundException()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             List<Vehicle> vehicles = new List<Vehicle>
             {
@@ -586,9 +607,6 @@ public class VehicleRepositoryTest
 
             VehicleGetAdminDto result = await vehicleRepository.GetByIdAdminAsync(3);
 
-            //Assert
-
-            Assert.IsNull(result);
 
         }
     }
@@ -601,12 +619,15 @@ public class VehicleRepositoryTest
 
     public async Task AddAdminAsyncTest_VehicleAdminDto_DbUpdateException()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             Vehicle vehicle = new Vehicle
             {
@@ -646,12 +667,15 @@ public class VehicleRepositoryTest
 
     public async Task AddAdminAsyncTest_VehicleAdminDto_VehicleAdminDto()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             VehicleAdminDto vehicleAdminDto = new VehicleAdminDto
             {
@@ -686,12 +710,15 @@ public class VehicleRepositoryTest
 
     public async Task UpdateAdminAsyncTest_VehicleUpdateDto_Vehicle()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             Vehicle vehicle = new Vehicle
             {
@@ -722,7 +749,7 @@ public class VehicleRepositoryTest
 
             // Act
 
-            Vehicle result = await vehicleRepository.UpdateAdminAsync(vehicleUpdateDto);
+            VehicleUpdateDto result = await vehicleRepository.UpdateAdminAsync(vehicleUpdateDto);
 
             // Assert
 
@@ -732,15 +759,20 @@ public class VehicleRepositoryTest
 
 
     [TestMethod]
+    [ExpectedException(typeof(KeyNotFoundException))]
 
-    public async Task UpdateAsyncTest_VehicleUpdateDto_Null()
+
+    public async Task UpdateAdminAsyncTest_VehicleUpdateDto_KeyNotFoundException()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             Vehicle vehicle = new Vehicle
             {
@@ -772,11 +804,8 @@ public class VehicleRepositoryTest
 
             // Act
 
-            Vehicle result = await vehicleRepository.UpdateAdminAsync(vehicleUpdateDto);
+            VehicleUpdateDto result = await vehicleRepository.UpdateAdminAsync(vehicleUpdateDto);
 
-            // Assert
-
-            Assert.IsNull(result);
         }
     }
 
@@ -785,12 +814,15 @@ public class VehicleRepositoryTest
 
     public async Task DeleteAdminAsyncTest_Int_Vehicle()
     {
-        //Arrange
 
         using (DriveWiseContext context = new DriveWiseContext(builder.Options))
         {
 
-            VehicleRepository vehicleRepository = new VehicleRepository(context);
+            //Arrange
+
+            MockLogger<VehicleRepository> logger = new MockLogger<VehicleRepository>();
+
+            VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
             Vehicle vehicle = new Vehicle
             {
@@ -817,5 +849,4 @@ public class VehicleRepositoryTest
             Assert.IsNull(result);
         }
     }
-
 }

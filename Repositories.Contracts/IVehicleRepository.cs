@@ -6,18 +6,18 @@ namespace Repositories.Contracts;
 public interface IVehicleRepository
 {
     Task<List<VehicleGetAdminDto>> GetAllAdminAsync();
-    Task<List<VehicleGetAdminDto>> GetAllByBrandAdminAsync(int id);
-    Task<List<VehicleGetAdminDto>> GetAllByCategoryAdminAsync(int id);
-    Task<List<VehicleGetAdminDto>> GetAllByMotorTypeAdminAsync(int id);
-    Task<List<VehicleGetAdminDto>> GetAllByStatusNameAdminAsync(int id);
+    Task<List<VehicleGetAdminDto>> GetAllByBrandIdAdminAsync(int id);
+    Task<List<VehicleGetAdminDto>> GetAllByCategoryIdAdminAsync(int id);
+    Task<List<VehicleGetAdminDto>> GetAllByMotorIdAdminAsync(int id);
+    Task<List<VehicleGetAdminDto>> GetAllByStatusIdAdminAsync(int id);
     Task<VehicleGetAdminDto> GetByIdAdminAsync(int id);
     Task<VehicleAdminDto> AddAdminAsync(VehicleAdminDto vehicleGetAdminDto);
-    Task<Vehicle> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto);
-    Task<Vehicle> DeleteAdminAsync(int id);
+    Task<VehicleUpdateDto> UpdateAdminAsync(VehicleUpdateDto vehicleUpdateDto);
+    Task DeleteAdminAsync(int id);
     Task<List<VehicleRentalDto>> GetAllByDatesAsync(VehicleByDateDto vehicleByDateDto);
-    Task<List<VehicleGetDto>> GetAllByBrandAsync(int id);
-    Task<List<VehicleGetDto>> GetAllByCategoryAsync(int id);
-    Task<List<VehicleGetDto>> GetAllByMotorTypeAsync(int id);
+    Task<List<VehicleGetDto>> GetAllByBrandIdAsync(int id);
+    Task<List<VehicleGetDto>> GetAllByCategoryIdAsync(int id);
+    Task<List<VehicleGetDto>> GetAllByMotorIdAsync(int id);
     Task<VehicleGetDto> GetByIdAsync(int id);
 
 

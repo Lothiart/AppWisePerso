@@ -7,36 +7,44 @@ using Repositories.Contracts;
 namespace DriveWise.Controllers;
 
 [Route("api/[controller]/[action]")]
+
 [ApiController]
 
+[Authorize(Roles = "ADMIN")]
 
-//    [Authorize(Roles = "ADMIN")]
-//    [Authorize]
-
-
-public class StatusController(IStatusRepository statusRepository) : ControllerBase
+public class StatusController(IStatusRepository statusRepository, ILogger<StatusController> logger) : ControllerBase
 {
+
     /// <summary>
     /// Get all statuses test OK
     /// </summary>
     /// <returns></returns>
 
     [ProducesResponseType(200)]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(401)]
     [ProducesResponseType(500)]
 
     [HttpGet]
+
     public async Task<ActionResult<List<StatusGetDto>>> GetAllStatuses()
     {
         try
         {
             List<StatusGetDto> listStatusesDTO = await statusRepository.GetAllAsync();
+
+            if (listStatusesDTO.Count == 0)
+                return NoContent();
+
             return Ok(listStatusesDTO);
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            logger.LogError(e, "An unexpected error occurred while fetching all statuses");
             throw;
         }
     }
+
 
     /// <summary>
     /// Get one status by Id test OK
@@ -46,6 +54,7 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
@@ -58,14 +67,21 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
 
         try
         {
-            StatusGetDto statusGetDtostatus = await statusRepository.GetByIdAsync(id);
-            return statusGetDtostatus == null ? NotFound() : Ok(statusGetDtostatus);
+            StatusGetDto statusGetDto = await statusRepository.GetByIdAsync(id);
+            return Ok(statusGetDto);
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogInformation(e, e.Message);
+            return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while fetching status by Id");
             throw;
         }
     }
+
 
     /// <summary>
     /// Create a new status by giving it a name test OK
@@ -73,24 +89,32 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
     /// <param name="statusAddDto"></param>
     /// <returns></returns>
 
-    [ProducesResponseType(200)]
+    [ProducesResponseType(201)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [ProducesResponseType(403)]
     [ProducesResponseType(500)]
 
     [HttpPost]
+
     public async Task<ActionResult<StatusAddDto>> AddStatus(StatusAddDto statusAddDto)
     {
+
+        if (string.IsNullOrWhiteSpace(statusAddDto.Name))
+            return BadRequest("Status name can't be null or empty");
 
         try
         {
             StatusAddDto statusToCreate = await statusRepository.AddAsync(statusAddDto);
-            return Ok($"New status {statusToCreate.Name} has been created");
+            return Created($"New status {statusToCreate.Name} has been created", statusToCreate);
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            logger.LogError(e, "An unexpected error occurred while adding the status name");
             throw;
         }
     }
+
 
     /// <summary>
     /// Update a Status test OK
@@ -100,23 +124,34 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [ProducesResponseType(403)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
     [HttpPut]
 
-    public async Task<ActionResult<Status>> UpdateStatus(StatusUpdateDto statusUpdateDto)
+    public async Task<ActionResult<StatusUpdateDto>> UpdateStatus(StatusUpdateDto statusUpdateDto)
     {
         if (statusUpdateDto.Id <= 0)
             return BadRequest("\"Id\" must be a positive number");
 
+        if (string.IsNullOrWhiteSpace(statusUpdateDto.Name))
+            return BadRequest("Status name can't be null or empty");
+
         try
         {
-            Status statusToUpdate = await statusRepository.UpdateAsync(statusUpdateDto);
-            return statusToUpdate == null ? NotFound() : Ok($"The status has been updated to {statusToUpdate.Name}");
+            StatusUpdateDto statusToUpdate = await statusRepository.UpdateAsync(statusUpdateDto);
+            return Ok($"The status has been updated to {statusToUpdate.Name}");
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogInformation(e, e.Message);
+            return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while updating the status name");
             throw;
         }
     }
@@ -130,6 +165,8 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [ProducesResponseType(403)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
@@ -143,11 +180,17 @@ public class StatusController(IStatusRepository statusRepository) : ControllerBa
 
         try
         {
-            Status statusToDelete = await statusRepository.DeleteAsync(id);
-            return statusToDelete == null ? NotFound() : Ok($"The status has been successfully deleted");
+            await statusRepository.DeleteAsync(id);
+            return Ok($"The status has been successfully deleted");
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogError(e, e.Message);
+            return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while deleting the status name");
             throw;
         }
     }

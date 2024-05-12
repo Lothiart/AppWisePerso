@@ -3,17 +3,14 @@ using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace DriveWise.Controllers;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
 
-
-//    [Authorize(Roles = "ADMIN")]
-//    [Authorize]
-
-public class MotorController(IMotorRepository motorRepository) : ControllerBase
+public class MotorController(IMotorRepository motorRepository, ILogger<MotorController> logger) : ControllerBase
 {
 
     /// <summary>
@@ -22,9 +19,13 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
     /// <returns></returns>
 
     [ProducesResponseType(200)]
+    [ProducesResponseType(204)]
+    [ProducesResponseType(401)]
     [ProducesResponseType(500)]
 
     [HttpGet]
+
+    [Authorize]
 
     public async Task<ActionResult<List<MotorGetDto>>> GetAllMotors()
     {
@@ -32,10 +33,14 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         {
             List<MotorGetDto> listMotorsDto = await motorRepository.GetAllAsync();
 
+            if (listMotorsDto.Count == 0)
+                return NoContent();
+
             return Ok(listMotorsDto);
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            logger.LogError(e, "An unexpected error occurred while fetching all motors");
             throw;
         }
     }
@@ -49,10 +54,13 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
     [HttpGet]
+
+    [Authorize]
 
     public async Task<ActionResult<MotorGetDto>> GetMotorById(int id)
     {
@@ -62,14 +70,19 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
         try
         {
             MotorGetDto oneMotorDto = await motorRepository.GetByIdAsync(id);
-            return oneMotorDto == null ? NotFound() : Ok(oneMotorDto);
+            return Ok(oneMotorDto);
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogInformation(e, e.Message);
+            return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while fetching motor by Id");
             throw;
         }
     }
-
 
 
     /// <summary>
@@ -77,22 +90,37 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
     /// </summary>
     /// <param name="motorAddDto"></param>
     /// <returns></returns>
-    /// 
 
-    [ProducesResponseType(200)]
+    [ProducesResponseType(201)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [ProducesResponseType(403)]
+    [ProducesResponseType(409)]
     [ProducesResponseType(500)]
+
     [HttpPost]
+
+    [Authorize(Roles = "ADMIN")]
 
     public async Task<ActionResult<MotorAddDto>> AddMotor(MotorAddDto motorAddDto)
     {
+
+        if (string.IsNullOrWhiteSpace(motorAddDto.Type))
+            return BadRequest("Motor type can't be null or empty");
+
         try
         {
             MotorAddDto motorToCreate = await motorRepository.AddAsync(motorAddDto);
-            return Ok($"New motor type {motorToCreate.Type} has been added");
+            return Created($"New motor type {motorToCreate.Type} has been added", motorToCreate);
         }
-        catch (Exception)
+        catch (DbUpdateException e)
         {
+            logger.LogError(e, $"The motor type {motorAddDto.Type} is unique and already exist in database");
+            return Conflict($"The motor type {motorAddDto.Type} is unique and already exist in database");
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while adding the motor type");
             throw;
         }
     }
@@ -106,26 +134,42 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [ProducesResponseType(403)]
     [ProducesResponseType(404)]
+    [ProducesResponseType(409)]
     [ProducesResponseType(500)]
 
     [HttpPut]
+
+    [Authorize(Roles = "ADMIN")]
 
     public async Task<ActionResult<Motor>> UpdateMotor(MotorUpdateDto motorUpdateDto)
     {
         if (motorUpdateDto.Id <= 0)
             return BadRequest("\"Id\" must be a positive number");
 
+        if (string.IsNullOrWhiteSpace(motorUpdateDto.Type))
+            return BadRequest("Motor type can't be null or empty");
+
         try
         {
-
-            Motor motorToUpdate = await motorRepository.UpdateAsync(motorUpdateDto);
-
-            return motorToUpdate == null ? NotFound() : Ok($"The status has been updated to {motorToUpdate.Type}");
-
+            MotorUpdateDto motorToUpdate = await motorRepository.UpdateAsync(motorUpdateDto);
+            return Ok($"The status has been updated to {motorToUpdate.Type}");
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogInformation(e, e.Message);
+            return NotFound(e.Message);
+        }
+        catch (DbUpdateException e)
+        {
+            logger.LogError(e, $"The motor type {motorUpdateDto.Type} is unique and already exist in database");
+            return Conflict($"The motor type {motorUpdateDto.Type} is unique and already exist in database");
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while updating the motor type");
             throw;
         }
     }
@@ -140,10 +184,14 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
+    [ProducesResponseType(401)]
+    [ProducesResponseType(403)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
 
     [HttpDelete]
+
+    [Authorize(Roles = "ADMIN")]
 
     public async Task<ActionResult> DeleteMotor(int id)
     {
@@ -152,12 +200,17 @@ public class MotorController(IMotorRepository motorRepository) : ControllerBase
 
         try
         {
-            Motor motorToDelete = await motorRepository.DeleteAsync(id);
-
-            return motorToDelete == null ? NotFound() : Ok($"The motor has been successfully deleted");
+            await motorRepository.DeleteAsync(id);
+            return Ok($"The motor has been successfully deleted");
         }
-        catch (Exception)
+        catch (KeyNotFoundException e)
         {
+            logger.LogError(e, e.Message);
+            return NotFound(e.Message);
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "An unexpected error occurred while deleting the motor type");
             throw;
         }
     }
