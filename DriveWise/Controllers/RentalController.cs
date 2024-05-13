@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using Entities.Const;
 
@@ -149,6 +148,7 @@ public class RentalController(IRentalRepository rentalRepository, UserManager<Ap
 
         AppUser? currentUser = await userManager
                                 .Users
+                                .Include(u => u.Collaborator)
                                 .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
 
         if (currentUser == null)
@@ -193,8 +193,9 @@ public class RentalController(IRentalRepository rentalRepository, UserManager<Ap
             return Unauthorized("You have to login");
 
         AppUser? currentUser = await userManager
-                                .Users
-                                .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
+                         .Users
+                         .Include(u => u.Collaborator)
+                         .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
 
         if (currentUser == null)
             return Unauthorized("You're not properly registered");
@@ -240,6 +241,7 @@ public class RentalController(IRentalRepository rentalRepository, UserManager<Ap
 
         AppUser? currentUser = await userManager
                                 .Users
+                                .Include(u => u.Collaborator)
                                 .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
 
         if (currentUser == null)
@@ -287,6 +289,7 @@ public class RentalController(IRentalRepository rentalRepository, UserManager<Ap
 
         AppUser? currentUser = await userManager
                                 .Users
+                                .Include(u => u.Collaborator)
                                 .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
 
         if (currentUser == null)
@@ -340,6 +343,7 @@ public class RentalController(IRentalRepository rentalRepository, UserManager<Ap
 
         AppUser? currentUser = await userManager
                                 .Users
+                                .Include(u => u.Collaborator)
                                 .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
 
         if (currentUser == null)
@@ -399,6 +403,7 @@ public class RentalController(IRentalRepository rentalRepository, UserManager<Ap
 
         AppUser? currentUser = await userManager
                                 .Users
+                                .Include(u => u.Collaborator)
                                 .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
 
         if (currentUser == null)
@@ -462,6 +467,7 @@ public class RentalController(IRentalRepository rentalRepository, UserManager<Ap
 
         AppUser? currentUser = await userManager
                                 .Users
+                                .Include(u => u.Collaborator)
                                 .FirstOrDefaultAsync(a => a.Id == currentUserGuid);
 
         if (currentUser == null)

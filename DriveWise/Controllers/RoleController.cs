@@ -1,5 +1,5 @@
 using Entities;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +17,9 @@ namespace DriveWise.Controllers;
 public class RoleController(RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager) : ControllerBase
 {
     [HttpPost]
+
+    [Authorize(Roles = "ADMIN")]
+
     public async Task<IActionResult> CreateRole(string role)
     {
         IdentityResult result = await roleManager.CreateAsync(new IdentityRole { Name = role, NormalizedName = "ADMIN" });

@@ -302,20 +302,7 @@ public class VehicleRepositoryTest
 
             VehicleRepository vehicleRepository = new VehicleRepository(context, logger);
 
-            // Create User
-
-            UserStore<AppUser> store = new UserStore<AppUser>(context);
-            UserManager<AppUser> _userManager = new UserManager<AppUser>(
-                 store,
-                 null,
-                 new PasswordHasher<AppUser>(),
-                 new IUserValidator<AppUser>[0],
-                 new IPasswordValidator<AppUser>[0],
-                 null,
-                 null,
-                 null,
-                 null
-              );
+            UserManager<AppUser> _userManager = UserManagerConfig.CreateUserManager(context);
 
             // Create Collaborator
 
