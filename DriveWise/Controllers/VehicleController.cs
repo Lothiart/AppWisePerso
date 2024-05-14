@@ -1,16 +1,14 @@
 ﻿using Services.DTOs.VehicleDTOs;
-using Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Repositories;
 using Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace DriveWise.Controllers;
 
 [Route("api/[controller]/[action]")]
-[ApiController]
 
+[ApiController]
 
 public class VehicleController(IVehicleRepository vehicleRepository, ILogger<MotorController> logger) : ControllerBase
 {

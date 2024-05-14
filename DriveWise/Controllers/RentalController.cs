@@ -10,6 +10,7 @@ using Entities.Const;
 namespace DriveWise.Controllers;
 
 [Route("api/[controller]/[action]")]
+
 [ApiController]
 
 public class RentalController(IRentalRepository rentalRepository, UserManager<AppUser> userManager, ILogger<RentalController> logger) : ControllerBase

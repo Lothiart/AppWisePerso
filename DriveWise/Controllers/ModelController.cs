@@ -1,128 +1,127 @@
-﻿using Services.DTOs.CityDTOs;
-using Services.DTOs.ModelDTOs;
+﻿using Services.DTOs.ModelDTOs;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Repositories.Contracts;
 
-namespace DriveWise.Controllers
+namespace DriveWise.Controllers;
+
+[Route("api/[controller]/[action]")]
+
+[ApiController]
+
+public class ModelController(
+    IModelRepository modelRepository,
+    ILogger<ModelController> logger) : ControllerBase
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
-    public class ModelController(
-        IModelRepository modelRepository,
-        ILogger<ModelController> logger) : ControllerBase
+    /// <summary>
+    /// Add model - VERIFIER
+    /// </summary>
+    /// <param name="modelAddDto"></param>
+    /// <returns></returns>
+    [HttpPost]
+    public async Task<IActionResult> Add(ModelAddDto modelAddDto)
     {
-        /// <summary>
-        /// Add model - VERIFIER
-        /// </summary>
-        /// <param name="modelAddDto"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public async Task<IActionResult> Add(ModelAddDto modelAddDto)
+        try
         {
-            try
-            {
-                await modelRepository.AddAsync(modelAddDto);
+            await modelRepository.AddAsync(modelAddDto);
 
-                return Ok(modelAddDto);
-            }
-            catch (Exception e)
-            {
-                return Problem(e!.InnerException!.Message);
-            }
+            return Ok(modelAddDto);
         }
+        catch (Exception e)
+        {
+            return Problem(e!.InnerException!.Message);
+        }
+    }
 
-        /// <summary>
-        /// Get model by id VERIFIER
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetById(int id)
+    /// <summary>
+    /// Get model by id VERIFIER
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<IActionResult> GetById(int id)
+    {
+        try
         {
-            try
-            {
-                return Ok(await modelRepository.GetByIdAsync(id));
-            }
-            catch (Exception e)
-            {
-                return Problem(e!.InnerException!.Message);
-            }
+            return Ok(await modelRepository.GetByIdAsync(id));
         }
+        catch (Exception e)
+        {
+            return Problem(e!.InnerException!.Message);
+        }
+    }
 
-        /// <summary>
-        /// Get all models VERIFIER
-        /// </summary>
-        /// <param></param>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+    /// <summary>
+    /// Get all models VERIFIER
+    /// </summary>
+    /// <param></param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        try
         {
-            try
-            {
-                return Ok(await modelRepository.GetAllAsync());
-            }
-            catch (Exception e)
-            {
-                return Problem(e!.InnerException!.Message);
-            }
+            return Ok(await modelRepository.GetAllAsync());
         }
+        catch (Exception e)
+        {
+            return Problem(e!.InnerException!.Message);
+        }
+    }
 
-        /// <summary>
-        /// Update model - VERIFIER
-        /// </summary>
-        /// <param name="modelUpdateDto"></param>
-        /// <returns></returns>
-        [HttpPut]
-        public async Task<IActionResult> Update(ModelUpdateDto modelUpdateDto)
+    /// <summary>
+    /// Update model - VERIFIER
+    /// </summary>
+    /// <param name="modelUpdateDto"></param>
+    /// <returns></returns>
+    [HttpPut]
+    public async Task<IActionResult> Update(ModelUpdateDto modelUpdateDto)
+    {
+        try
         {
-            try
-            {
-                await modelRepository.UpdateAsync(modelUpdateDto);
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                return Problem(e!.InnerException!.Message);
-            }
+            await modelRepository.UpdateAsync(modelUpdateDto);
+            return Ok();
         }
+        catch (Exception e)
+        {
+            return Problem(e!.InnerException!.Message);
+        }
+    }
 
-        /// <summary>
-        /// Delete model - VERIFIER
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
+    /// <summary>
+    /// Delete model - VERIFIER
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpDelete]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
         {
-            try
-            {
-                await modelRepository.DeleteAsync(id);
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                return Problem(e!.InnerException!.Message);
-            }
+            await modelRepository.DeleteAsync(id);
+            return Ok();
         }
-        /// <summary>
-        /// Get models by search A VERIFIER
-        /// </summary>
-        /// <param name="brand"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetByBrand(Brand brand)
+        catch (Exception e)
         {
-            try
-            {
-                await modelRepository.GetByBrandAsync(brand);
-                return Ok();
-            }
-            catch (Exception e)
-            {
-                return Problem(e!.InnerException!.Message);
-            }
+            return Problem(e!.InnerException!.Message);
+        }
+    }
+    /// <summary>
+    /// Get models by search A VERIFIER
+    /// </summary>
+    /// <param name="brand"></param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<IActionResult> GetByBrand(Brand brand)
+    {
+        try
+        {
+            await modelRepository.GetByBrandAsync(brand);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return Problem(e!.InnerException!.Message);
         }
     }
 }

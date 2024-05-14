@@ -1,5 +1,4 @@
 ﻿using Services.DTOs.VehicleDTOs;
-using Entities;
 
 namespace Repositories.Contracts;
 
@@ -19,11 +18,4 @@ public interface IVehicleRepository
     Task<List<VehicleGetDto>> GetAllByCategoryIdAsync(int id);
     Task<List<VehicleGetDto>> GetAllByMotorIdAsync(int id);
     Task<VehicleGetDto> GetByIdAsync(int id);
-
-
-
-
-
-
-
 }

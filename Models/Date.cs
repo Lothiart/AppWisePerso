@@ -6,7 +6,6 @@ namespace Entities;
 public class Date
 {
     public DateTime Id { get; set; }
-
     public List<Carpool> Carpools { get; set; }
 
     [ForeignKey("StartDateId")]

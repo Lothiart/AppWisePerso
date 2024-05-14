@@ -333,7 +333,7 @@ public class RentalRepository(DriveWiseContext _context, IDateRepository dateRep
                     .Rentals
                     .Where(r => r.CollaboratorId == currentUser.Collaborator.Id)
                     .FirstOrDefaultAsync(r => r.Id == id) ??
-                    throw new KeyNotFoundException($"No rental found for provided id {id}");
+                        throw new KeyNotFoundException($"No rental found for provided id {id}");
 
             _context.Rentals.Remove(rentalToDelete);
             await _context.SaveChangesAsync();

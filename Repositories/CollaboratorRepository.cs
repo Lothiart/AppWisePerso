@@ -8,88 +8,84 @@ using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
 
 
+namespace Repositories;
 
-namespace Repositories
+public class CollaboratorRepository(DriveWiseContext context, ILogger<CollaboratorRepository> logger, UserManager<AppUser> userManager) : ICollaboratorRepository
 {
-    public class CollaboratorRepository(DriveWiseContext context,
-    ILogger<CollaboratorRepository> logger,
-    UserManager<AppUser> userManager) : ICollaboratorRepository
+    public async Task<Collaborator> AddAsync(Collaborator collaborator)
     {
-        public async Task<Collaborator> AddAsync(Collaborator collaborator)
+        try
         {
-            try
-            {
-                await context
-                    .Collaborators
-                    .AddAsync(collaborator);
+            await context
+                .Collaborators
+                .AddAsync(collaborator);
 
-                await context.SaveChangesAsync();
-                return collaborator;
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+            await context.SaveChangesAsync();
+            return collaborator;
         }
-        public async Task<CollaboratorGetDto> GetByIdAsync(int id)
+        catch (Exception e)
         {
-            try
-            {
-                Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
-
-
-                AppUser user = await context.Users.FirstOrDefaultAsync(u => u.Id == collaborator.AppUserId);
-                return new CollaboratorGetDto() { Id = user.Collaborator.Id, FirstName = user.Collaborator.FirstName, LastName = user.Collaborator.LastName, Email = user.Email };
-
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+            logger.LogError(e!.InnerException!.Message);
+            throw;
         }
-
-        public async Task<CollaboratorGetFullUserDto> GetFullUserByIdAsync(int id)
+    }
+    public async Task<CollaboratorGetDto> GetByIdAsync(int id)
+    {
+        try
         {
-            try
-            {
-                Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+            Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
 
-                AppUser user = await context.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
 
-                return new CollaboratorGetFullUserDto()
-                {
-                    Id = user.Collaborator.Id,
-                    FirstName = user.Collaborator.FirstName,
-                    LastName = user.Collaborator.LastName,
-                    Email = user.Email,
-                    CarpoolsAsDriver = await context.Carpools.Where(c => c.DriverId == user.Collaborator.Id).ToListAsync(),
-                    CarpoolsAsPassenger = await context.Carpools.Include(c => c.Passengers).ToListAsync()
-                };
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+            AppUser user = await context.Users.FirstOrDefaultAsync(u => u.Id == collaborator.AppUserId);
+            return new CollaboratorGetDto() { Id = user.Collaborator.Id, FirstName = user.Collaborator.FirstName, LastName = user.Collaborator.LastName, Email = user.Email };
+
         }
-
-        public async Task GiveAdminRoleAsync(int id)
+        catch (Exception e)
         {
-            try
-            {
-                Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+            logger.LogError(e!.InnerException!.Message);
+            throw;
+        }
+    }
 
-                AppUser user = await context.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
-                await userManager.AddToRoleAsync(user, ROLES.ADMIN);
-                await context.SaveChangesAsync();
-            }
-            catch (Exception e)
+    public async Task<CollaboratorGetFullUserDto> GetFullUserByIdAsync(int id)
+    {
+        try
+        {
+            Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+
+            AppUser user = await context.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
+
+            return new CollaboratorGetFullUserDto()
             {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+                Id = user.Collaborator.Id,
+                FirstName = user.Collaborator.FirstName,
+                LastName = user.Collaborator.LastName,
+                Email = user.Email,
+                CarpoolsAsDriver = await context.Carpools.Where(c => c.DriverId == user.Collaborator.Id).ToListAsync(),
+                CarpoolsAsPassenger = await context.Carpools.Include(c => c.Passengers).ToListAsync()
+            };
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e!.InnerException!.Message);
+            throw;
+        }
+    }
+
+    public async Task GiveAdminRoleAsync(int id)
+    {
+        try
+        {
+            Collaborator collaborator = await context.Collaborators.FirstOrDefaultAsync(c => c.Id == id);
+
+            AppUser user = await context.Users.FirstOrDefaultAsync(c => c.Id == collaborator.AppUserId);
+            await userManager.AddToRoleAsync(user, ROLES.ADMIN);
+            await context.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e!.InnerException!.Message);
+            throw;
         }
     }
 }

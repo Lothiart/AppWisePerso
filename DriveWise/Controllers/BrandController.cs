@@ -1,13 +1,14 @@
 ﻿using Services.DTOs.BrandDTOs;
 using Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
-using System.Collections.Generic;
 
 namespace DriveWise.Controllers;
+
 [Route("api/[controller]/[action]")]
+
 [ApiController]
+
 public class BrandController(IBrandRepository brandRepository) : ControllerBase
 {
     /// <summary>

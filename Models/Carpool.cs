@@ -18,10 +18,12 @@ public class Carpool
     public DateTime DateId { get; set; }
 
     public int RentalId { get; set; }
+
     [DeleteBehavior(DeleteBehavior.NoAction)]
     public Rental Rental { get; set; }
 
     public int DriverId { get; set; }
+
     [DeleteBehavior(DeleteBehavior.NoAction)]
     public Collaborator Driver { get; set; }
 

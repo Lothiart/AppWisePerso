@@ -1,5 +1,4 @@
 ﻿using Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 using Services.DTOs.DateDTOs;
@@ -7,6 +6,7 @@ using Services.DTOs.DateDTOs;
 namespace DriveWise.Controllers;
 
 [Route("api/[controller]/[action]")]
+
 [ApiController]
 
 
@@ -17,7 +17,7 @@ namespace DriveWise.Controllers;
 public class DateController(IDateRepository dateRepository) : ControllerBase
 {
     /// <summary>
-    /// Get a list of 2 Dates (startDate and EndDate) that define a Rental period A Verifier
+    /// Get a list of 2 Dates (startDate and EndDate) that define a Rental period USELESS !!!
     /// </summary>
     /// <param name="dateDto"></param>
     /// <returns></returns>
@@ -42,7 +42,7 @@ public class DateController(IDateRepository dateRepository) : ControllerBase
 
 
     /// <summary>
-    /// Get one Date A verifier (for Carpool) A verifier
+    /// Get one Date A verifier (for Carpool) USELESS !!!
     /// </summary>
     /// <param name="dateTime"></param>
     /// <returns></returns>
@@ -70,7 +70,7 @@ public class DateController(IDateRepository dateRepository) : ControllerBase
 
 
     /// <summary>
-    /// Create a new period (Add 2 dates for Rentals) A verifier
+    /// Create a new period (Add 2 dates for Rentals) Test ok
     /// </summary>
     /// <param name="dateDto"></param>
     /// <returns></returns>
@@ -90,7 +90,7 @@ public class DateController(IDateRepository dateRepository) : ControllerBase
 
 
     /// <summary>
-    /// Add a single Date (for Carpool) A verifier
+    /// Add a single Date (for Carpool)  Test ok
     /// </summary>
     /// <param name="dateTime"></param>
     /// <returns></returns>

@@ -1,15 +1,10 @@
 ﻿using Services.DTOs.CollaboratorDTOs;
 using Services.DTOs.VehicleDTOs;
-using Entities;
 using Services.DTOs.AddressDTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Services.DTOs.CarpoolDTOs;
+
 public class CarpoolGetDto : CarpoolAddDto
 {
     public int Id { get; set; }

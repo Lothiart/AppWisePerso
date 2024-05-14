@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
 
+
 namespace Repositories;
 public class CarpoolRepository(
     DriveWiseContext context,
@@ -18,7 +19,7 @@ public class CarpoolRepository(
     {
         try
         {
-            if (carpoolAddDto.DateId <= carpoolAddDto.RentalGetDto.StartDate && carpoolAddDto.DateId >= carpoolAddDto.RentalGetDto.EndDate)
+            if (carpoolAddDto.DateId <= carpoolAddDto.RentalGetDto.StartDate || carpoolAddDto.DateId >= carpoolAddDto.RentalGetDto.EndDate)
                 throw new Exception("Date must be within your rental dates");
 
             await dateRepository.AddAsync(carpoolAddDto.DateId);

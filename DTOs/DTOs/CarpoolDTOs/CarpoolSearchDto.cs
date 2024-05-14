@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Services.DTOs.CarpoolDTOs;
 
-namespace Services.DTOs.CarpoolDTOs;
 public class CarpoolSearchDto
 {
     public DateTime DateId { get; set; }

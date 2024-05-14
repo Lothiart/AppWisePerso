@@ -1,5 +1,4 @@
 using Services.DTOs.MotorDTOs;
-using Entities;
 
 namespace Repositories.Contracts;
 

@@ -1,6 +1,5 @@
 ﻿namespace Services.DTOs.CollaboratorDTOs;
 
-
 public class CreateCollaboratorDto
 {
     public string FirstName { get; set; }

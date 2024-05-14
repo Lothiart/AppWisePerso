@@ -1,14 +1,8 @@
-﻿using Services.DTOs.AddressDTOs;
-using Services.DTOs.CollaboratorDTOs;
-using Services.DTOs.CarpoolDTOs;
+﻿using Services.DTOs.CarpoolDTOs;
 using Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTOs.Mappers;
+
 public class CarpoolMapper(CollaboratorMapper collaboratorMapper,
                             VehicleMapper vehicleMapper,
                             AddressMapper addressMapper)

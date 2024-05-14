@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DriveWise.Controllers;
 
-/// <summary>
-/// Test ok
-/// </summary>
-/// <param name="roleManager"></param>
-/// <param name="userManager"></param>
-
 [Route("api/[controller]/[action]")]
+
 [ApiController]
+
 public class RoleController(RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager) : ControllerBase
 {
+
+    /// <summary>
+    /// Create a new role
+    /// </summary>
+    /// <param name="role"></param>
+    /// <returns></returns>
+
     [HttpPost]
 
     [Authorize(Roles = "ADMIN")]

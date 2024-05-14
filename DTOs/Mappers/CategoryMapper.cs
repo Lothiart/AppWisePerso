@@ -1,12 +1,9 @@
 ﻿using Services.DTOs.CategoryDTOs;
 using Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DTOs.Mappers;
+
 public class CategoryMapper
 {
     #region DtoToEntity
@@ -28,7 +25,7 @@ public class CategoryMapper
     {
         List<CategoryGetDto> categoryDtos = new List<CategoryGetDto>();
 
-        foreach(var category in categories)
+        foreach (var category in categories)
         {
             categoryDtos.Add(CategoryToCategoryGetDto(category));
         }

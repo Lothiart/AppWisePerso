@@ -3,8 +3,11 @@ using Repositories.Contracts;
 using Services.DTOs.CarpoolDTOs;
 
 namespace DriveWise.Controllers;
+
 [Route("api/[controller]/[action]")]
+
 [ApiController]
+
 public class CarpoolController(ICarpoolRepository carpoolRepository) : ControllerBase
 {
     /// <summary>

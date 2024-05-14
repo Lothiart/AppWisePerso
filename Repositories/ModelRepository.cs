@@ -1,128 +1,113 @@
-
 using Entities.Contexts;
 using Entities;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Repositories.Contracts;
 using Services.DTOs.ModelDTOs;
 using Microsoft.EntityFrameworkCore;
 
-namespace Repositories
+
+namespace Repositories;
+
+public class ModelRepository(DriveWiseContext driveWiseContext, ILogger<ModelRepository> logger) : IModelRepository
 {
-    public class ModelRepository : IModelRepository
+
+    public async Task AddAsync(ModelAddDto modelAddDto)
     {
-        DriveWiseContext driveWiseContext;
-        ILogger<ModelRepository> logger;
-
-        public ModelRepository(DriveWiseContext driveWiseContext, ILogger<ModelRepository> logger)
+        try
         {
-            this.driveWiseContext = driveWiseContext;
-            this.logger = logger;
+            await driveWiseContext.AddAsync(new Model() { BrandId = modelAddDto.BrandId, ImgUrl = modelAddDto.ImgUrl, Name = modelAddDto.Name });
+            await driveWiseContext.SaveChangesAsync();
         }
-        public async Task AddAsync(ModelAddDto modelAddDto)
+        catch (Exception e)
         {
-            try
-            {
-                await driveWiseContext.AddAsync(new Model() { BrandId = modelAddDto.BrandId, ImgUrl = modelAddDto.ImgUrl, Name = modelAddDto.Name });
-                await driveWiseContext.SaveChangesAsync();
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
-
+            logger.LogError(e!.InnerException!.Message);
+            throw;
         }
+    }
 
-        public async Task<ModelGetDto> GetByIdAsync(int id)
+    public async Task<ModelGetDto> GetByIdAsync(int id)
+    {
+        try
         {
-            try
-            {
-                Model model = await driveWiseContext.Models.FirstOrDefaultAsync(m => m.Id == id);
-                return new ModelGetDto() { Id = model.Id, Name = model.Name, BrandId = model.BrandId, ImgUrl = model.ImgUrl };
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
-
+            Model model = await driveWiseContext.Models.FirstOrDefaultAsync(m => m.Id == id);
+            return new ModelGetDto() { Id = model.Id, Name = model.Name, BrandId = model.BrandId, ImgUrl = model.ImgUrl };
         }
-
-        public async Task<List<ModelGetDto>> GetAllAsync()
+        catch (Exception e)
         {
-            try
-            {
-                List<Model> models = await driveWiseContext.Models.ToListAsync();
-                List<ModelGetDto> modelsDto = new List<ModelGetDto>();
-                foreach (Model model in models)
-                {
-                    modelsDto.Add(new ModelGetDto() { Id = model.Id, Name = model.Name, BrandId = model.BrandId, ImgUrl = model.ImgUrl });
-                }
-                return modelsDto;
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+            logger.LogError(e!.InnerException!.Message);
+            throw;
         }
+    }
 
-        public async Task UpdateAsync(ModelUpdateDto modelUpdateDto)
+    public async Task<List<ModelGetDto>> GetAllAsync()
+    {
+        try
         {
-            try
+            List<Model> models = await driveWiseContext.Models.ToListAsync();
+            List<ModelGetDto> modelsDto = new List<ModelGetDto>();
+            foreach (Model model in models)
             {
-                Model model = await driveWiseContext.Models.FirstOrDefaultAsync(c => c.Id == modelUpdateDto.Id);
-                model.Name = modelUpdateDto.Name;
-                model.BrandId = modelUpdateDto.BrandId;
-                model.ImgUrl = modelUpdateDto.ImgUrl;
-                driveWiseContext.Models.Update(model);
-                await driveWiseContext.SaveChangesAsync();
+                modelsDto.Add(new ModelGetDto() { Id = model.Id, Name = model.Name, BrandId = model.BrandId, ImgUrl = model.ImgUrl });
             }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+            return modelsDto;
         }
-
-        public async Task<List<ModelGetDto>> GetByBrandAsync(Brand brand)
+        catch (Exception e)
         {
-            try
-            {
-                List<Model> models = await driveWiseContext.Models.Where(p => p.BrandId == brand.Id).Include(p => p.Brand).ToListAsync();
-                List<ModelGetDto> modelsDto = new List<ModelGetDto>();
-
-                foreach (Model model in models)
-                {
-                    modelsDto.Add(new ModelGetDto() { Id = model.Id, BrandId = model.BrandId, Name = model.Name, ImgUrl = model.ImgUrl });
-                }
-                return modelsDto;
-            }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+            logger.LogError(e!.InnerException!.Message);
+            throw;
         }
+    }
 
-        public async Task DeleteAsync(int id)
+    public async Task UpdateAsync(ModelUpdateDto modelUpdateDto)
+    {
+        try
         {
-            try
+            Model model = await driveWiseContext.Models.FirstOrDefaultAsync(c => c.Id == modelUpdateDto.Id);
+            model.Name = modelUpdateDto.Name;
+            model.BrandId = modelUpdateDto.BrandId;
+            model.ImgUrl = modelUpdateDto.ImgUrl;
+            driveWiseContext.Models.Update(model);
+            await driveWiseContext.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e!.InnerException!.Message);
+            throw;
+        }
+    }
+
+    public async Task<List<ModelGetDto>> GetByBrandAsync(Brand brand)
+    {
+        try
+        {
+            List<Model> models = await driveWiseContext.Models.Where(p => p.BrandId == brand.Id).Include(p => p.Brand).ToListAsync();
+            List<ModelGetDto> modelsDto = new List<ModelGetDto>();
+
+            foreach (Model model in models)
             {
-                Model model = await driveWiseContext.Models.FirstOrDefaultAsync(c => c.Id == id);
-                driveWiseContext.Models.Remove(model);
-                await driveWiseContext.SaveChangesAsync();
+                modelsDto.Add(new ModelGetDto() { Id = model.Id, BrandId = model.BrandId, Name = model.Name, ImgUrl = model.ImgUrl });
             }
-            catch (Exception e)
-            {
-                logger.LogError(e!.InnerException!.Message);
-                throw;
-            }
+            return modelsDto;
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e!.InnerException!.Message);
+            throw;
+        }
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        try
+        {
+            Model model = await driveWiseContext.Models.FirstOrDefaultAsync(c => c.Id == id);
+            driveWiseContext.Models.Remove(model);
+            await driveWiseContext.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e!.InnerException!.Message);
+            throw;
         }
     }
 }

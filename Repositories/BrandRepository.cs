@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
 
+
 namespace Repositories;
 public class BrandRepository(DriveWiseContext context, ILogger<BrandRepository> logger) : IBrandRepository
 {

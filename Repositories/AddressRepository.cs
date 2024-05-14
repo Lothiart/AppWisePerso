@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
 
+
 namespace Repositories;
 public class AddressRepository(DriveWiseContext context, ILogger<AddressRepository> logger) : IAddressRepository
 {
@@ -35,7 +36,7 @@ public class AddressRepository(DriveWiseContext context, ILogger<AddressReposito
     {
         try
         {
-            Address? a = context.Addresses.Find(id);
+            Address? a = await context.Addresses.FindAsync(id);
 
             if (a == null) return null;
 

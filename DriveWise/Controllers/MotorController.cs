@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DriveWise.Controllers;
 
 [Route("api/[controller]/[action]")]
+
 [ApiController]
 
 public class MotorController(IMotorRepository motorRepository, ILogger<MotorController> logger) : ControllerBase

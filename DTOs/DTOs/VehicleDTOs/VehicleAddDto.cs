@@ -9,5 +9,4 @@ public class VehicleAddDto
     public int CategoryId { get; set; }
     public int MotorId { get; set; }
     public int ModelId { get; set; }
-
 }

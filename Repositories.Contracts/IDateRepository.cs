@@ -1,5 +1,4 @@
-﻿using Entities;
-using Services.DTOs.DateDTOs;
+﻿using Services.DTOs.DateDTOs;
 
 namespace Repositories.Contracts;
 
@@ -15,5 +14,4 @@ public interface IDateRepository
     Task<DateTime> AddAsync(DateTime dateTime);
     Task<DateTime> UpdateAsync(DateTime dateTime);
     Task<DateTime> DeleteAsync(DateTime dateTime);
-
 }

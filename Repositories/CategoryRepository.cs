@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
 
+
 namespace Repositories;
 public class CategoryRepository(DriveWiseContext context, CategoryMapper categoryMapper, ILogger<CategoryRepository> logger) : ICategoryRepository
 {
