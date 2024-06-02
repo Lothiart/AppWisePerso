@@ -66,7 +66,7 @@ public class CityRepository(DriveWiseContext driveWiseContext, ILogger<CityRepos
     {
         try
         {
-            List<City> cities = await driveWiseContext.Cities.Where(c => c.Name == $"{recherche}%").ToListAsync();
+            List<City> cities = await driveWiseContext.Cities.Where(c => c.Name.Contains(recherche)).ToListAsync();
             List<CityGetDto> citiesDto = new List<CityGetDto>();
             foreach (City city in cities)
             {

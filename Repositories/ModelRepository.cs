@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Repositories.Contracts;
 using Services.DTOs.ModelDTOs;
 using Microsoft.EntityFrameworkCore;
+using Services.DTOs.BrandDTOs;
 
 
 namespace Repositories;
@@ -76,11 +77,11 @@ public class ModelRepository(DriveWiseContext driveWiseContext, ILogger<ModelRep
         }
     }
 
-    public async Task<List<ModelGetDto>> GetByBrandAsync(Brand brand)
+    public async Task<List<ModelGetDto>> GetByBrandAsync(int id)
     {
         try
         {
-            List<Model> models = await driveWiseContext.Models.Where(p => p.BrandId == brand.Id).Include(p => p.Brand).ToListAsync();
+            List<Model> models = await driveWiseContext.Models.Where(p => p.BrandId == id).ToListAsync();
             List<ModelGetDto> modelsDto = new List<ModelGetDto>();
 
             foreach (Model model in models)

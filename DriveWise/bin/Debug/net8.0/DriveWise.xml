@@ -180,7 +180,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.CityController.GetAll(System.Int32)">
+        <member name="M:DriveWise.Controllers.CityController.GetAll">
             <summary>
             Get all city - VERIFIER
             </summary>
@@ -189,7 +189,7 @@
         </member>
         <member name="M:DriveWise.Controllers.CityController.StartsWith(System.String)">
             <summary>
-            Get cities by search - A VERIFIER
+            Get cities by search - VERIFIER
             </summary>
             <param name="research"></param>
             <returns></returns>
@@ -239,28 +239,28 @@
         </member>
         <member name="M:DriveWise.Controllers.DateController.GetByPeriod(Services.DTOs.DateDTOs.DateDto)">
             <summary>
-            Get a list of 2 Dates (startDate and EndDate) that define a Rental period A Verifier
+            Get a list of 2 Dates (startDate and EndDate) that define a Rental period USELESS !!!
             </summary>
             <param name="dateDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.DateController.GetByDate(System.DateTime)">
             <summary>
-            Get one Date A verifier (for Carpool) A verifier
+            Get one Date A verifier (for Carpool) USELESS !!!
             </summary>
             <param name="dateTime"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.DateController.AddPeriod(Services.DTOs.DateDTOs.DateDto)">
             <summary>
-            Create a new period (Add 2 dates for Rentals) A verifier
+            Create a new period (Add 2 dates for Rentals) Test ok
             </summary>
             <param name="dateDto"></param>
             <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.DateController.AddDate(System.DateTime)">
             <summary>
-            Add a single Date (for Carpool) A verifier
+            Add a single Date (for Carpool)  Test ok
             </summary>
             <param name="dateTime"></param>
             <returns></returns>
@@ -300,9 +300,9 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:DriveWise.Controllers.ModelController.GetByBrand(Entities.Brand)">
+        <member name="M:DriveWise.Controllers.ModelController.GetByBrand(System.Int32)">
             <summary>
-            Get models by search A VERIFIER
+            Get models by search VERIFIER
             </summary>
             <param name="brand"></param>
             <returns></returns>
@@ -407,19 +407,12 @@
             <param name="collaboratorId"></param>
             <returns></returns>
         </member>
-        <member name="T:DriveWise.Controllers.RoleController">
+        <member name="M:DriveWise.Controllers.RoleController.CreateRole(System.String)">
             <summary>
-            Test ok
+            Create a new role
             </summary>
-            <param name="roleManager"></param>
-            <param name="userManager"></param>
-        </member>
-        <member name="M:DriveWise.Controllers.RoleController.#ctor(Microsoft.AspNetCore.Identity.RoleManager{Microsoft.AspNetCore.Identity.IdentityRole},Microsoft.AspNetCore.Identity.UserManager{Entities.AppUser})">
-            <summary>
-            Test ok
-            </summary>
-            <param name="roleManager"></param>
-            <param name="userManager"></param>
+            <param name="role"></param>
+            <returns></returns>
         </member>
         <member name="M:DriveWise.Controllers.StatusController.GetAllStatuses">
             <summary>
