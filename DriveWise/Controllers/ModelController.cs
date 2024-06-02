@@ -2,6 +2,7 @@
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
+using Services.DTOs.BrandDTOs;
 
 namespace DriveWise.Controllers;
 
@@ -107,17 +108,17 @@ public class ModelController(
         }
     }
     /// <summary>
-    /// Get models by search A VERIFIER
+    /// Get models by search VERIFIER
     /// </summary>
     /// <param name="brand"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<IActionResult> GetByBrand(Brand brand)
+    public async Task<IActionResult> GetByBrand(int id)
     {
         try
-        {
-            await modelRepository.GetByBrandAsync(brand);
-            return Ok();
+        {  
+           
+            return Ok(await modelRepository.GetByBrandAsync(id));
         }
         catch (Exception e)
         {

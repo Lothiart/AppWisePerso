@@ -56,7 +56,7 @@ public class CityController(
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<IActionResult> GetAll(int id)
+    public async Task<IActionResult> GetAll()
     {
         try
         {
@@ -71,7 +71,7 @@ public class CityController(
 
 
     /// <summary>
-    /// Get cities by search - A VERIFIER
+    /// Get cities by search - VERIFIER
     /// </summary>
     /// <param name="research"></param>
     /// <returns></returns>

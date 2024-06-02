@@ -1,4 +1,5 @@
 ﻿using Services.DTOs.ModelDTOs;
+using Services.DTOs.BrandDTOs;
 using Entities;
 
 
@@ -11,5 +12,5 @@ public interface IModelRepository
     Task<List<ModelGetDto>> GetAllAsync();
     Task UpdateAsync(ModelUpdateDto modelUpdateDto);
     Task DeleteAsync(int id);
-    Task<List<ModelGetDto>> GetByBrandAsync(Brand brand);
+    Task<List<ModelGetDto>> GetByBrandAsync(int id);
 }
