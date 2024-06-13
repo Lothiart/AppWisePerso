@@ -1,0 +1,11 @@
+#logo-footer {
+  height: 300px;
+  width: 400px;
+}
+
+footer {
+  display: flex; /* Make footer a flex container */
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-end; /* Align content to bottom */
+  background-color: aliceblue;
+}

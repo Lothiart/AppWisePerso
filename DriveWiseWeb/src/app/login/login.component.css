@@ -1,0 +1,40 @@
+.login-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+  .login-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .login-section form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .login-section input[type="text"],
+  .login-section input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  .login-section button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .login-section a {
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 10px;
+  }
