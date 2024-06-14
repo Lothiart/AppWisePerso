@@ -14,7 +14,13 @@ export class HeaderComponent  implements OnInit {
     this.router.navigate(['/login']); 
   }
   onClickHome() {
-    this.router.navigate(['/template']);
+    this.router.navigate(['']);
+  }
+  onClickListCarpool() {
+    this.router.navigate(['/listcarpool']);
+  }
+  onClickListRent() {
+    this.router.navigate(['/listrent']);
   }
   loginButtonClick = new EventEmitter<void>();
   ngOnInit(): void {

@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
-import { TemplateComponent } from '../template/template.component';
+import { HeaderComponent } from '../components/header/header.component';
+import { ListCarpoolComponent } from '../components/list-carpool/list-carpool.component';
+import { HomeComponent } from '../components/home/home.component';
+import { ListRentComponent } from '../components/list-rent/list-rent.component';
 
 const routes: Routes = [
-  { path: '', component: TemplateComponent },
+  
   { path: 'login', component: LoginComponent },
-  { path: 'template', component: TemplateComponent }
+  { path: '', component: HomeComponent},
+  { path: 'listcarpool', component: ListCarpoolComponent },
+  { path: 'listrent', component: ListRentComponent }
 
 ];
 

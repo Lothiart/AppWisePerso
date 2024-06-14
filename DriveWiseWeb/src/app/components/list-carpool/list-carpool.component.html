@@ -1,0 +1,23 @@
+<div class="search-bar">
+  <form action="#">
+    <div class="search-inputs">
+      <label for="heureDebut">Heure de début:</label>
+      <input type="number" id="heureDebut" name="heureDebut" min="0" max="23" required>
+
+      <label for="heureFin">Heure de fin:</label>
+      <input type="number" id="heureFin" name="heureFin" min="0" max="23" required>
+
+      <label for="jour">Jour:</label>
+      <select id="jour" name="jour" required>
+        <option value="0">Lundi</option>
+        <option value="1">Mardi</option>
+        <option value="2">Mercredi</option>
+        <option value="3">Jeudi</option>
+        <option value="4">Vendredi</option>
+        <option value="5">Samedi</option>
+        <option value="6">Dimanche</option>
+      </select>
+    </div>
+    <button type="submit">Rechercher</button>
+  </form>
+</div>

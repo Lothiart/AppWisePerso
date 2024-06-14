@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateComponent } from './template.component';
+import { CreatecarpoolComponent } from './createcarpool.component';
 
-describe('TemplateComponent', () => {
-  let component: TemplateComponent;
-  let fixture: ComponentFixture<TemplateComponent>;
+describe('CreatecarpoolComponent', () => {
+  let component: CreatecarpoolComponent;
+  let fixture: ComponentFixture<CreatecarpoolComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplateComponent ]
+      declarations: [ CreatecarpoolComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TemplateComponent);
+    fixture = TestBed.createComponent(CreatecarpoolComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
