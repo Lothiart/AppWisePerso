@@ -2,5 +2,8 @@
 <RunSettings>
 	<RunConfiguration>
 		<ResultsDirectory>.\TestResults</ResultsDirectory>
+		<TargetFrameworkVersion>net8.0</TargetFrameworkVersion>
+		<!-- Assurez-vous que cela correspond à votre version cible -->
+		<CollectSourceLinkData>false</CollectSourceLinkData>
 	</RunConfiguration>
 </RunSettings>
